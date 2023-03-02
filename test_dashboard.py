@@ -27,8 +27,15 @@ df_selected['Subspecimen Type'] = df_selected['Subspecimen Type'].str.replace("[
 df_selected['Total Processed Subspecimens'] = df_selected['Total Processed Subspecimens'].astype(str).str.replace(',', '').astype(float) # cell counts is numeric
 df_selected['Species'] = df_selected['Species'].str.lower()
 
-
 quarters = df_selected['Metadata Submission'].unique()
+
+## sort the quarters for the plots in case they are not in order
+# looks like they are for this particular csv
+quarters = df_selected['Metadata Submission'].unique()
+sort_df = pd.DataFrame({'dates':quarters})['dates'].str.split('Q', expand = True)
+sort_df.columns = ['year', 'quarter']
+sort_df['date'] = quarters
+quarter_order = sort_df.sort_values(['year', 'quarter'])['date'].unique()
 
 # required visualization types
 visualization_types = ['Sample Counts']#, 'Custom']
@@ -88,7 +95,8 @@ app.layout = html.Div([
         html.Div([
             html.Label(['Details'], style={'font-weight': 'bold', "text-align": "center"}),
             dcc.RadioItems(
-                ['Species', 'Technique', 'Modality', "Data Collection"],
+                ['Cumulative', 'Species', 'Technique', 'Modality', "Data Collection"],
+                'Cumulative',
                 id='detail_type')
                 ], style={'width': '48%', 'display': 'block'})
         
@@ -138,44 +146,76 @@ def update_graph(measure_type, unit_type, category, detail_type):
     if 'Sample Counts' in measure_type:
         if 'quarter' in category:
             if 'Uploads' in unit_type:
-                print('true')
-                df_q = pd.DataFrame({'count':df_selected.groupby(['Metadata Submission', detail_type]).size()}).sort_values('count').reset_index()
-                q_fig = px.bar(df_q, x="Metadata Submission", y="count", color = detail_type, text_auto=True,
-                            title = "Number of Data Uploads per Quarter",
-                            height=500, width= 1500)
+                if detail_type == 'Cumulative':
+                    df_q = pd.DataFrame({'count':df_selected.groupby(['Metadata Submission']).size()}).sort_values('count').reset_index()
+                    q_fig = px.bar(df_q, x="Metadata Submission", y="count", text_auto=True,
+                                title = "Number of Data Uploads per Quarter",
+                                height=500, width= 1500)
+                else:
+                    df_q = pd.DataFrame({'count':df_selected.groupby(['Metadata Submission', detail_type]).size()}).sort_values('count').reset_index()
+                    q_fig = px.bar(df_q, x="Metadata Submission", y="count", color = detail_type, text_auto=True,
+                                title = "Number of Data Uploads per Quarter",
+                                height=500, width= 1500)
                 q_fig.update_layout(xaxis_title = "Quarter", yaxis_title = 'Sample Count')
+                q_fig.update_xaxes(categoryorder='array', categoryarray = quarter_order)
                 return q_fig
             if 'Cells' in unit_type:
                 df_cells = df_selected[(df_selected['Sample Type'].str.contains("cell", na = False)) | (df_selected['Subspecimen Type'].str.contains("cell", na = False))] # if either column says cells
-                df_cellcounts = pd.DataFrame({'cell_counts':df_cells.groupby(['Metadata Submission', detail_type])['Total Processed Subspecimens'].sum()}).sort_values('cell_counts').reset_index()
-                c_fig = px.bar(df_cellcounts, x="Metadata Submission", y="cell_counts", color = detail_type, text_auto=True,
-                            title = "Number of Cells Processed per Quarter",
-                            height=500, width= 1500)
-                c_fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+                if detail_type == 'Cumulative':
+                    df_cellcounts = pd.DataFrame({'cell_counts':df_cells.groupby(['Metadata Submission'])['Total Processed Subspecimens'].sum()}).sort_values('cell_counts').reset_index()
+                    c_fig = px.bar(df_cellcounts, x="Metadata Submission", y="cell_counts", text_auto=True,
+                                title = "Number of Cells Processed per Quarter",
+                                height=500, width= 1500)
+                else:
+                    df_cellcounts = pd.DataFrame({'cell_counts':df_cells.groupby(['Metadata Submission', detail_type])['Total Processed Subspecimens'].sum()}).sort_values('cell_counts').reset_index()
+                    c_fig = px.bar(df_cellcounts, x="Metadata Submission", y="cell_counts", color = detail_type, text_auto=True,
+                                title = "Number of Cells Processed per Quarter",
+                                height=500, width= 1500)
+                c_fig.update_xaxes(categoryorder='array', categoryarray = quarter_order)
+                #c_fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
                 c_fig.update_layout(xaxis_title = "Quarter", yaxis_title = 'Cell Count')
                 return c_fig
             if 'Brains' in unit_type:
                 df_brains = df_selected[(df_selected['Sample Type'].str.contains("brain", na = False)) | (df_selected['Subspecimen Type'].str.contains("brain", na = False))] # if either column says brains
-                df_braincounts = pd.DataFrame({'brain_counts':df_brains.groupby(['Metadata Submission', detail_type])['Total Processed Subspecimens'].sum()}).sort_values('brain_counts').reset_index()
-                b_fig = px.bar(df_braincounts, x="Metadata Submission", y="brain_counts", color = detail_type, text_auto=True,
-                            title = "Number of Brains Processed per Quarter",
-                            height=500, width= 1500)
-                b_fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+                if detail_type == 'Cumulative':
+                    df_braincounts = pd.DataFrame({'brain_counts':df_brains.groupby(['Metadata Submission'])['Total Processed Subspecimens'].sum()}).sort_values('brain_counts').reset_index()
+                    b_fig = px.bar(df_braincounts, x="Metadata Submission", y="brain_counts", text_auto=True,
+                                title = "Number of Brains Processed per Quarter",
+                                height=500, width= 1500)
+                else:
+                    df_braincounts = pd.DataFrame({'brain_counts':df_brains.groupby(['Metadata Submission', detail_type])['Total Processed Subspecimens'].sum()}).sort_values('brain_counts').reset_index()
+                    b_fig = px.bar(df_braincounts, x="Metadata Submission", y="brain_counts", color = detail_type, text_auto=True,
+                                title = "Number of Brains Processed per Quarter",
+                                height=500, width= 1500)
+                b_fig.update_xaxes(categoryorder='array', categoryarray = quarter_order)
                 b_fig.update_layout(xaxis_title = "Quarter", yaxis_title = 'Brain Count')
                 return b_fig
 
         if 'grant' in category:
             if unit_type == 'Number of File Uploads':
-                df_g = pd.DataFrame({'count':df_selected.groupby(['Grant Number', detail_type]).size()}).sort_values('count').reset_index()
-                g_fig = px.bar(df_g, x="Grant Number", y="count", color = detail_type, text_auto=True,
-                            title = "Number of Data Uploads Per Grant",
-                            height=500, width= 1500)
+                if detail_type == 'Cumulative':
+                    df_g = pd.DataFrame({'count':df_selected.groupby(['Grant Number']).size()}).sort_values('count').reset_index()
+                    g_fig = px.bar(df_g, x="Grant Number", y="count", text_auto=True,
+                                title = "Number of Data Uploads Per Grant",
+                                height=500, width= 1500)
+                else:
+                    df_g = pd.DataFrame({'count':df_selected.groupby(['Grant Number', detail_type]).size()}).sort_values('count').reset_index()
+                    g_fig = px.bar(df_g, x="Grant Number", y="count", color = detail_type, text_auto=True,
+                                title = "Number of Data Uploads Per Grant",
+                                height=500, width= 1500)
+                g_fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
                 g_fig.update_layout(xaxis_title = "Grant Name", yaxis_title = 'Sample Count')
                 return g_fig
             if 'Cells' in unit_type:
                 df_cells = df_selected[(df_selected['Sample Type'].str.contains("cell", na = False)) | (df_selected['Subspecimen Type'].str.contains("cell", na = False))] # if either column says cells
-                df_cellcounts = pd.DataFrame({'cell_counts':df_cells.groupby(['Grant Number', detail_type])['Total Processed Subspecimens'].sum()}).sort_values('cell_counts').reset_index()
-                c_fig = px.bar(df_cellcounts, x="Grant Number", y="cell_counts", color = detail_type, text_auto=True,
+                if detail_type == 'Cumulative':    
+                    df_cellcounts = pd.DataFrame({'cell_counts':df_cells.groupby(['Grant Number'])['Total Processed Subspecimens'].sum()}).sort_values('cell_counts').reset_index()
+                    c_fig = px.bar(df_cellcounts, x="Grant Number", y="cell_counts", text_auto=True,
+                            title = "Number of Cells Processed per Grant",
+                            height=500, width= 1500)
+                else:
+                    df_cellcounts = pd.DataFrame({'cell_counts':df_cells.groupby(['Grant Number', detail_type])['Total Processed Subspecimens'].sum()}).sort_values('cell_counts').reset_index()
+                    c_fig = px.bar(df_cellcounts, x="Grant Number", y="cell_counts", color = detail_type, text_auto=True,
                             title = "Number of Cells Processed per Grant",
                             height=500, width= 1500)
                 c_fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
@@ -183,10 +223,16 @@ def update_graph(measure_type, unit_type, category, detail_type):
                 return c_fig
             if 'Brains' in unit_type:
                 df_brains = df_selected[(df_selected['Sample Type'].str.contains("brain", na = False)) | (df_selected['Subspecimen Type'].str.contains("brain", na = False))] # if either column says brains
-                df_braincounts = pd.DataFrame({'brain_counts':df_brains.groupby(['Grant Number', detail_type])['Total Processed Subspecimens'].sum()}).sort_values('brain_counts').reset_index()
-                b_fig = px.bar(df_braincounts, x="Grant Number", y="brain_counts", color = detail_type, text_auto=True,
-                            title = "Number of Brains Processed per Grant",
-                            height=500, width= 1500)
+                if detail_type == 'Cumulative':   
+                    df_braincounts = pd.DataFrame({'brain_counts':df_brains.groupby(['Grant Number'])['Total Processed Subspecimens'].sum()}).sort_values('brain_counts').reset_index()
+                    b_fig = px.bar(df_braincounts, x="Grant Number", y="brain_counts", text_auto=True,
+                                title = "Number of Brains Processed per Grant",
+                                height=500, width= 1500)
+                else:
+                    df_braincounts = pd.DataFrame({'brain_counts':df_brains.groupby(['Grant Number', detail_type])['Total Processed Subspecimens'].sum()}).sort_values('brain_counts').reset_index()
+                    b_fig = px.bar(df_braincounts, x="Grant Number", y="brain_counts", color = detail_type, text_auto=True,
+                                title = "Number of Brains Processed per Grant",
+                                height=500, width= 1500)
                 b_fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
                 b_fig.update_layout(xaxis_title = "Grant", yaxis_title = 'Brain Count')
                 return b_fig
