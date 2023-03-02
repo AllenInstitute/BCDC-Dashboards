@@ -1,5 +1,5 @@
 # BCDC-Dashboards
-The repository contains the code files to launch the Exploratory Dashboard for the BCDC datasets.
+The repository contains the code file, test_dashboard.py, to launch the Exploratory Dashboard for the BCDC datasets. The code and this repository are both work-in-progress and the pipeline is subject to change or expand.
 
 #### input data repo: https://github.com/BICCN/BCDC-Metadata
 
