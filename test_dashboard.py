@@ -17,7 +17,7 @@ df_selected = pd.read_csv(os.path.join(data_dir, 'BCDC_Metadata_2022Q3.csv'), en
 controlled_cols = [re.sub("\([^)]*\)", "", x).strip() for x in list(filter(lambda x : 'CV' in x, df_selected.columns))] ## map the values to controlled vocabs somehow
 
 ## controlled vocab file
-cv_df = pd.read_csv(os.path.join(cwd, 'controlled_vocabs.csv'), encoding='unicode_escape').dropna(how='all', axis=1)
+#cv_df = pd.read_csv(os.path.join(cwd, 'controlled_vocabs.csv'), encoding='unicode_escape').dropna(how='all', axis=1)
 
 # clean up data columns, column had 'CV' control value labels which we do not need. 
     # It complicates the column selection process
@@ -26,8 +26,6 @@ df_selected['Sample Type'] = df_selected['Sample Type'].str.replace("[^A-Za-z0-9
 df_selected['Subspecimen Type'] = df_selected['Subspecimen Type'].str.replace("[^A-Za-z0-9 ]+", " ").str.lower() # special characters into spaces
 df_selected['Total Processed Subspecimens'] = df_selected['Total Processed Subspecimens'].astype(str).str.replace(',', '').astype(float) # cell counts is numeric
 df_selected['Species'] = df_selected['Species'].str.lower()
-
-quarters = df_selected['Metadata Submission'].unique()
 
 ## sort the quarters for the plots in case they are not in order
 # looks like they are for this particular csv
@@ -38,11 +36,12 @@ sort_df['date'] = quarters
 quarter_order = sort_df.sort_values(['year', 'quarter'])['date'].unique()
 
 # required visualization types
-visualization_types = ['Sample Counts']#, 'Custom']
+visualization_types = ['Sample Counts', 'Increments']#, 'Custom']
 
 
 panel_options = {
     'Sample Counts':['Number of File Uploads', 'Number of Cells', 'Number of Brains'],
+    'Increments': ['Number of File Uploads', 'Number of Cells', 'Number of Brains']
 }
 
 
@@ -68,14 +67,15 @@ app.layout = html.Div([
         html.Div([
             html.Label(['Measure Type'], style={'font-weight': 'bold', "text-align": "center"}),
             dcc.Dropdown(
-                list(panel_options.keys()),
-                list(panel_options.keys())[0],
+                visualization_types,
+                visualization_types[0],
                 id='measure_type')
                 ], style={'width': '48%'}),
         html.Br(), # some blank space
         ## second selection - by grant or quarter
+        # conditionally show up
         html.Div([
-            html.Label(['Category'], style={'font-weight': 'bold', "text-align": "center"}),
+            #html.Label(['Category'], id = 'category_label', style={'font-weight': 'bold', "text-align": "center", 'display':'text'}),
             dcc.RadioItems(
                 ['by quarter', 'by grant'],
                 'by quarter',
@@ -83,19 +83,20 @@ app.layout = html.Div([
                 ], style={'width': '48%', 'display': 'block'}),
         html.Br(),
         ## third selection - unit type for count
-        ## only show up for counts, set conditions in callbacks
+        ## static, always here
         ## only one at a time
         html.Div([
-            html.Label(['Unit Type'], style={'font-weight': 'bold', "text-align": "center"}),
+            #html.Label(['Unit Type'], id = 'unit_label', style={'font-weight': 'bold', "text-align": "center"}),
             dcc.RadioItems(
                 id='unit_type')
-                ], style={'width': '48%', 'display': 'block'}),
+                ], style={'width': '48%'}),
         html.Br(),
         ### fourth selection - detailed view type
+        # conditionally show up
         html.Div([
-            html.Label(['Details'], style={'font-weight': 'bold', "text-align": "center"}),
+            #html.Label(['Details'], id = 'detail_label', style={'font-weight': 'bold', "text-align": "center", 'display':'text'}),
             dcc.RadioItems(
-                ['Cumulative', 'Species', 'Technique', 'Modality', "Data Collection"],
+                ['Cumulative', 'Species', 'Technique', 'Modality', "Data Collection", "R24 Name"],
                 'Cumulative',
                 id='detail_type')
                 ], style={'width': '48%', 'display': 'block'})
@@ -112,7 +113,7 @@ app.layout = html.Div([
     Output('unit_type', 'options'),
     Input('measure_type', 'value'))
 def set_subcat_options(measure_type):
-    if 'Sample Counts' in measure_type:
+    if 'Sample Counts' in measure_type or 'Increments' in measure_type:
         return panel_options[measure_type] # should give the according values in the dictionary
 
 ## function to get the units into values for function
@@ -120,16 +121,31 @@ def set_subcat_options(measure_type):
     Output('unit_type', 'value'),
     Input('unit_type', 'options'))
 def set_unit_value(unit):
+    #print(unit)
     return unit[0]
 
-# @app.callback(
-#     Output('unit_type', 'style'),
-#     Input('measure_type', 'value'))
-# def show_hide(measure_type):
-#     if 'Counts' in measure_type:
-#         return {'display': 'none'}
-#     else:
-#         return {'display': 'block'}
+#### category, unit type, and details options are specific to counts
+## so they only show up for that
+### 1. category callback hide/show and its label
+@app.callback(
+    Output('category', 'style'),
+    Input('measure_type', 'value')) 
+def show_hide(measure_type):
+    if 'Counts' in measure_type: # only show for count
+        return {'display': 'block'}
+    else:
+        return {'display': 'none'}
+
+### 3. show/hide detail groups
+@app.callback(
+    Output('detail_type', 'style'),
+    Input('measure_type', 'value')) 
+def show_hide(measure_type):
+    if 'Counts' in measure_type: # only show for count
+        return {'display': 'block'}
+    else:
+        return {'display': 'none'}
+
 
 ### main callbacks into the update_graph() function
 @app.callback(
@@ -143,6 +159,12 @@ def set_unit_value(unit):
 )
 
 def update_graph(measure_type, unit_type, category, detail_type):
+    # cell dataset
+    df_cells = df_selected[(df_selected['Sample Type'].str.contains("cell", na = False)) | (df_selected['Subspecimen Type'].str.contains("cell", na = False))] # if either column says cells
+    # brain dataset
+    df_brains = df_selected[(df_selected['Sample Type'].str.contains("whole brain", na = False)) | (df_selected['Subspecimen Type'].str.contains("whole brain", na = False))] # if either column says brains
+    df_brains = df_brains[~(df_brains['Parent Specimen Type'].str.contains("brain", na = False))]
+    
     if 'Sample Counts' in measure_type:
         if 'quarter' in category:
             if 'Uploads' in unit_type:
@@ -160,7 +182,7 @@ def update_graph(measure_type, unit_type, category, detail_type):
                 q_fig.update_xaxes(categoryorder='array', categoryarray = quarter_order)
                 return q_fig
             if 'Cells' in unit_type:
-                df_cells = df_selected[(df_selected['Sample Type'].str.contains("cell", na = False)) | (df_selected['Subspecimen Type'].str.contains("cell", na = False))] # if either column says cells
+                #df_cells = df_selected[(df_selected['Sample Type'].str.contains("cell", na = False)) | (df_selected['Subspecimen Type'].str.contains("cell", na = False))] # if either column says cells
                 if detail_type == 'Cumulative':
                     df_cellcounts = pd.DataFrame({'cell_counts':df_cells.groupby(['Metadata Submission'])['Total Processed Subspecimens'].sum()}).sort_values('cell_counts').reset_index()
                     c_fig = px.bar(df_cellcounts, x="Metadata Submission", y="cell_counts", text_auto=True,
@@ -176,7 +198,8 @@ def update_graph(measure_type, unit_type, category, detail_type):
                 c_fig.update_layout(xaxis_title = "Quarter", yaxis_title = 'Cell Count')
                 return c_fig
             if 'Brains' in unit_type:
-                df_brains = df_selected[(df_selected['Sample Type'].str.contains("brain", na = False)) | (df_selected['Subspecimen Type'].str.contains("brain", na = False))] # if either column says brains
+                #df_brains = df_selected[(df_selected['Sample Type'].str.contains("whole brain", na = False)) | (df_selected['Subspecimen Type'].str.contains("whole brain", na = False))] # if either column says brains
+                #df_brains = df_brains[~(df_brains['Parent Specimen Type'].str.contains("brain", na = False))]
                 if detail_type == 'Cumulative':
                     df_braincounts = pd.DataFrame({'brain_counts':df_brains.groupby(['Metadata Submission'])['Total Processed Subspecimens'].sum()}).sort_values('brain_counts').reset_index()
                     b_fig = px.bar(df_braincounts, x="Metadata Submission", y="brain_counts", text_auto=True,
@@ -207,7 +230,7 @@ def update_graph(measure_type, unit_type, category, detail_type):
                 g_fig.update_layout(xaxis_title = "Grant Name", yaxis_title = 'Sample Count')
                 return g_fig
             if 'Cells' in unit_type:
-                df_cells = df_selected[(df_selected['Sample Type'].str.contains("cell", na = False)) | (df_selected['Subspecimen Type'].str.contains("cell", na = False))] # if either column says cells
+                #df_cells = df_selected[(df_selected['Sample Type'].str.contains("cell", na = False)) | (df_selected['Subspecimen Type'].str.contains("cell", na = False))] # if either column says cells
                 if detail_type == 'Cumulative':    
                     df_cellcounts = pd.DataFrame({'cell_counts':df_cells.groupby(['Grant Number'])['Total Processed Subspecimens'].sum()}).sort_values('cell_counts').reset_index()
                     c_fig = px.bar(df_cellcounts, x="Grant Number", y="cell_counts", text_auto=True,
@@ -222,7 +245,8 @@ def update_graph(measure_type, unit_type, category, detail_type):
                 c_fig.update_layout(xaxis_title = "Grant Name", yaxis_title = 'Cell Count')
                 return c_fig
             if 'Brains' in unit_type:
-                df_brains = df_selected[(df_selected['Sample Type'].str.contains("brain", na = False)) | (df_selected['Subspecimen Type'].str.contains("brain", na = False))] # if either column says brains
+                #df_brains = df_selected[(df_selected['Sample Type'].str.contains("whole brain", na = False)) | (df_selected['Subspecimen Type'].str.contains("whole brain", na = False))] # if either column says brains
+                #df_brains = df_brains[~(df_brains['Parent Specimen Type'].str.contains("brain", na = False))]
                 if detail_type == 'Cumulative':   
                     df_braincounts = pd.DataFrame({'brain_counts':df_brains.groupby(['Grant Number'])['Total Processed Subspecimens'].sum()}).sort_values('brain_counts').reset_index()
                     b_fig = px.bar(df_braincounts, x="Grant Number", y="brain_counts", text_auto=True,
@@ -237,7 +261,41 @@ def update_graph(measure_type, unit_type, category, detail_type):
                 b_fig.update_layout(xaxis_title = "Grant", yaxis_title = 'Brain Count')
                 return b_fig
 
-    #if 'Sample Counts' in measure_type:
+    if 'Increments' in measure_type:
+        if 'Uploads' in unit_type:
+            count_inc = pd.DataFrame({'count':df_selected.groupby(['Metadata Submission']).size()}).sort_values('count').reset_index()
+            count_inc['Metadata Submission'] = pd.Categorical(count_inc['Metadata Submission'], quarter_order)
+            count_inc = count_inc.sort_values('Metadata Submission')
+            diff_df = count_inc.set_index('Metadata Submission').diff().fillna(0)
+            diff_df.reset_index(inplace = True)
+            inc_fig = px.bar(diff_df, x="Metadata Submission", y="count", text_auto=True,
+                                title = "Quarterly Increments of data deposition",
+                                height=500, width= 1500)
+            inc_fig.update_layout(xaxis_title = "quarter", yaxis_title = 'Data Deposition Count')
+            return inc_fig
+        if 'Cells' in unit_type:
+            cell_inc = pd.DataFrame({'count':df_cells.groupby(['Metadata Submission'])['Total Processed Subspecimens'].sum()}).sort_values('count').reset_index()
+            cell_inc['Metadata Submission'] = pd.Categorical(cell_inc['Metadata Submission'], quarter_order)
+            cell_inc = cell_inc.sort_values('Metadata Submission')
+            diff_df = cell_inc.set_index('Metadata Submission').diff().fillna(0)
+            diff_df.reset_index(inplace = True)
+            inc_fig = px.bar(diff_df, x="Metadata Submission", y="count", text_auto=True,
+                                title = "Quarterly Increments of total processed cells",
+                                height=500, width= 1500)
+            inc_fig.update_layout(xaxis_title = "quarter", yaxis_title = 'Cell Count')
+            return inc_fig
+        if 'Brains' in unit_type:
+            brain_inc = pd.DataFrame({'count':df_brains.groupby(['Metadata Submission'])['Total Processed Subspecimens'].sum()}).sort_values('count').reset_index()
+            brain_inc['Metadata Submission'] = pd.Categorical(brain_inc['Metadata Submission'], quarter_order)
+            brain_inc = brain_inc.sort_values('Metadata Submission')
+            diff_df = brain_inc.set_index('Metadata Submission').diff().fillna(0)
+            diff_df.reset_index(inplace = True)
+            inc_fig = px.bar(diff_df, x="Metadata Submission", y="count", text_auto=True,
+                                title = "Quarterly Increments of total processed cells",
+                                height=500, width= 1500)
+            inc_fig.update_layout(xaxis_title = "quarter", yaxis_title = 'Cell Count')
+            return inc_fig
+
 
     
 ## launch command
