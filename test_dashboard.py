@@ -164,6 +164,7 @@ def update_graph(measure_type, unit_type, category, detail_type):
     # brain dataset
     df_brains = df_selected[(df_selected['Sample Type'].str.contains("whole brain", na = False)) | (df_selected['Subspecimen Type'].str.contains("whole brain", na = False))] # if either column says brains
     df_brains = df_brains[~(df_brains['Parent Specimen Type'].str.contains("brain", na = False))]
+    df_brains = df_brains[~(df_brains['Subspecimen Type'].str.contains("cell", na = False))]
     
     if 'Sample Counts' in measure_type:
         if 'quarter' in category:
