@@ -5,6 +5,7 @@ from dash import Dash, html, dcc, Input, Output
 import plotly.express as px
 import plotly.graph_objects as go
 import re
+import dash_util 
 
 app = Dash(__name__) # initiate the dashboard
 
@@ -15,6 +16,9 @@ data_dir = os.path.join(cwd, "BCDC-Metadata", 'Sample-Inventory')
 ### read in the data for selected quarter
 df_selected = pd.read_csv(os.path.join(data_dir, 'BCDC_Metadata_2022Q3.csv'), encoding='unicode_escape')
 controlled_cols = [re.sub("\([^)]*\)", "", x).strip() for x in list(filter(lambda x : 'CV' in x, df_selected.columns))] ## map the values to controlled vocabs somehow
+
+ontology_df = dash_util.get_lims2_ontology('Mouse.csv')
+print(ontology_df)
 
 ## controlled vocab file
 #cv_df = pd.read_csv(os.path.join(cwd, 'controlled_vocabs.csv'), encoding='unicode_escape').dropna(how='all', axis=1)
