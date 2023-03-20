@@ -1,7 +1,7 @@
 # BCDC-Dashboards
 This repository is intended to store the codes for the BICAN dashboard, which takes the BCDC-Metadata repository as the input, performs data wrangling and launches the dashboard app script. The current version is a demo version that lives in the local environment and has not been integrated with the other pipelines yet, hence, the code structures are subject to change once the integration with the rest of the existing pipelines (i.e. databases, ontologies) happens.
 
-Disclaimer: the current dashboard script has not included any 'techniques'-related count functionalities, however, an abstract of categories to collapse into has been included in the business logics.
+### Disclaimer: the current dashboard script only demonstrates two use cases of collapsing the categories - 1. collapse specimen types for specimen counts; 2. collapse species for sample counts. There are other categories needing to be collapsed, such as modalities and techniques, which is work in progress - meanwhile, an abstract of what categories to collapse into has been included in the business logics.
 
 
 ### Workflow
@@ -17,9 +17,9 @@ Currently, we are aiming to count the below units:
 2. Number of donors/subjects per group - for example, how many donors/subjects per quarter/modality/technique?
 3. Number of subspecimens (brains, cells, tissue samples, etc.) processed per quarter/grant/technique/etc.
 
-While counting, the groups and categories will be collapsed into similar terminologies - for example, 'whole cell' and 'cell body' both mean the same thing, and as a result, they will be collapsed together under 'cells' and their counts will be counted towards the same category.
+While counting, the groups and categories will be collapsed into similar terminologies - for example, 'whole cell' and 'cell body' both mean the same thing, and as a result, they will be collapsed together under 'cells' and their counts will be counted towards the same category. 
 
-Specific logics for subspecimen counts is represented in the below dictionary:
+1. Logics to collapse subspecimen types for counts:
 
 ```
 specimen_count_map = {
@@ -39,8 +39,32 @@ specimen_count_map = {
                         'tissue sample']   
 }
 ```
+Since specimen types such as 'brain' and 'whole brain' mean the same thing, they are being collapsed into the same categories and their according numbers of processed specimens will be summed and counted towards the same category.
 
-Similar logics apply for techniques as well - for example, 10x Chromium 3' v2, v3 and v3.1 sequencing techniques should be collapsed into the same category.
+2. Logics to collapse species for counts:
+
+```
+species_map = {
+    'primates' : ['chimpanzee', 'small-eared galago', 'western gorilla', 'green monkey', 'pig-tailed macaque',
+                 "ma's night monkey", 'rhesus macaque', 'bolivian squirrel monkey',
+       'crab-eating macaque'],
+    'humans' : ['human'], ## mostly mice and humans
+    'mice' : ['mouse'],
+    'marmoset': ['marmoset'],
+    'small mammals': [
+    'arctic ground squirrel',
+    'nine-banded armadillo',
+    'domestic cat',
+    'domestic ferret',
+    'gray short-tailed opossum',
+    'pig', 'rabbit', 'norway rat', 'common tree shrew'
+    ]
+}
+```
+
+Species such as 'chimpanzee' and 'monkeys' are all considered primates, and 'cats', 'ferrets' are both considered small mammals - therefore, categorizing them together for counting purposes.
+
+3. Similar logics apply for techniques as well - for example, 10x Chromium 3' v2, v3 and v3.1 sequencing techniques should be collapsed into the same category.
 
 ```
 techniques_map = {
