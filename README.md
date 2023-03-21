@@ -28,7 +28,7 @@ specimen_count_map = {
     'cells' : ['whole cell', 
                'cell', 'cells', 'cell body', 'cell suspension', 'cell nucleus', 'nuclei', 'resconstruction', 'cell in slice'],
     'nucleus' : ['cell nucleus', 
-                 'nuclei'],
+                 'nuclei'], # collapsed nucleus and cells above in 'cells' - however, do we still want a separate 'nucleus' count?
     'library' : ['library'],
     'tissue samples' : ['brain hemisphere', 
                         'brain region', 
