@@ -23,6 +23,7 @@ df['Subspecimen Type'] = df['Subspecimen Type'].str.replace("[^A-Za-z0-9 ]+", " 
 df['Total Processed Subspecimens'] = df['Total Processed Subspecimens'].astype(str).str.replace(',', '').astype(float) # cell counts is numeric
 df['Sample ID'] = df['Sample ID'].astype(str) # so that IDs with all strings won't somehow get counted as numerics down the road
 df['Species'] = df['Species'].str.lower()
+df['Modality'] = df['Modality'].str.lower()
 # if either sample type of subspecimen type is NA, use the other column
 df['Sample Type'] = df['Sample Type'].fillna(df['Subspecimen Type'])
 df['Subspecimen Type'] = df['Subspecimen Type'].fillna(df['Sample Type'])
@@ -69,7 +70,7 @@ sample_count_df.to_csv(os.path.join(cwd, 'dash_sample_count_df.csv'), index = Fa
 #### Count for number of processed subspecimens
 ## get number of donors per quarter
 # calculating donors here instead of above as it could potentially serve as a placeholder if brain count is misisng for brain-related techniques - one donor could count as one brain
-df_donors = df.groupby(['Data Collection', 'Metadata Submission'], as_index = False).agg({'Subject ID':'nunique'}).rename(columns = {'Data Collection':'data_collection_reference_id', 'Metadata Submission': 'quarters', 'Subject ID': 'donor_count'})
+df_donors = df.groupby(['Data Collection', 'Metadata Submission', 'Species'], as_index = False).agg({'Subject ID':'nunique'}).rename(columns = {'Data Collection':'data_collection_reference_id', 'Metadata Submission': 'quarters', 'Subject ID': 'donor_count', 'Species':'species'})
 ## get number of processed subspeciemns for each unique sample
 df_subspecimens = df.groupby(['Data Collection', 'Metadata Submission', 'Sample ID', 'Subspecimen Type'], as_index = False).agg({'Total Processed Subspecimens':'sum'}).drop('Sample ID', axis = 1).rename(columns = {'Data Collection':'data_collection_reference_id', 'Metadata Submission': 'quarters', 'Subspecimen Type': 'subspecimen_type', 'Total Processed Subspecimens': 'subspecimen_count'})
 # merge together
@@ -79,13 +80,22 @@ key_df = pd.read_csv(os.path.join(project_dir, 'data_collection_is_specified_out
 grant_df = pd.read_csv(os.path.join(project_dir, 'grant_is_specified_input_of_data_collection_project.csv')).drop('priority_order', axis = 1)
 metadata_df = grant_df.merge(key_df, on = 'project_reference_id', how = 'outer')[['data_collection_reference_id', 'grant_reference_id']]
 df_donor_counts = metadata_df.merge(df_donor_counts, on = 'data_collection_reference_id', how = 'right')
+# collapse species 
+df_donor_counts['species'] = df_donor_counts['species'].apply(lambda i:[k for k, v in species_map.items() if i in v]).str[0]
+
 
 ## triage the projects funded by multiple grants situation and label those as 'multi'
 # might do the same for projects reporting muiltiple techniques/species/modalities also, triaging for today's push
+## projects funded by multiple grants
 dup_df = df_donor_counts[['data_collection_reference_id', 'grant_reference_id']].drop_duplicates()
 dup_count = pd.DataFrame(dup_df.drop_duplicates().groupby('data_collection_reference_id', as_index = False)['grant_reference_id'].nunique())
 multi_list = dup_count[dup_count['grant_reference_id'] > 1]['data_collection_reference_id']
 df_donor_counts.loc[df_donor_counts['data_collection_reference_id'].isin(multi_list), 'grant_reference_id'] = 'multi-grant'
+## projects reporting multiple species
+dup_df = df_donor_counts[['data_collection_reference_id', 'species']].drop_duplicates()
+dup_count = pd.DataFrame(dup_df.drop_duplicates().groupby('data_collection_reference_id', as_index = False)['species'].nunique())
+multi_list = dup_count[dup_count['species'] > 1]['data_collection_reference_id']
+df_donor_counts.loc[df_donor_counts['data_collection_reference_id'].isin(multi_list), 'species'] = 'multi-species'
 
 
 ### dictionary to collapse the subspecimens
@@ -114,7 +124,7 @@ count_df = pd.DataFrame() # container to store
 # for each project
 for project in df_donor_counts['data_collection_reference_id'].unique():
     # list of column names to keep
-    non_count_cols = ['data_collection_reference_id', 'grant_reference_id', 'quarters', 'donor_count', 'subspecimen_type']
+    non_count_cols = ['data_collection_reference_id', 'grant_reference_id', 'quarters', 'species', 'donor_count', 'subspecimen_type']
     # use the above column names and the dictionary keys together as column names of the count dataframe
     count_df_project = pd.DataFrame(columns = [non_count_cols + list(specimen_count_map.keys())], index = [0])
 
@@ -129,7 +139,7 @@ for project in df_donor_counts['data_collection_reference_id'].unique():
         row_container = pd.DataFrame(columns = [non_count_cols + list(specimen_count_map.keys())], index = [0]) # another container
         #row_container[non_count_cols] = project_row[non_count_cols].drop('subspecimen_type')
         # copy the metadata
-        row_container[['data_collection_reference_id', 'grant_reference_id', 'quarters', 'donor_count']] = project_row[['data_collection_reference_id', 'grant_reference_id', 'quarters', 'donor_count']]
+        row_container[['data_collection_reference_id', 'grant_reference_id', 'quarters', 'species', 'donor_count']] = project_row[['data_collection_reference_id', 'grant_reference_id', 'quarters', 'species', 'donor_count']]
         # get the categories to count, based on the dictionary
         count_cols = [k for k, v in specimen_count_map.items() if project_row['subspecimen_type'] in v]
         # update the according column

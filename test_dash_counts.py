@@ -14,7 +14,7 @@ cwd = os.getcwd() # directory this file is saved in
 
 ## sample/subject table
 df_sample = pd.read_csv(os.path.join(cwd, 'dash_sample_count_df.csv'), encoding='unicode_escape')
-df = pd.read_csv(os.path.join(cwd, 'dash_count_df.csv'), encoding='unicode_escape')
+df = pd.read_csv(os.path.join(cwd, 'dash_specimen_count_df.csv'), encoding='unicode_escape')
 
 ## sort the quarters for the plots in case they are not in order
 # looks like they are for this particular csv
@@ -26,7 +26,7 @@ quarter_order = sort_df.sort_values(['year', 'quarter'])['date'].unique()
 
 
 visualization_types = ['Subject/Donor Counts', 'Sample Counts', 'Specimen Counts']
-subspecimen_count_selections = list(df.columns)[5:] # do not include project name as this is used for selection
+subspecimen_count_selections = list(df.columns)[6:] # do not include project name as this is used for selection
 categories = ['by grant', 'by quarter']
 
 ### dashboard layout
@@ -73,6 +73,12 @@ app.layout = html.Div([
                 ['by project', 'by quarter'],
                 'by quarter',
                 id='sample_categories')
+                ], style={'width': '48%', 'display': 'block'}),
+        html.Div([
+            dcc.RadioItems(
+                ['projects', 'species'],
+                'species',
+                id='color_type')
                 ], style={'width': '48%', 'display': 'block'})
     ]),
      
@@ -86,6 +92,15 @@ app.layout = html.Div([
     Input('measure_type', 'value')) 
 def show_hide(measure_type):
     if 'Specimen' in measure_type: # only show for count
+        return {'display': 'block'}
+    else:
+        return {'display': 'none'}
+    
+@app.callback(
+    Output('color_type', 'style'),
+    Input('measure_type', 'value')) 
+def show_hide(measure_type):
+    if 'Sample' not in measure_type: # only show for count
         return {'display': 'block'}
     else:
         return {'display': 'none'}
@@ -118,28 +133,43 @@ def show_hide(measure_type):
     Input('measure_type', 'value'),
     Input('specimen_name', 'value'),
     Input('category', 'value'),
-    Input('sample_categories', 'value')
+    Input('sample_categories', 'value'),
+    Input('color_type', 'value')
 )
 
 
 
 
 
-def update_graph(measure_type, specimen_name, category, sample_categories):
+def update_graph(measure_type, specimen_name, category, sample_categories, color_type):
     #print(df_test[df_test['subject'] > 1000])
     if 'Subject' in measure_type:
         if 'grant' in category:
-            df_grant = df[['data_collection_reference_id', 'grant_reference_id', 'donor_count']].drop_duplicates()
-            df_grant = pd.DataFrame(df_grant.drop_duplicates().groupby(['data_collection_reference_id', 'grant_reference_id'], as_index = False)['donor_count'].sum())
-            fig = px.bar(df_grant, x='grant_reference_id', y='donor_count', color = 'data_collection_reference_id', height=700)
-            fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
-            return fig
+            if 'project' in color_type:
+                df_grant = df[['data_collection_reference_id', 'grant_reference_id', 'donor_count']].drop_duplicates()
+                df_grant = pd.DataFrame(df_grant.drop_duplicates().groupby(['data_collection_reference_id', 'grant_reference_id'], as_index = False)['donor_count'].sum())
+                fig = px.bar(df_grant, x='grant_reference_id', y='donor_count', color = 'data_collection_reference_id', height=700)
+                fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+                return fig
+            if 'species' in color_type:
+                df_grant = df[['species', 'grant_reference_id', 'donor_count']].drop_duplicates()
+                df_grant = pd.DataFrame(df_grant.drop_duplicates().groupby(['species', 'grant_reference_id'], as_index = False)['donor_count'].sum())
+                fig = px.bar(df_grant, x='grant_reference_id', y='donor_count', color = 'species', height=700)
+                fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+                return fig
         if 'quarter' in category:
-            df_quarter_donor = df[['data_collection_reference_id', 'quarters', 'donor_count']].drop_duplicates()
-            df_quarter_donor = pd.DataFrame(df_quarter_donor.drop_duplicates().groupby(['data_collection_reference_id', 'quarters'], as_index = False)['donor_count'].sum())
-            fig = px.bar(df_quarter_donor, x='quarters', y='donor_count', color = 'data_collection_reference_id', height=700)
-            fig.update_xaxes(categoryorder='array', categoryarray = quarter_order)
-            return fig
+            if 'project' in color_type:
+                df_quarter_donor = df[['data_collection_reference_id', 'quarters', 'donor_count']].drop_duplicates()
+                df_quarter_donor = pd.DataFrame(df_quarter_donor.drop_duplicates().groupby(['data_collection_reference_id', 'quarters'], as_index = False)['donor_count'].sum())
+                fig = px.bar(df_quarter_donor, x='quarters', y='donor_count', color = 'data_collection_reference_id', height=700)
+                fig.update_xaxes(categoryorder='array', categoryarray = quarter_order)
+                return fig
+            if 'species' in color_type:
+                df_quarter_donor = df[['species', 'quarters', 'donor_count']].drop_duplicates()
+                df_quarter_donor = pd.DataFrame(df_quarter_donor.drop_duplicates().groupby(['species', 'quarters'], as_index = False)['donor_count'].sum())
+                fig = px.bar(df_quarter_donor, x='quarters', y='donor_count', color = 'species', height=700)
+                fig.update_xaxes(categoryorder='array', categoryarray = quarter_order)
+                return fig
     if 'Sample' in measure_type:
         if 'quarter' in sample_categories:
             df_sample_quarter = df_sample.groupby(['quarters', 'species'], as_index=False)['sample_count'].sum()
@@ -154,10 +184,16 @@ def update_graph(measure_type, specimen_name, category, sample_categories):
 
     if 'Specimen' in measure_type:
         if 'grant' in category:
-            df_grant = df[['data_collection_reference_id', 'grant_reference_id', specimen_name]]
-            df_grant = pd.DataFrame(df_grant.groupby(['data_collection_reference_id', 'grant_reference_id'], as_index = False)[specimen_name].sum())
-            fig = px.bar(df_grant, x='grant_reference_id', y=specimen_name, color = 'data_collection_reference_id', height=700)
-            fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+            if 'species' in color_type:
+                df_grant = df[['species', 'grant_reference_id', specimen_name]]
+                df_grant = pd.DataFrame(df_grant.groupby(['species', 'grant_reference_id'], as_index = False)[specimen_name].sum())
+                fig = px.bar(df_grant, x='grant_reference_id', y=specimen_name, color = 'species', height=700)
+                fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+            if 'project' in color_type:
+                df_grant = df[['data_collection_reference_id', 'grant_reference_id', specimen_name]]
+                df_grant = pd.DataFrame(df_grant.groupby(['data_collection_reference_id', 'grant_reference_id'], as_index = False)[specimen_name].sum())
+                fig = px.bar(df_grant, x='grant_reference_id', y=specimen_name, color = 'data_collection_reference_id', height=700)
+                fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
             return fig
         if 'quarter' in category:
             fig = px.bar(df, x='quarters', y=specimen_name, color = 'data_collection_reference_id', height=700)
