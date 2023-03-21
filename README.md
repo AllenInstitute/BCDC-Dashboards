@@ -12,6 +12,9 @@ This repository is intended to store the codes for the BICAN dashboard, which ta
     Output: Dashboard page with visualizations
 
 ### Business logics:
+
+[dashboard_logics.pdf](https://github.com/AllenInstitute/BCDC-Dashboards/files/11033385/dashboard_logics.pdf)
+
 Currently, we are aiming to count the below units:
 1. Number of samples received for each sample type per group - for example, how many brain/cell related samples did we receive per quarter; or for each grant?
 2. Number of donors/subjects per group - for example, how many donors/subjects per quarter/modality/technique?
