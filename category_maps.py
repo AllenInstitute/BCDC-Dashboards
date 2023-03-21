@@ -42,12 +42,19 @@ specimen_count_map = {
 ### collapse categories
 ## for species, column D
 species_map = {
-    'primates' : ['green monkey', 'chimpanzee', 'western gorilla'],
+    'primates' : ['chimpanzee', 'small-eared galago', 'western gorilla', 'green monkey', 'pig-tailed macaque',
+                 "ma's night monkey", 'rhesus macaque', 'bolivian squirrel monkey',
+       'crab-eating macaque'],
     'humans' : ['human'], ## mostly mice and humans
     'mice' : ['mouse'],
     'marmoset': ['marmoset'],
     'small mammals': [
-    'domestic ferret', 'rabbit', 'norway rat'
+    'arctic ground squirrel',
+    'nine-banded armadillo',
+    'domestic cat',
+    'domestic ferret',
+    'gray short-tailed opossum',
+    'pig', 'rabbit', 'norway rat', 'common tree shrew'
     ]
 }
 

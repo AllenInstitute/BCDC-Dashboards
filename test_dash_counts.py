@@ -12,6 +12,8 @@ cwd = os.getcwd() # directory this file is saved in
 ##data_dir = os.path.join(cwd, "BCDC-Metadata") # BCDC data folder
 #metadata_dir = os.path.join(data_dir, 'Sample-Inventory') # directory with metadata
 
+## sample/subject table
+df_sample = pd.read_csv(os.path.join(cwd, 'dash_sample_count_df.csv'), encoding='unicode_escape')
 df = pd.read_csv(os.path.join(cwd, 'dash_count_df.csv'), encoding='unicode_escape')
 
 ## sort the quarters for the plots in case they are not in order
@@ -23,7 +25,7 @@ sort_df['date'] = quarters
 quarter_order = sort_df.sort_values(['year', 'quarter'])['date'].unique()
 
 
-visualization_types = ['Subject/Donor Counts', 'Specimen Counts']
+visualization_types = ['Subject/Donor Counts', 'Sample Counts', 'Specimen Counts']
 subspecimen_count_selections = list(df.columns)[5:] # do not include project name as this is used for selection
 categories = ['by grant', 'by quarter']
 
@@ -65,6 +67,12 @@ app.layout = html.Div([
                 categories,
                 categories[0],
                 id='category')
+                ], style={'width': '48%', 'display': 'block'}),
+        html.Div([
+            dcc.RadioItems(
+                ['by project', 'by quarter'],
+                'by quarter',
+                id='sample_categories')
                 ], style={'width': '48%', 'display': 'block'})
     ]),
      
@@ -81,6 +89,26 @@ def show_hide(measure_type):
         return {'display': 'block'}
     else:
         return {'display': 'none'}
+    
+@app.callback(
+    Output('category', 'style'),
+    Input('measure_type', 'value')) 
+def show_hide(measure_type):
+    if 'Sample' not in measure_type: # only show for count
+        return {'display': 'block'}
+    else:
+        return {'display': 'none'}
+    
+
+@app.callback(
+    Output('sample_categories', 'style'),
+    Input('measure_type', 'value')) 
+def show_hide(measure_type):
+    if 'Sample' in measure_type: # only show for count
+        return {'display': 'block'}
+    else:
+        return {'display': 'none'}
+
 
 
 @app.callback(
@@ -89,14 +117,15 @@ def show_hide(measure_type):
     # input - variables from dropdown/selected values
     Input('measure_type', 'value'),
     Input('specimen_name', 'value'),
-    Input('category', 'value')
+    Input('category', 'value'),
+    Input('sample_categories', 'value')
 )
 
 
 
 
 
-def update_graph(measure_type, specimen_name, category):
+def update_graph(measure_type, specimen_name, category, sample_categories):
     #print(df_test[df_test['subject'] > 1000])
     if 'Subject' in measure_type:
         if 'grant' in category:
@@ -111,10 +140,22 @@ def update_graph(measure_type, specimen_name, category):
             fig = px.bar(df_quarter_donor, x='quarters', y='donor_count', color = 'data_collection_reference_id', height=700)
             fig.update_xaxes(categoryorder='array', categoryarray = quarter_order)
             return fig
+    if 'Sample' in measure_type:
+        if 'quarter' in sample_categories:
+            df_sample_quarter = df_sample.groupby(['quarters', 'species'], as_index=False)['sample_count'].sum()
+            fig = px.bar(df_sample_quarter, x='quarters', y='sample_count', color = 'species', height=700)
+            fig.update_xaxes(categoryorder='array', categoryarray = quarter_order)
+            return fig
+        if 'project' in sample_categories:
+            df_sample_project = df_sample.groupby(['data_collection_reference_id', 'species'], as_index=False)['sample_count'].sum()
+            fig = px.bar(df_sample_project, x='data_collection_reference_id', y='sample_count', color = 'species', height=700)
+            fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+            return fig
+
     if 'Specimen' in measure_type:
         if 'grant' in category:
             df_grant = df[['data_collection_reference_id', 'grant_reference_id', specimen_name]]
-            df_grant = pd.DataFrame(df_grant.groupby(['data_collection_reference_id', 'grant_reference_id'], as_index = False)['brain_count'].sum())
+            df_grant = pd.DataFrame(df_grant.groupby(['data_collection_reference_id', 'grant_reference_id'], as_index = False)[specimen_name].sum())
             fig = px.bar(df_grant, x='grant_reference_id', y=specimen_name, color = 'data_collection_reference_id', height=700)
             fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
             return fig

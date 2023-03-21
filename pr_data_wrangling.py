@@ -22,6 +22,7 @@ df['Species'] = df['Species'].str.lower() # species could be converted to all lo
 df['Subspecimen Type'] = df['Subspecimen Type'].str.replace("[^A-Za-z0-9 ]+", " ").str.lower() # special characters into spaces, all lowercase
 df['Total Processed Subspecimens'] = df['Total Processed Subspecimens'].astype(str).str.replace(',', '').astype(float) # cell counts is numeric
 df['Sample ID'] = df['Sample ID'].astype(str) # so that IDs with all strings won't somehow get counted as numerics down the road
+df['Species'] = df['Species'].str.lower()
 # if either sample type of subspecimen type is NA, use the other column
 df['Sample Type'] = df['Sample Type'].fillna(df['Subspecimen Type'])
 df['Subspecimen Type'] = df['Subspecimen Type'].fillna(df['Sample Type'])
@@ -35,8 +36,39 @@ df = df.drop_duplicates()
 # fix the mc seq issue 
 df.loc[(df['Technique'].str.contains('mc-seq', case = False)) & (~df['Technique'].str.contains(';', case = False)), 'Technique'] = 'mC-seq2'
 
+#### Count for number of samples per categories
+## implemented 'species' as a category for now, more to be added
+sample_count_df = pd.DataFrame(df.groupby(['Data Collection', 'Metadata Submission', 'Species'], as_index = False).agg({'Sample ID': 'nunique'})).rename(columns = {'Data Collection':'data_collection_reference_id', 'Sample ID':'sample_count', 'Metadata Submission':'quarters', 'Sample Type': 'sample_name', 'Species':'species'})
+## to-do: import these dictionaries from a different file, or integrate with ontologies
+species_map = {
+    'primates' : ['chimpanzee', 'small-eared galago', 'western gorilla', 'green monkey', 'pig-tailed macaque',
+                 "ma's night monkey", 'rhesus macaque', 'bolivian squirrel monkey',
+       'crab-eating macaque'],
+    'humans' : ['human'], ## mostly mice and humans
+    'mice' : ['mouse'],
+    'marmoset': ['marmoset'],
+    'small mammals': [
+    'arctic ground squirrel',
+    'nine-banded armadillo',
+    'domestic cat',
+    'domestic ferret',
+    'gray short-tailed opossum',
+    'pig', 'rabbit', 'norway rat', 'common tree shrew'
+    ]
+}
 
+# map species column to the dictionary
+sample_count_df['species'] = sample_count_df['species'].apply(lambda i:[k for k, v in species_map.items() if i in v]).str[0] 
+# calculate new sum in collapsed group
+sample_count_df = sample_count_df.groupby(['data_collection_reference_id', 'quarters', 'species'], as_index = False)['sample_count'].sum()
+
+## output for dashboard
+sample_count_df.to_csv(os.path.join(cwd, 'dash_sample_count_df.csv'), index = False)
+
+
+#### Count for number of processed subspecimens
 ## get number of donors per quarter
+# calculating donors here instead of above as it could potentially serve as a placeholder if brain count is misisng for brain-related techniques - one donor could count as one brain
 df_donors = df.groupby(['Data Collection', 'Metadata Submission'], as_index = False).agg({'Subject ID':'nunique'}).rename(columns = {'Data Collection':'data_collection_reference_id', 'Metadata Submission': 'quarters', 'Subject ID': 'donor_count'})
 ## get number of processed subspeciemns for each unique sample
 df_subspecimens = df.groupby(['Data Collection', 'Metadata Submission', 'Sample ID', 'Subspecimen Type'], as_index = False).agg({'Total Processed Subspecimens':'sum'}).drop('Sample ID', axis = 1).rename(columns = {'Data Collection':'data_collection_reference_id', 'Metadata Submission': 'quarters', 'Subspecimen Type': 'subspecimen_type', 'Total Processed Subspecimens': 'subspecimen_count'})
