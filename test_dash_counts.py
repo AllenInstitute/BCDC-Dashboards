@@ -76,7 +76,7 @@ app.layout = html.Div([
                 ], style={'width': '48%', 'display': 'block'}),
         html.Div([
             dcc.RadioItems(
-                ['projects', 'species', 'modality'],
+                ['projects', 'species', 'modality', 'techniques'],
                 'species',
                 id='color_type')
                 ], style={'width': '48%', 'display': 'block'})
@@ -163,6 +163,12 @@ def update_graph(measure_type, specimen_name, category, sample_categories, color
                 fig = px.bar(df_grant, x='grant_reference_id', y='donor_count', color = 'modality', height=700)
                 fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
                 return fig
+            if 'technique' in color_type:
+                df_grant = df[['technique', 'grant_reference_id', 'donor_count']].drop_duplicates()
+                df_grant = pd.DataFrame(df_grant.drop_duplicates().groupby(['technique', 'grant_reference_id'], as_index = False)['donor_count'].sum())
+                fig = px.bar(df_grant, x='grant_reference_id', y='donor_count', color = 'technique', height=700)
+                fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+                return fig
         if 'quarter' in category:
             if 'project' in color_type:
                 df_quarter_donor = df[['data_collection_reference_id', 'quarters', 'donor_count']].drop_duplicates()
@@ -180,6 +186,12 @@ def update_graph(measure_type, specimen_name, category, sample_categories, color
                 df_grant = df[['modality', 'quarters', 'donor_count']].drop_duplicates()
                 df_grant = pd.DataFrame(df_grant.drop_duplicates().groupby(['modality', 'quarters'], as_index = False)['donor_count'].sum())
                 fig = px.bar(df_grant, x='quarters', y='donor_count', color = 'modality', height=700)
+                fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+                return fig
+            if 'technique' in color_type:
+                df_grant = df[['technique', 'quarters', 'donor_count']].drop_duplicates()
+                df_grant = pd.DataFrame(df_grant.drop_duplicates().groupby(['technique', 'quarters'], as_index = False)['donor_count'].sum())
+                fig = px.bar(df_grant, x='quarters', y='donor_count', color = 'techniques', height=700)
                 fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
                 return fig
     if 'Sample' in measure_type:
@@ -214,6 +226,12 @@ def update_graph(measure_type, specimen_name, category, sample_categories, color
                 fig = px.bar(df_grant, x='grant_reference_id', y=specimen_name, color = 'modality', height=700)
                 fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
                 return fig
+            if 'technique' in color_type:
+                df_grant = df[['technique', 'grant_reference_id', specimen_name]]
+                df_grant = pd.DataFrame(df_grant.groupby(['technique', 'grant_reference_id'], as_index = False)[specimen_name].sum())
+                fig = px.bar(df_grant, x='grant_reference_id', y=specimen_name, color = 'technique', height=700)
+                fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+                return fig
         if 'quarter' in category:
             if 'project' in color_type:
                 fig = px.bar(df, x='quarters', y=specimen_name, color = 'data_collection_reference_id', height=700)
@@ -228,6 +246,12 @@ def update_graph(measure_type, specimen_name, category, sample_categories, color
                 df_grant = df[['modality', 'quarters', specimen_name]]
                 df_grant = pd.DataFrame(df_grant.groupby(['modality', 'quarters'], as_index = False)[specimen_name].sum())
                 fig = px.bar(df_grant, x='quarters', y=specimen_name, color = 'modality', height=700)
+                fig.update_xaxes(categoryorder='array', categoryarray = quarter_order)
+                return fig
+            if 'technique' in color_type:
+                df_grant = df[['technique', 'quarters', specimen_name]]
+                df_grant = pd.DataFrame(df_grant.groupby(['technique', 'quarters'], as_index = False)[specimen_name].sum())
+                fig = px.bar(df_grant, x='quarters', y=specimen_name, color = 'technique', height=700)
                 fig.update_xaxes(categoryorder='array', categoryarray = quarter_order)
                 return fig
 
