@@ -1,434 +1,417 @@
-data_collection_reference_id,grant_reference_id,quarters,species,donor_count,subspecimen_type,brain_count,cell_count,nucleus_count,library_count,tissue_region_count
-chung_lsfm,U01 Chung grant,2021Q4,humans,0,0,0,0,0,0,79.0
-chung_lsfm,U01 Chung grant,2022Q2,humans,0,0,0,0,0,0,41.0
-chung_lsfm,U01 Chung grant,2022Q3,humans,0,0,0,0,0,0,32.0
-dev_mouse_brain_lsfm,RF1 Kim grant,2021Q3,mice,0,0,117.0,0,0,0,0
-dev_mouse_brain_lsfm,RF1 Kim grant,2021Q4,mice,27,0,0.0,0,0,0,0
-dev_mouse_brain_lsfm,RF1 Kim grant,2022Q1,mice,26,0,68.0,0,0,0,0
-dev_mouse_brain_lsfm,RF1 Kim grant,2022Q2,mice,88,0,193.0,0,0,0,0
-dev_mouse_brain_lsfm,RF1 Kim grant,2022Q3,mice,62,0,116.0,0,0,0,0
-dev_mouse_brain_mri,RF1 Kim grant,2021Q3,mice,0,0,144.0,0,0,0,0
-dev_mouse_brain_mri,RF1 Kim grant,2021Q4,mice,5,0,45.0,0,0,0,0
-dev_mouse_brain_stpt,RF1 Kim grant,2021Q3,mice,0,0,27.0,0,0,0,0
-dev_mouse_brain_stpt,RF1 Kim grant,2021Q4,mice,15,0,0.0,0,0,0,0
-dev_mouse_brain_stpt,RF1 Kim grant,2022Q1,mice,40,0,40.0,0,0,0,0
-dev_mouse_brain_stpt,RF1 Kim grant,2022Q3,mice,93,0,283.0,0,0,0,0
-dong_antero,U01 Dong grant,2018Q4,mice,2,0,2.0,0,0,0,0
-dong_antero,U01 Dong grant,2019Q1,mice,14,0,14.0,0,0,0,0
-dong_antero,U01 Dong grant,2019Q3,mice,15,0,15.0,0,0,0,0
-dong_antero,U01 Dong grant,2019Q4,mice,6,0,6.0,0,0,0,0
-dong_antero,U01 Dong grant,2020Q1,mice,4,0,4.0,0,0,0,0
-dong_antero,U01 Dong grant,2021Q1,mice,5,0,5.0,0,0,0,0
-dong_antero,U01 Dong grant,2021Q4,mice,0,0,5.0,0,0,0,0
-dong_antero,U01 Dong grant,2022Q1,mice,0,0,4.0,0,0,0,0
-dong_antero,U01 Dong grant,2022Q2,mice,0,0,3.0,0,0,0,0
-dong_antero,U01 Dong grant,2022Q3,mice,0,0,2.0,0,0,0,0
-dong_confocal,U01 Dong grant,2021Q2,mice,2,0,0,0,0,0,29.0
-dong_confocal,U01 Dong grant,2022Q2,mice,1,0,0,0,0,0,1.0
-dong_lightsheet,U01 Dong grant,2021Q3,mice,0,0,0,0,0,0,2.0
-dong_lightsheet,U01 Dong grant,2021Q3,mice,0,0,2.0,0,0,0,0.0
-dong_lightsheet,U01 Dong grant,2021Q4,mice,0,0,2.0,0,0,0,0.0
-dong_lightsheet,U01 Dong grant,2022Q1,mice,0,0,2.0,0,0,0,0.0
-dong_lightsheet,U01 Dong grant,2022Q3,mice,0,0,1.0,0,0,0,0.0
-dong_retro,U01 Dong grant,2018Q3,mice,22,0,22.0,0,0,0,0
-dong_retro,U01 Dong grant,2019Q1,mice,33,0,33.0,0,0,0,0
-dong_retro,U01 Dong grant,2019Q3,mice,28,0,28.0,0,0,0,0
-dong_retro,U01 Dong grant,2019Q4,mice,8,0,8.0,0,0,0,0
-dong_retro,U01 Dong grant,2020Q1,mice,35,0,35.0,0,0,0,0
-dong_retro,U01 Dong grant,2021Q1,mice,2,0,2.0,0,0,0,0
-dong_retro,U01 Dong grant,2021Q4,mice,0,0,5.0,0,0,0,0
-dong_retro,U01 Dong grant,2022Q1,mice,0,0,4.0,0,0,0,0
-dong_retro,U01 Dong grant,2022Q2,mice,0,0,3.0,0,0,0,0
-dong_retro,U01 Dong grant,2022Q3,mice,0,0,2.0,0,0,0,0
-dong_trio,U01 Dong grant,2019Q3,mice,4,0,4.0,0,0,0,0
-dong_trio,U01 Dong grant,2019Q4,mice,33,0,33.0,0,0,0,0
-dong_trio,U01 Dong grant,2020Q1,mice,8,0,8.0,0,0,0,0
-dong_trio,U01 Dong grant,2021Q1,mice,6,0,6.0,0,0,0,0
-dong_trio,U01 Dong grant,2022Q1,mice,0,0,8.0,0,0,0,0
-dong_trio,U01 Dong grant,2022Q2,mice,0,0,8.0,0,0,0,0
-dulac_hyp_sn_10xv2,U19 Huang grant,2021Q1,mice,8,0,0,148163.0,148163.0,0,0
-dulac_pag_sn_10xv2,U19 Huang grant,2021Q1,mice,3,0,0,116659.0,116659.0,0,0
-dulac_poa_dev_sn_10x_RNAseq,U19 Huang grant,2022Q1,mice,22,0,0,226132.0,226132.0,0,0
-ecker_hu_DNAseq,U01 Ecker grant,2020Q2,humans,3,0,0,0,0,0,3.0
-ecker_hu_sn_ATACseq,U01 Ecker grant,2020Q2,humans,2,0,0,9698.0,9698.0,0,0
-ecker_hu_sn_ATACseq,U01 Ecker grant,2020Q3,humans,2,0,0,75283.0,75283.0,0,0
-ecker_hu_sn_ATACseq,U01 Ecker grant,2020Q4,humans,2,0,0,182145.0,182145.0,0,0
-ecker_hu_sn_ATACseq,U01 Ecker grant,2021Q1,humans,2,0,0,162166.0,162166.0,0,0
-ecker_hu_sn_ATACseq,U01 Ecker grant,2021Q3,humans,0,0,0,76998.0,76998.0,0,0
-ecker_hu_sn_ATACseq,U01 Ecker grant,2021Q4,humans,0,0,0,88167.0,88167.0,0,0
-ecker_hu_sn_ATACseq,U01 Ecker grant,2022Q1,humans,0,0,0,116918.0,116918.0,0,0
-ecker_hu_sn_ATACseq,U01 Ecker grant,2022Q2,humans,0,0,0,131103.0,131103.0,0,0
-ecker_hu_sn_ATACseq,U01 Ecker grant,2022Q3,humans,0,0,0,1012763.0,1012763.0,0,0
-ecker_hu_sn_mCseq,U01 Ecker grant,2020Q2,humans,2,0,0,5901.0,5901.0,0,0
-ecker_hu_sn_mCseq,U01 Ecker grant,2021Q2,humans,2,0,0,33660.0,33660.0,0,0
-ecker_hu_sn_mCseq,U01 Ecker grant,2021Q3,humans,0,0,0,31505.0,31505.0,0,0
-ecker_hu_sn_mCseq,U01 Ecker grant,2021Q4,humans,0,0,0,28659.0,28659.0,0,0
-ecker_hu_sn_mCseq,U01 Ecker grant,2022Q2,humans,0,0,0,121377.0,121377.0,0,0
-ecker_hu_sn_mCseq,U01 Ecker grant,2022Q3,humans,0,0,0,101130.0,101130.0,0,0
-ecker_sn_ATACseq,U19 Ecker grant,2019Q1,mice,82,0,0,922876.0,922876.0,0,0
-ecker_sn_ATACseq,U19 Ecker grant,2019Q2,mice,14,0,0,171703.0,171703.0,0,0
-ecker_sn_ATACseq,U19 Ecker grant,2019Q3,mice,2,0,0,24481.0,24481.0,0,0
-ecker_sn_ATACseq,U19 Ecker grant,2019Q4,mice,10,0,0,124041.0,124041.0,0,0
-ecker_sn_ATACseq,U19 Ecker grant,2020Q1,mice,12,0,0,144284.0,144284.0,0,0
-ecker_sn_ATACseq,U19 Ecker grant,2020Q2,mice,12,0,0,146461.0,146461.0,0,0
-ecker_sn_ATACseq,U19 Ecker grant,2020Q3,mice,12,0,0,150344.0,150344.0,0,0
-ecker_sn_ATACseq,U19 Ecker grant,2020Q4,mice,10,0,0,124830.0,124830.0,0,0
-ecker_sn_ATACseq,U19 Ecker grant,2021Q1,mice,0,0,0,148365.0,148365.0,0,0
-ecker_sn_ATACseq,U19 Ecker grant,2021Q2,mice,12,0,0,149469.0,149469.0,0,0
-ecker_sn_ATACseq,U19 Ecker grant,2021Q3,mice,12,0,0,145758.0,145758.0,0,0
-ecker_sn_ATACseq,U19 Ecker grant,2021Q4,mice,10,0,0,122856.0,122856.0,0,0
-ecker_sn_ATACseq,U19 Ecker grant,2022Q1,mice,12,0,0,118243.0,118243.0,0,0
-ecker_sn_ATACseq,U19 Ecker grant,2022Q2,mice,0,0,0,451606.0,451606.0,0,0
-ecker_sn_mCseq,U19 Ecker grant,2019Q1,mice,49,0,0,56198.0,56198.0,0,0
-ecker_sn_mCseq,U19 Ecker grant,2019Q2,mice,36,0,0,42265.0,42265.0,0,0
-ecker_sn_mCseq,U19 Ecker grant,2019Q3,mice,13,0,0,15145.0,15145.0,0,0
-ecker_sn_mCseq,U19 Ecker grant,2019Q4,mice,10,0,0,11681.0,11681.0,0,0
-ecker_sn_mCseq,U19 Ecker grant,2020Q1,mice,12,0,0,15690.0,15690.0,0,0
-ecker_sn_mCseq,U19 Ecker grant,2020Q2,mice,12,0,0,15643.0,15643.0,0,0
-ecker_sn_mCseq,U19 Ecker grant,2020Q3,mice,12,0,0,17155.0,17155.0,0,0
-ecker_sn_mCseq,U19 Ecker grant,2020Q4,mice,10,0,0,14390.0,14390.0,0,0
-ecker_sn_mCseq,U19 Ecker grant,2021Q1,mice,0,0,0,17506.0,17506.0,0,0
-ecker_sn_mCseq,U19 Ecker grant,2021Q2,mice,12,0,0,17503.0,17503.0,0,0
-ecker_sn_mCseq,U19 Ecker grant,2021Q3,mice,12,0,0,18391.0,18391.0,0,0
-ecker_sn_mCseq,U19 Ecker grant,2021Q4,mice,12,0,0,18028.0,18028.0,0,0
-ecker_sn_mCseq,U19 Ecker grant,2022Q1,mice,18,0,0,19925.0,19925.0,0,0
-ecker_sn_mCseq,U19 Ecker grant,2022Q2,mice,0,0,0,39347.0,39347.0,0,0
-ecker_sn_mCseq,U19 Ecker grant,2022Q3,mice,0,0,0,21387.0,21387.0,0,0
-ecker_sn_mCseq_retro,U19 Ecker grant,2019Q1,mice,5,0,0,3613.0,3613.0,0,0
-ecker_sn_mCseq_retro,U19 Ecker grant,2019Q2,mice,17,0,0,24183.0,24183.0,0,0
-ecker_sn_mCseq_retro,U19 Ecker grant,2019Q4,mice,8,0,0,4608.0,4608.0,0,0
-ecker_sn_mCseq_retro,U19 Ecker grant,2020Q2,mice,20,0,0,4612.0,4612.0,0,0
-ecker_sn_mCseq_retro,U19 Ecker grant,2020Q3,mice,8,0,0,4214.0,4214.0,0,0
-ecker_sn_mCseq_retro,U19 Ecker grant,2020Q4,mice,6,0,0,4567.0,4567.0,0,0
-ecker_sn_mCseq_retro,U19 Ecker grant,2021Q2,mice,10,0,0,3697.0,3697.0,0,0
-ecker_sn_mCseq_retro,U19 Ecker grant,2021Q3,mice,8,0,0,4003.0,4003.0,0,0
-ecker_sn_mCseq_retro,U19 Ecker grant,2021Q4,mice,7,0,0,4558.0,4558.0,0,0
-ecker_sn_mCseq_retro,U19 Ecker grant,2022Q1,mice,4,0,0,4142.0,4142.0,0,0
-ecker_sn_mCseq_retro,U19 Ecker grant,2022Q2,mice,0,0,0,4225.0,4225.0,0,0
-ecker_sn_mCseq_retro,U19 Ecker grant,2022Q3,mice,0,0,0,5865.0,5865.0,0,0
-ecker_trio,U19 Ecker grant,2018Q3,mice,10,0,10.0,0,0,0,0
-ecker_trio,U19 Ecker grant,2018Q4,mice,5,0,5.0,0,0,0,0
-ecker_trio,U19 Ecker grant,2019Q1,mice,4,0,4.0,0,0,0,0
-ecker_trio,U19 Ecker grant,2019Q2,mice,4,0,8.0,0,0,0,0
-ecker_trio,U19 Ecker grant,2019Q3,mice,4,0,4.0,0,0,0,0
-ecker_trio,U19 Ecker grant,2019Q4,mice,4,0,4.0,0,0,0,0
-ecker_trio,U19 Ecker grant,2020Q1,mice,4,0,4.0,0,0,0,0
-ecker_trio,U19 Ecker grant,2021Q2,mice,5,0,5.0,0,0,0,0
-ecker_trio,U19 Ecker grant,2021Q3,mice,15,0,15.0,0,0,0,0
-ecker_trio,U19 Ecker grant,2021Q4,mice,0,0,9.0,0,0,0,0
-feng_fish,U01 Feng grant,2020Q1,marmoset,1,0,0,10.0,0,0,0
-feng_fish,U01 Feng grant,2020Q3,marmoset,1,0,0,10.0,0,0,0
-feng_fish,U01 Feng grant,2020Q4,marmoset,2,0,0,25.0,0,0,0
-feng_fish,U01 Feng grant,2021Q1,marmoset,2,0,0,56.0,0,0,0
-feng_fish,U01 Feng grant,2021Q2,marmoset,1,0,0,44.0,0,0,0
-feng_fish,U01 Feng grant,2021Q3,marmoset,2,0,0,78.0,0,0,0
-feng_fish,U01 Feng grant,2021Q4,marmoset,1,0,0,5.0,0,0,0
-feng_fish,U01 Feng grant,2022Q1,marmoset,1,0,0,39.0,0,0,0
-feng_fish,U01 Feng grant,2022Q2,marmoset,1,0,0,0.0,0,0,4.0
-feng_morph,U01 Feng grant,2020Q1,marmoset,2,0,0,10.0,0,0,0
-feng_morph,U01 Feng grant,2020Q3,marmoset,1,0,0,10.0,0,0,0
-feng_morph,U01 Feng grant,2020Q4,marmoset,2,0,0,25.0,0,0,0
-feng_sn_10xv3,U01 Feng grant,2020Q2,marmoset,1,0,0,83276.0,83276.0,0,0
-feng_sn_10xv3,U01 Feng grant,2020Q4,marmoset,2,0,0,103470.0,103470.0,0,0
-feng_sn_10xv3,U01 Feng grant,2021Q1,marmoset,1,0,0,80000.0,80000.0,0,0
-feng_sn_10xv3,U01 Feng grant,2021Q2,marmoset,1,0,0,78000.0,78000.0,0,0
-feng_sn_10xv3,U01 Feng grant,2021Q3,marmoset,2,0,0,95789.0,95789.0,0,0
-feng_sn_10xv3,U01 Feng grant,2021Q4,marmoset,2,0,0,69400.0,69400.0,0,0
-feng_sn_10xv3,U01 Feng grant,2022Q1,marmoset,1,0,0,4.0,4.0,0,0
-feng_sn_10xv3,U01 Feng grant,2022Q2,marmoset,3,0,0,80000.0,80000.0,0,0
-feng_sn_dropseq,U01 Feng grant,2018Q4,marmoset,2,0,0,121350.0,121350.0,0,0
-feng_sn_dropseq,U01 Feng grant,2019Q1,marmoset,2,0,0,48345.0,48345.0,0,0
-feng_sn_dropseq,U01 Feng grant,2019Q3,marmoset,3,0,0,467442.0,467442.0,0,0
-feng_sn_dropseq,U01 Feng grant,2019Q4,marmoset,3,0,0,197230.0,197230.0,0,0
-fischl_lsfm,U01 Fischl grant,2021Q1,humans,1,0,0,0,0,0,29.0
-fischl_lsfm,U01 Fischl grant,2021Q3,humans,1,0,0,0,0,0,49.0
-fischl_lsfm,U01 Fischl grant,2022Q3,humans,1,0,0,0,0,0,40.0
-fischl_mri,U01 Fischl grant,2021Q1,humans,8,0,0,0,0,0,8.0
-fischl_mri,U01 Fischl grant,2021Q2,humans,1,0,0,0,0,0,1.0
-fischl_mri,U01 Fischl grant,2021Q3,humans,3,0,0,0,0,0,3.0
-fischl_mri,U01 Fischl grant,2022Q3,humans,2,0,0,0,0,0,2.0
-fischl_oct,U01 Fischl grant,2021Q1,humans,3,0,0,0,0,0,78.0
-fischl_oct,U01 Fischl grant,2021Q2,humans,1,0,0,0,0,0,50.0
-fischl_oct,U01 Fischl grant,2021Q4,humans,1,0,0,0,0,0,52.0
-fischl_oct,U01 Fischl grant,2022Q2,humans,1,0,0,0,0,0,40.0
-fischl_stereology,U01 Fischl grant,2021Q1,humans,1,0,0,0,0,0,16.0
-fischl_stereology,U01 Fischl grant,2022Q2,humans,1,0,0,0,0,0,4.0
-fischl_stereology,U01 Fischl grant,2022Q3,humans,1,0,0,0,0,0,8.0
-huang_antero,U19 Huang grant,2018Q3,mice,8,0,8.0,0,0,0,0
-huang_antero,U19 Huang grant,2019Q1,mice,8,0,8.0,0,0,0,0
-huang_antero,U19 Huang grant,2019Q3,mice,8,0,8.0,0,0,0,0
-huang_antero,U19 Huang grant,2019Q4,mice,8,0,8.0,0,0,0,0
-huang_antero,U19 Huang grant,2020Q1,mice,11,0,11.0,0,0,0,0
-huang_antero,U19 Huang grant,2021Q2,mice,6,0,6.0,0,0,0,0
-huang_antero,U19 Huang grant,2021Q3,mice,4,0,4.0,0,0,0,0
-huang_ccf4_hist,U19 Huang grant,2022Q2,mice,1,0,1.0,0,0,0,0
-huang_ccf4_mri,U19 Huang grant,2022Q2,mice,1,0,1.0,0,0,0,0
-huang_dev_cx_scATAC,U19 Huang grant,2021Q2,mice,0,0,0,8016.0,8016.0,0,0
-huang_dev_cx_scATAC,U19 Huang grant,2021Q3,mice,0,0,0,9541.0,9541.0,0,0
-huang_dev_cx_scRNA,U19 Huang grant,2021Q2,mice,0,0,0,19544.0,0,0,0
-huang_dev_cx_scRNA,U19 Huang grant,2021Q3,mice,0,0,0,22376.0,0,0,0
-huang_dev_cx_scRNA,U19 Huang grant,2021Q4,mice,0,0,0,22680.0,0,0,0
-huang_fmost,U19 Huang grant,2020Q4,mice,111,0,111.0,0,0,0,0
-huang_fmost,U19 Huang grant,2021Q2,mice,53,0,53.0,0,0,0,0
-huang_fmost,U19 Huang grant,2021Q3,mice,28,0,28.0,0,0,0,0
-huang_fmost_cells,U19 Huang grant,2021Q2,mice,39,0,0,467.0,0,0,0
-huang_fmost_cells,U19 Huang grant,2021Q3,mice,0,0,0,99.0,0,0,0
-huang_input_conn,U19 Huang grant,2021Q1,mice,0,0,5.0,0,0,0,0
-huang_pn_bulk_SSv4,U19 Huang grant,2019Q4,mice,0,0,0,0,0,0,0
-huang_pn_bulk_SSv4,U19 Huang grant,2020Q1,mice,0,0,0,0,0,0,0
-huang_pn_sn_10xv2,U19 Huang grant,2019Q4,mice,0,0,0,83076.0,83076.0,0,0
-huang_pn_sn_10xv2,U19 Huang grant,2020Q1,mice,0,0,0,23017.0,23017.0,0,0
-huang_pn_sn_10xv3,U19 Huang grant,2020Q4,mice,0,0,0,99075.0,99075.0,0,0
-huang_pn_sn_10xv3,U19 Huang grant,2021Q1,mice,0,0,0,58621.0,58621.0,0,0
-huang_retro,U19 Huang grant,2019Q1,mice,12,0,12.0,0,0,0,0
-huang_retro,U19 Huang grant,2019Q3,mice,12,0,12.0,0,0,0,0
-huang_retro,U19 Huang grant,2019Q4,mice,12,0,12.0,0,0,0,0
-huang_retro,U19 Huang grant,2020Q1,mice,9,0,9.0,0,0,0,0
-huang_retro,U19 Huang grant,2021Q2,mice,5,0,5.0,0,0,0,0
-huang_retro,U19 Huang grant,2021Q3,mice,4,0,4.0,0,0,0,0
-huang_sn_10xv2,U19 Huang grant,2018Q3,mice,8,0,0,307420.0,307420.0,0,0
-huang_sn_10xv2,U19 Huang grant,2018Q4,mice,9,0,0,100004.0,100004.0,0,0
-huang_sn_10xv2,U19 Huang grant,2019Q1,mice,7,0,0,61752.0,61752.0,0,0
-huang_sn_10xv3,U19 Huang grant,2019Q1,mice,3,0,0,107272.0,107272.0,0,0
-huang_sn_10xv3,U19 Huang grant,2019Q2,mice,16,0,0,1134137.0,1134137.0,0,0
-huang_sn_10xv3,U19 Huang grant,2019Q3,mice,4,0,0,408101.0,408101.0,0,0
-huang_sn_10xv3,U19 Huang grant,2019Q4,mice,12,0,0,566462.0,566462.0,0,0
-huang_sn_10xv3,U19 Huang grant,2020Q1,mice,2,0,0,103211.0,103211.0,0,0
-huang_sn_10xv3,U19 Huang grant,2020Q4,mice,8,0,0,996134.0,996134.0,0,0
-huang_sn_10xv3,U19 Huang grant,2021Q2,mice,11,0,0,2161948.0,2161948.0,0,0
-huang_sn_10xv3,U19 Huang grant,2021Q3,mice,8,0,0,1047694.0,1047694.0,0,0
-huang_sn_10xv3,U19 Huang grant,2022Q2,mice,0,0,0,19788.0,19788.0,0,0
-huang_sn_10xv3,U19 Huang grant,2022Q3,mice,0,0,0,19783.0,19783.0,0,0
-huang_stpt_conn,U19 Huang grant,2018Q3,mice,0,0,22.0,0,0,0,0
-huang_stpt_conn,U19 Huang grant,2018Q4,mice,0,0,28.0,0,0,0,0
-huang_stpt_conn,U19 Huang grant,2019Q1,mice,0,0,28.0,0,0,0,0
-huang_stpt_conn,U19 Huang grant,2019Q2,mice,0,0,40.0,0,0,0,0
-huang_stpt_conn,U19 Huang grant,2019Q3,mice,0,0,30.0,0,0,0,0
-huang_stpt_conn,U19 Huang grant,2019Q4,mice,0,0,25.0,0,0,0,0
-huang_stpt_conn,U19 Huang grant,2020Q1,mice,0,0,33.0,0,0,0,0
-huang_stpt_conn,U19 Huang grant,2020Q2,mice,0,0,5.0,0,0,0,0
-huang_stpt_conn,U19 Huang grant,2021Q1,mice,0,0,21.0,0,0,0,0
-huang_stpt_count,U19 Huang grant,2018Q3,mice,0,0,27.0,0,0,0,0
-huang_stpt_count,U19 Huang grant,2018Q4,mice,0,0,9.0,0,0,0,0
-huang_stpt_count,U19 Huang grant,2021Q1,mice,0,0,22.0,0,0,0,0
-human_cortex_SS4_Open_GRU,multi-grant,2020Q4,humans,3,0,0,9822.0,9822.0,0,0
-human_cortex_SS4_restricted_GRU,multi-grant,2020Q4,humans,7,0,0,101376.0,101376.0,0,0
-human_cortex_SS4_restricted_limited,multi-grant,2020Q4,humans,1,0,0,416.0,416.0,0,0
-kriegstein_sc_10xv2,U01 Kriegstein grant,2018Q4,humans,10,0,0,593921.0,0,0,0
-kriegstein_sc_10xv2,U01 Kriegstein grant,2019Q4,humans,4,0,0,36331.0,0,0,0
-kriegstein_sc_10xv2,U01 Kriegstein grant,2020Q1,humans,4,0,0,106257.0,0,0,0
-kriegstein_sc_10xv3,U01 Kriegstein grant,2019Q4,humans,1,0,0,113415.0,0,0,0
-kriegstein_sc_10xv3,U01 Kriegstein grant,2020Q3,humans,1,0,0,145600.0,0,0,0
-kriegstein_sc_ATACseq,U01 Kriegstein grant,2019Q2,humans,5,0,0,86904.0,86904.0,0,0
-kriegstein_sc_ATACseq,U01 Kriegstein grant,2019Q4,humans,6,0,0,69430.0,69430.0,0,0
-kriegstein_sc_ATACseq,U01 Kriegstein grant,2021Q3,humans,8,0,0,59405.0,59405.0,0,0
-kriegstein_sc_multiome,U01 Kriegstein grant,2022Q2,humans,21,0,0,169362.0,169362.0,0,0
-kriegstein_sc_multiome,U01 Kriegstein grant,2022Q3,humans,1,0,0,20720.0,20720.0,0,0
-kriegstein_sn_10xv2,U01 Kriegstein grant,2018Q4,humans,34,0,0,196287.0,196287.0,0,0
-kriegstein_sn_10xv2,U01 Kriegstein grant,2019Q1,humans,13,0,0,92512.0,92512.0,0,0
-kriegstein_sn_10xv2,U01 Kriegstein grant,2019Q2,humans,6,0,0,219822.0,219822.0,0,0
-kriegstein_sn_10xv2,U01 Kriegstein grant,2020Q4,humans,52,0,0,1315186.0,1315186.0,0,0
-kriegstein_spatial,U01 Kriegstein grant,2022Q3,humans,3,0,0,0,0,0,3.0
-lein_L5_pseq_t,U01 Lein grant,2021Q3,humans,11,0,0,25.0,25.0,0,0
-lein_evo_10x_arcticgroundsquirrel,U01 Lein grant,2021Q2,small mammals,0,0,0,0,0,11.0,11.0
-lein_evo_10x_armadillo,U01 Lein grant,2021Q2,small mammals,0,0,0,0,0,12.0,12.0
-lein_evo_10x_cat,U01 Lein grant,2021Q3,small mammals,3,0,0,135228.0,135228.0,0,0
-lein_evo_10x_chimp,U01 Lein grant,2021Q2,primates,0,0,0,0,0,12.0,12.0
-lein_evo_10x_ferret,U01 Lein grant,2021Q2,small mammals,0,0,0,0,0,12.0,12.0
-lein_evo_10x_galago,U01 Lein grant,2021Q3,primates,2,0,0,132956.0,132956.0,0,0
-lein_evo_10x_gorilla,U01 Lein grant,2021Q2,primates,0,0,0,0,0,14.0,14.0
-lein_evo_10x_greenmonkey,U01 Lein grant,2021Q2,primates,0,0,0,0,0,12.0,12.0
-lein_evo_10x_nemestrina,U01 Lein grant,2021Q2,primates,0,0,0,0,0,12.0,12.0
-lein_evo_10x_opposum,U01 Lein grant,2021Q2,small mammals,0,0,0,0,0,12.0,12.0
-lein_evo_10x_owlmonkey,U01 Lein grant,2021Q2,primates,0,0,0,0,0,12.0,12.0
-lein_evo_10x_pig,U01 Lein grant,2021Q3,small mammals,4,0,0,114075.0,114075.0,0,0
-lein_evo_10x_rabbit,U01 Lein grant,2021Q2,small mammals,0,0,0,0,0,13.0,13.0
-lein_evo_10x_rat,U01 Lein grant,2021Q2,small mammals,0,0,0,0,0,12.0,12.0
-lein_evo_10x_rhesus,U01 Lein grant,2021Q2,primates,0,0,0,0,0,13.0,13.0
-lein_evo_10x_treeshrew,U01 Lein grant,2021Q3,small mammals,5,0,0,139650.0,139650.0,0,0
-lein_evo_Iso_Seq_arctic_ground_squirrel,U01 Lein grant,2022Q1,small mammals,1,0,0,0,0,0,1.0
-lein_evo_Iso_Seq_armadillo,U01 Lein grant,2022Q1,small mammals,1,0,0,0,0,0,1.0
-lein_evo_Iso_Seq_greenmonkey,U01 Lein grant,2022Q1,primates,1,0,0,0,0,0,1.0
-lein_evo_Iso_Seq_nemestrina,U01 Lein grant,2022Q1,primates,1,0,0,0,0,0,1.0
-lein_evo_Iso_Seq_opossum,U01 Lein grant,2022Q1,small mammals,1,0,0,0,0,0,1.0
-lein_evo_Iso_Seq_squirrel_monkey,U01 Lein grant,2022Q1,primates,1,0,0,0,0,0,1.0
-lein_human_pseq_e,U01 Lein grant,2021Q3,humans,0,0,0,717.0,0,0,0
-lein_human_pseq_e,U01 Lein grant,2021Q4,humans,0,0,0,0.0,0,0,0
-lein_human_pseq_e,U01 Lein grant,2022Q1,humans,32,0,0,91.0,0,0,0
-lein_human_pseq_e,U01 Lein grant,2022Q2,humans,0,0,0,36.0,0,0,0
-lein_human_pseq_m,U01 Lein grant,2021Q3,humans,0,0,0,108.0,0,0,0
-lein_human_pseq_m,U01 Lein grant,2021Q4,humans,0,0,0,0.0,0,0,0
-lein_human_pseq_m,U01 Lein grant,2022Q1,humans,0,0,0,22.0,0,0,0
-lein_human_pseq_m,U01 Lein grant,2022Q2,humans,0,0,0,529.0,0,0,0
-lein_human_pseq_m,U01 Lein grant,2022Q3,humans,11,0,0,14.0,0,0,0
-lein_human_pseq_t,U01 Lein grant,2021Q3,humans,0,0,0,717.0,0,0,0
-lein_human_pseq_t,U01 Lein grant,2021Q4,humans,0,0,0,0.0,0,0,0
-lein_human_pseq_t,U01 Lein grant,2022Q1,humans,32,0,0,91.0,0,0,0
-lein_human_pseq_t,U01 Lein grant,2022Q2,humans,0,0,0,36.0,0,0,0
-lein_sn_10xv2,U01 Lein grant,2019Q1,humans,1,0,0,115021.0,115021.0,0,0
-lein_sn_10xv2,U01 Lein grant,2019Q3,humans,1,0,0,65745.0,65745.0,0,0
-lein_sn_10xv3,U01 Lein grant,2019Q3,humans,1,0,0,915985.0,915985.0,0,0
-lein_sn_10xv3,U01 Lein grant,2020Q1,humans,3,0,0,504559.0,504559.0,0,0
-lein_sn_10xv3,U01 Lein grant,2020Q3,humans,2,0,0,223688.0,223688.0,0,0
-lein_sn_10xv3,U01 Lein grant,2020Q4,humans,2,0,0,65198.0,65198.0,0,0
-lein_sn_10xv3,U01 Lein grant,2021Q3,humans,2,0,0,525793.0,525793.0,0,0
-lein_sn_10xv3,U01 Lein grant,2022Q1,humans,2,0,0,869816.0,869816.0,0,0
-lein_sn_SSv4,U01 Lein grant,2019Q1,humans,2,0,0,4481.0,4481.0,0,0
-lein_sn_SSv4,U01 Lein grant,2021Q2,humans,2,0,0,240502.0,240502.0,0,0
-lein_sn_hippocampus,U01 Lein grant,2021Q3,humans,3,0,0,0,0,10708.0,10708.0
-macosko_bg_multiome_atac_human,U01 Macosko grant,2022Q1,humans,5,0,0,0,0,58879.0,58879.0
-macosko_bg_multiome_atac_human,U01 Macosko grant,2022Q2,humans,5,0,0,520861.0,520861.0,0.0,0.0
-macosko_bg_multiome_atac_macaque,U01 Macosko grant,2022Q1,primates,2,0,0,0,0,65866.0,65866.0
-macosko_bg_multiome_gex_human,U01 Macosko grant,2022Q1,humans,5,0,0,0,0,33119.0,33119.0
-macosko_bg_multiome_gex_human,U01 Macosko grant,2022Q2,humans,5,0,0,474524.0,474524.0,0.0,0.0
-macosko_bg_multiome_gex_macaque,U01 Macosko grant,2022Q1,primates,1,0,0,0,0,25506.0,25506.0
-macosko_bg_shareseq_macaque,U01 Macosko grant,2021Q3,primates,1,0,0,14000.0,14000.0,0,0
-macosko_bg_slideseq_histologydataset_human,U01 Macosko grant,2021Q4,humans,7,0,0,0,0,0,17.0
-macosko_bg_slideseq_histologydataset_macaque,U01 Macosko grant,2021Q3,primates,2,0,0,0,0,0,12.0
-macosko_bg_slideseq_human,U01 Macosko grant,2022Q1,humans,7,0,0,821968.0,0,0,0
-macosko_bg_slideseq_macaque,U01 Macosko grant,2021Q3,primates,3,0,0,2209973.0,0,0,0
-macosko_mouse_slideseq_histologydataset,RF1 Macosko grant,2021Q3,mice,3,0,0,0,0,0,6.0
-macosko_mouse_slideseq_histologydataset,RF1 Macosko grant,2021Q4,mice,1,0,0,0,0,0,16.0
-macosko_mouse_slideseq_histologydataset,RF1 Macosko grant,2022Q1,mice,1,0,0,0,0,0,114.0
-macosko_mouse_slideseq_slideseqdataset,RF1 Macosko grant,2021Q3,mice,4,0,0,2485466.0,0,0,0
-macosko_mouse_slideseq_slideseqdataset,RF1 Macosko grant,2021Q4,mice,1,0,0,3162707.0,0,0,0
-macosko_mouse_slideseq_slideseqdataset,RF1 Macosko grant,2022Q1,mice,1,0,0,13122200.0,0,0,0
-mop_evo_pseq_hu_t,U01 Lein grant,2021Q2,humans,1,0,0,4.0,4.0,0,0
-mop_evo_pseq_hu_t,U01 Lein grant,2021Q3,humans,1,0,0,4.0,4.0,0,0
-nowakowski_evobc,RF1 Nowakowski grant,2020Q4,mice,1,0,0,20424.0,0,0,0
-nowakowski_evobc,RF1 Nowakowski grant,2021Q4,mice,1,0,0,9304.0,9304.0,0,0
-nowakowski_evobc,RF1 Nowakowski grant,2022Q1,mice,3,0,0,60391.0,60391.0,0,0
-nowakowski_pndev_10xv3,RF1 Nowakowski grant,2021Q1,mice,1,0,0,124580.0,0,0,0
-osten_ls,U01 Osten grant,2022Q2,mice,12,0,12.0,0,0,0,0
-osten_stpt,U01 Osten grant,2018Q3,mice,107,0,107.0,0,0,0,0
-osten_stpt,U01 Osten grant,2018Q4,mice,53,0,53.0,0,0,0,0
-osten_stpt,U01 Osten grant,2019Q1,mice,44,0,44.0,0,0,0,0
-osten_stpt,U01 Osten grant,2019Q2,mice,30,0,30.0,0,0,0,0
-osten_stpt,U01 Osten grant,2019Q3,mice,21,0,22.0,0,0,0,0
-osten_stpt,U01 Osten grant,2019Q4,mice,30,0,30.0,0,0,0,0
-osten_stpt,U01 Osten grant,2020Q1,mice,28,0,28.0,0,0,0,0
-osten_stpt,U01 Osten grant,2020Q2,mice,34,0,35.0,0,0,0,0
-osten_stpt,U01 Osten grant,2020Q3,mice,44,0,44.0,0,0,0,0
-sestan_multiome_10x_human,U01 Sestan grant,2022Q2,humans,2,0,0,7367.0,7367.0,0,0
-sestan_multiome_10x_human,U01 Sestan grant,2022Q3,humans,6,0,0,124164.0,124164.0,0,0
-sestan_multiome_10x_nhp,U01 Sestan grant,2022Q2,multi-species,2,0,0,88347.0,88347.0,0,0
-sestan_multiome_10x_nhp,U01 Sestan grant,2022Q3,multi-species,1,0,0,63682.0,63682.0,0,0
-sestan_multiome_10x_nhp,U01 Sestan grant,2022Q3,multi-species,2,0,0,63682.0,63682.0,0,0
-sestan_multiome_10x_nhp,U01 Sestan grant,2022Q3,multi-species,4,0,0,63682.0,63682.0,0,0
-sestan_sc_10xv2_nhp_dev,U01 Sestan grant,2022Q1,primates,8,0,0,226237.0,0,0,0
-sestan_sc_10xv3_nhp_dev,U01 Sestan grant,2022Q1,primates,1,0,0,45075.0,0,0,0
-sestan_sn_10xv3_human,U01 Sestan grant,2021Q4,humans,6,0,0,219058.0,219058.0,0,0
-sestan_sn_10xv3_human_pfc,U01 Sestan grant,2021Q4,humans,4,0,0,171997.0,171997.0,0,0
-sestan_sn_10xv3_nhp_adult,U01 Sestan grant,2021Q4,multi-species,3,0,0,36107.0,36107.0,0,0
-sestan_sn_10xv3_nhp_adult,U01 Sestan grant,2022Q1,multi-species,3,0,0,48734.0,48734.0,0,0
-sestan_sn_10xv3_nhp_adult_pfc,U01 Sestan grant,2021Q4,multi-species,4,0,0,1315797.0,1315797.0,0,0
-sestan_sn_10xv3_pig,U01 Sestan grant,2021Q4,small mammals,9,0,0,97436.0,97436.0,0,0
-snyder-mackler_macaque_scATAC,U01 Snyder-Mackler grant,2022Q1,primates,0,0,0,110.0,110.0,0,0
-snyder-mackler_macaque_scRNA,U01 Snyder-Mackler grant,2021Q3,primates,0,0,0,70.0,70.0,0,0
-tasic_ATACseq,RF1 Tasic grant,2020Q2,mice,8,0,0,221.0,0,0,0
-tasic_sc_SSv4,multi-grant,2021Q4,mice,34,0,0,5925.0,0,0,0
-tasic_sc_SSv4,multi-grant,2022Q3,mice,101,0,0,288.0,288.0,0,0
-tasic_sc_SSv4,multi-grant,2022Q3,mice,101,0,0,13929.0,0,0,0
-tasic_stpt,multi-grant,2020Q2,mice,22,0,66.0,0,0,0,0
-tasic_stpt,multi-grant,2021Q2,mice,18,0,54.0,0,0,0,0
-tasic_stpt,multi-grant,2021Q3,mice,70,0,210.0,0,0,0,0
-tasic_stpt,multi-grant,2021Q4,mice,20,0,60.0,0,0,0,0
-tasic_stpt,multi-grant,2022Q1,mice,27,0,81.0,0,0,0,0
-tasic_stpt,multi-grant,2022Q2,mice,37,0,111.0,0,0,0,0
-tasic_stpt,multi-grant,2022Q3,mice,0,0,87.0,0,0,0,0
-tilgner_sc_ONT,RF1 Tilgner grant,2021Q4,mice,8,0,0,189503.0,0,0,0
-tilgner_sc_pb,RF1 Tilgner grant,2021Q1,mice,0,0,0,38311.0,0,0,0
-tilgner_sc_pb,RF1 Tilgner grant,2021Q4,mice,2,0,0,48501.0,0,0,0
-yang_MORF_confocal,U01 Yang grant,2019Q1,mice,1,0,0,0,0,0,1.0
-yang_MORF_confocal,U01 Yang grant,2019Q2,mice,1,0,0,0,0,0,1.0
-yang_MORF_confocal,U01 Yang grant,2019Q3,mice,3,0,0,0,0,0,3.0
-yang_MORF_confocal,U01 Yang grant,2019Q4,mice,2,0,0,0,0,0,2.0
-yang_MORF_confocal,U01 Yang grant,2020Q2,mice,3,0,0,0,0,0,3.0
-yang_MORF_confocal,U01 Yang grant,2020Q3,mice,4,0,0,0,0,0,4.0
-yang_MORF_confocal,U01 Yang grant,2020Q4,mice,2,0,0,0,0,0,2.0
-yang_MORF_confocal,U01 Yang grant,2021Q2,mice,6,0,0,0,0,0,6.0
-yang_MORF_confocal,U01 Yang grant,2021Q3,mice,4,0,0,0,0,0,4.0
-yang_MORF_confocal,U01 Yang grant,2021Q4,mice,3,0,0,0,0,0,3.0
-yang_MORF_confocal,U01 Yang grant,2022Q1,mice,4,0,0,0,0,0,4.0
-yang_MORF_confocal,U01 Yang grant,2022Q3,mice,3,0,0,0,0,0,2.0
-yang_MORF_confocal,U01 Yang grant,2022Q3,mice,3,0,0,0,0,0,0.0
-yang_morf_cells,U01 Yang grant,2020Q4,mice,1,0,0,238.0,0,0,0
-yang_morf_cells,U01 Yang grant,2021Q2,mice,2,0,0,1719.0,0,0,0
-yang_morf_cells,U01 Yang grant,2021Q3,mice,4,0,0,745.0,0,0,0
-yang_morf_cells,U01 Yang grant,2021Q4,mice,1,0,0,34.0,0,0,0
-yang_morf_cells,U01 Yang grant,2022Q1,mice,2,0,0,1021.0,0,0,0
-yang_morf_cells,U01 Yang grant,2022Q3,mice,1,0,0,90.0,0,0,0
-zeng_anderson_sc_10xv2,U19 Zeng grant,2019Q3,mice,0,0,0,168877.0,0,0,0
-zeng_anderson_sc_10xv3,U19 Zeng grant,2021Q4,mice,0,0,0,226798.0,0,0,0
-zeng_fmost,U19 Zeng grant,2019Q1,mice,16,0,16.0,0,0,0,0
-zeng_fmost,U19 Zeng grant,2019Q3,mice,13,0,13.0,0,0,0,0
-zeng_fmost,U19 Zeng grant,2019Q4,mice,19,0,19.0,0,0,0,0
-zeng_fmost,U19 Zeng grant,2020Q1,mice,2,0,2.0,0,0,0,0
-zeng_fmost,U19 Zeng grant,2020Q4,mice,1,0,1.0,0,0,0,0
-zeng_fmost,U19 Zeng grant,2021Q1,mice,86,0,86.0,0,0,0,0
-zeng_fmost,U19 Zeng grant,2021Q2,mice,2,0,2.0,0,0,0,0
-zeng_fmost,U19 Zeng grant,2021Q3,mice,8,0,8.0,0,0,0,0
-zeng_fmost_cells,U19 Zeng grant,2020Q4,mice,32,0,0,1660.0,0,0,0
-zeng_fmost_cells,U19 Zeng grant,2021Q3,mice,9,0,0,81.0,0,0,0
-zeng_mouselight,U19 Zeng grant,2019Q4,mice,1,0,1.0,0,0,0,0
-zeng_retro,U19 Zeng grant,2019Q1,mice,330,0,330.0,0,0,0,0
-zeng_retro,U19 Zeng grant,2019Q2,mice,23,0,23.0,0,0,0,0
-zeng_retro,U19 Zeng grant,2019Q3,mice,58,0,58.0,0,0,0,0
-zeng_retro,U19 Zeng grant,2019Q4,mice,47,0,47.0,0,0,0,0
-zeng_retro,U19 Zeng grant,2020Q2,mice,22,0,22.0,0,0,0,0
-zeng_retro,U19 Zeng grant,2020Q3,mice,192,0,192.0,0,0,0,0
-zeng_retro,U19 Zeng grant,2021Q1,mice,69,0,69.0,0,0,0,0
-zeng_retro,U19 Zeng grant,2021Q2,mice,5,0,5.0,0,0,0,0
-zeng_retro,U19 Zeng grant,2021Q3,mice,196,0,196.0,0,0,0,0
-zeng_retro,U19 Zeng grant,2021Q4,mice,8,0,8.0,0,0,0,0
-zeng_retro,U19 Zeng grant,2022Q1,mice,44,0,44.0,0,0,0,0
-zeng_sc_10xv2,U19 Zeng grant,2019Q2,mice,6,0,0,174669.0,0,0,0
-zeng_sc_10xv2,U19 Zeng grant,2020Q4,mice,89,0,0,2285084.0,0,0,0
-zeng_sc_10xv2,U19 Zeng grant,2022Q1,mice,3,0,0,59335.0,0,0,0
-zeng_sc_10xv3,U19 Zeng grant,2019Q2,mice,4,0,0,216103.0,0,0,0
-zeng_sc_10xv3,U19 Zeng grant,2020Q2,mice,6,0,0,218908.0,0,0,0
-zeng_sc_10xv3,U19 Zeng grant,2020Q4,mice,39,0,0,880514.0,0,0,0
-zeng_sc_10xv3,U19 Zeng grant,2021Q4,mice,102,0,0,1874773.0,0,0,0
-zeng_sc_10xv3,U19 Zeng grant,2022Q1,mice,91,0,0,1560503.0,0,0,0
-zeng_sc_SSv4,U19 Zeng grant,2019Q1,mice,495,0,0,66892.0,0,0,0
-zeng_sc_SSv4,U19 Zeng grant,2019Q2,mice,28,0,0,12005.0,0,0,0
-zeng_sc_SSv4,U19 Zeng grant,2019Q4,mice,93,0,0,20163.0,0,0,0
-zeng_sc_SSv4,U19 Zeng grant,2020Q2,mice,29,0,0,11398.0,0,0,0
-zeng_sc_SSv4,U19 Zeng grant,2020Q3,mice,12,0,0,989.0,0,0,0
-zeng_sc_SSv4,U19 Zeng grant,2020Q4,mice,143,0,0,45916.0,0,0,0
-zeng_sc_SSv4,U19 Zeng grant,2021Q4,mice,478,0,0,49813.0,0,0,0
-zeng_sc_SSv4,U19 Zeng grant,2022Q2,mice,71,0,0,1998.0,0,0,0
-zeng_sn_10xv2,U19 Zeng grant,2020Q4,mice,3,0,0,90902.0,90902.0,0,0
-zeng_sn_10xv2,U19 Zeng grant,2022Q1,mice,2,0,0,488015.0,488015.0,0,0
-zeng_sn_10xv3,U19 Zeng grant,2020Q4,mice,1,0,0,90382.0,90382.0,0,0
-zeng_sn_10xv3,U19 Zeng grant,2022Q1,mice,1,0,0,7025.0,7025.0,0,0
-zeng_sn_SSv4,U19 Zeng grant,2019Q1,mice,10,0,0,6816.0,6816.0,0,0
-zeng_sn_SSv4,U19 Zeng grant,2021Q4,mice,16,0,0,8741.0,8741.0,0,0
-zeng_tolias_pseq_e,U19 Zeng grant,2020Q1,mice,263,0,0,1320.0,0,0,0
-zeng_tolias_pseq_m,U19 Zeng grant,2020Q1,mice,263,0,0,1320.0,0,0,0
-zeng_tolias_pseq_t,U19 Zeng grant,2020Q1,mice,263,0,0,1320.0,1320.0,0,0
-zhangK_cj_snareseq_AC,U01 ZhangKun grant,2019Q4,marmoset,2,0,0,10780.0,10780.0,0,0
-zhangK_cj_snareseq_R,U01 ZhangKun grant,2019Q4,marmoset,2,0,0,12232.0,12232.0,0,0
-zhangK_hs_snareseq_AC,U01 ZhangKun grant,2019Q4,humans,2,0,0,159166.0,159166.0,0,0
-zhangK_hs_snareseq_AC,U01 ZhangKun grant,2021Q4,humans,3,0,0,0.0,0.0,0,0
-zhangK_hs_snareseq_R,U01 ZhangKun grant,2019Q4,humans,2,0,0,170224.0,170224.0,0,0
-zhangK_hs_snareseq_R,U01 ZhangKun grant,2021Q4,humans,3,0,0,0.0,0.0,0,0
-zhangl_anatomy,U01 ZhangLi grant,2020Q2,mice,0,0,0,0,0,0,0
-zhangl_anatomy,U01 ZhangLi grant,2021Q2,mice,0,0,0,0,0,0,0
-zhangl_anatomy,U01 ZhangLi grant,2022Q1,mice,0,0,0,0,0,0,0
-zhangl_ephys,U01 ZhangLi grant,2022Q1,mice,0,0,0,25.0,0,0,0
-zhangl_kz_omics,U01 ZhangLi grant,2021Q1,mice,0,0,0,23190.0,23190.0,0,0
-zhangl_kz_omics,U01 ZhangLi grant,2021Q2,mice,0,0,0,186.0,186.0,0,0
-zhangl_kz_omics,U01 ZhangLi grant,2021Q4,mice,0,0,0,10112.0,10112.0,0,0
-zhangl_kz_omics,U01 ZhangLi grant,2022Q1,mice,0,0,0,53486.0,53486.0,0,0
-zhangl_seqfish,U01 ZhangLi grant,2020Q1,mice,0,0,0,0,0,0,2.0
-zhangl_seqfish,U01 ZhangLi grant,2021Q2,mice,0,0,0,0,0,0,2.0
-zhangl_seqfish,U01 ZhangLi grant,2022Q1,mice,0,0,0,0,0,0,2.0
-zhuang_dulac_merfish_HYP_1,U19 Huang grant,2022Q1,mice,0,0,0,0,0,0,200.0
-zhuang_dulac_merfish_HYP_2,U19 Huang grant,2022Q2,mice,0,0,0,0,0,0,1.0
-zhuang_dulac_merfish_MOB,U19 Zeng grant,2021Q3,mice,0,0,0,0,0,0,355.0
-zhuang_dulac_merfish_MOE,U19 Zeng grant,2021Q1,mice,0,0,0,3300000.0,0,0,0
-zhuang_dulac_merfish_PAG,U19 Huang grant,2020Q2,mice,0,0,0,2900000.0,0,0,0
-zhuang_dulac_merfish_PAG_2,U19 Huang grant,2021Q2,mice,0,0,0,2900000.0,0,0,0
-zhuang_merfish_M1,multi-grant,2020Q1,mice,0,0,0,600000.0,0,0,0
-zhuang_merfish_NAc,U19 Huang grant,2021Q1,mice,0,0,0,750000.0,0,0,0
+data_collection_reference_id,grant_reference_id,quarters,species,modality,technique,donor_count,subspecimen_type,brain_count,cell_count,library_count,tissue_region_count
+chung_lsfm,U01 Chung grant,2021Q4,humans,imaging,light sheet microscopy,0,0,0,0,0,79.0
+chung_lsfm,U01 Chung grant,2022Q2,humans,imaging,light sheet microscopy,0,0,0,0,0,41.0
+chung_lsfm,U01 Chung grant,2022Q3,humans,imaging,light sheet microscopy,0,0,0,0,0,32.0
+dev_mouse_brain_lsfm,RF1 Kim grant,2021Q3,mice,imaging,light sheet microscopy,0,0,117.0,0,0,0
+dev_mouse_brain_lsfm,RF1 Kim grant,2021Q4,mice,imaging,light sheet microscopy,27,0,0.0,0,0,0
+dev_mouse_brain_lsfm,RF1 Kim grant,2022Q1,mice,imaging,light sheet microscopy,26,0,68.0,0,0,0
+dev_mouse_brain_lsfm,RF1 Kim grant,2022Q2,mice,imaging,light sheet microscopy,70,0,193.0,0,0,0
+dev_mouse_brain_lsfm,RF1 Kim grant,2022Q2,mice,imaging,stpt,20,0,193.0,0,0,0
+dev_mouse_brain_lsfm,RF1 Kim grant,2022Q3,mice,imaging,light sheet microscopy,62,0,116.0,0,0,0
+dev_mouse_brain_mri,RF1 Kim grant,2021Q3,mice,imaging,mri,0,0,144.0,0,0,0
+dev_mouse_brain_mri,RF1 Kim grant,2021Q4,mice,imaging,mri,5,0,45.0,0,0,0
+dev_mouse_brain_stpt,RF1 Kim grant,2021Q3,mice,imaging,stpt,0,0,27.0,0,0,0
+dev_mouse_brain_stpt,RF1 Kim grant,2021Q4,mice,imaging,stpt,15,0,0.0,0,0,0
+dev_mouse_brain_stpt,RF1 Kim grant,2022Q1,mice,imaging,stpt,40,0,40.0,0,0,0
+dev_mouse_brain_stpt,RF1 Kim grant,2022Q3,mice,imaging,stpt,93,0,283.0,0,0,0
+dong_antero,U01 Dong grant,2018Q4,mice,anatomy/morphology,cre-dependent anterograde tracing,2,0,2.0,0,0,0
+dong_antero,U01 Dong grant,2019Q1,mice,anatomy/morphology,cre-dependent anterograde tracing,14,0,14.0,0,0,0
+dong_antero,U01 Dong grant,2019Q3,mice,anatomy/morphology,cre-dependent anterograde tracing,15,0,15.0,0,0,0
+dong_antero,U01 Dong grant,2019Q4,mice,anatomy/morphology,cre-dependent anterograde tracing,6,0,6.0,0,0,0
+dong_antero,U01 Dong grant,2020Q1,mice,anatomy/morphology,cre-dependent anterograde tracing,4,0,4.0,0,0,0
+dong_antero,U01 Dong grant,2021Q1,mice,anatomy/morphology,cre-dependent anterograde tracing,5,0,5.0,0,0,0
+dong_antero,U01 Dong grant,2021Q4,mice,anatomy/morphology,triple anterograde,0,0,5.0,0,0,0
+dong_antero,U01 Dong grant,2022Q1,mice,anatomy/morphology,anterograde tracing,0,0,4.0,0,0,0
+dong_antero,U01 Dong grant,2022Q2,mice,anatomy/morphology,anterograde tracing,0,0,3.0,0,0,0
+dong_antero,U01 Dong grant,2022Q3,mice,anatomy/morphology,anterograde tracing,0,0,2.0,0,0,0
+dong_confocal,U01 Dong grant,2021Q2,mice,anatomy/morphology,retrograde transsynaptic tracing,2,0,0,0,0,29.0
+dong_confocal,U01 Dong grant,2022Q2,mice,imaging,confocal microscopy,1,0,0,0,0,1.0
+dong_lightsheet,U01 Dong grant,2021Q3,mice,imaging,light sheet microscopy,0,0,0,0,0,2.0
+dong_lightsheet,U01 Dong grant,2021Q3,mice,imaging,light sheet microscopy,0,0,2.0,0,0,0.0
+dong_lightsheet,U01 Dong grant,2021Q4,mice,imaging,light sheet microscopy,0,0,2.0,0,0,0.0
+dong_lightsheet,U01 Dong grant,2022Q1,mice,imaging,light sheet microscopy,0,0,2.0,0,0,0.0
+dong_lightsheet,U01 Dong grant,2022Q3,mice,imaging,light sheet microscopy,0,0,1.0,0,0,0.0
+dong_retro,U01 Dong grant,2018Q3,mice,anatomy/morphology,retrograde tracing,22,0,22.0,0,0,0
+dong_retro,U01 Dong grant,2019Q1,mice,anatomy/morphology,retrograde tracing,33,0,33.0,0,0,0
+dong_retro,U01 Dong grant,2019Q3,mice,anatomy/morphology,retrograde tracing,28,0,28.0,0,0,0
+dong_retro,U01 Dong grant,2019Q4,mice,anatomy/morphology,retrograde tracing,8,0,8.0,0,0,0
+dong_retro,U01 Dong grant,2020Q1,mice,anatomy/morphology,retrograde tracing,35,0,35.0,0,0,0
+dong_retro,U01 Dong grant,2021Q1,mice,anatomy/morphology,retrograde tracing,2,0,2.0,0,0,0
+dong_retro,U01 Dong grant,2021Q4,mice,anatomy/morphology,retrograde tracing,0,0,5.0,0,0,0
+dong_retro,U01 Dong grant,2022Q1,mice,anatomy/morphology,retrograde tracing,0,0,4.0,0,0,0
+dong_retro,U01 Dong grant,2022Q2,mice,anatomy/morphology,retrograde tracing,0,0,3.0,0,0,0
+dong_retro,U01 Dong grant,2022Q3,mice,anatomy/morphology,retrograde tracing,0,0,2.0,0,0,0
+dong_trio,U01 Dong grant,2019Q3,mice,anatomy/morphology,trio tracing,4,0,4.0,0,0,0
+dong_trio,U01 Dong grant,2019Q4,mice,anatomy/morphology,trio tracing,33,0,33.0,0,0,0
+dong_trio,U01 Dong grant,2020Q1,mice,anatomy/morphology,trio tracing,8,0,8.0,0,0,0
+dong_trio,U01 Dong grant,2021Q1,mice,anatomy/morphology,trio tracing,6,0,6.0,0,0,0
+dong_trio,U01 Dong grant,2022Q1,mice,anatomy/morphology,trio tracing,0,0,8.0,0,0,0
+dong_trio,U01 Dong grant,2022Q2,mice,anatomy/morphology,trio tracing,0,0,8.0,0,0,0
+dulac_hyp_sn_10xv2,U19 Huang grant,2021Q1,mice,transcriptomics,10x chromium 3' sequencing,8,0,0,148163.0,0,0
+dulac_pag_sn_10xv2,U19 Huang grant,2021Q1,mice,transcriptomics,10x chromium 3' sequencing,3,0,0,116659.0,0,0
+dulac_poa_dev_sn_10x_RNAseq,U19 Huang grant,2022Q1,mice,multimodal,10x genomics multiome,22,0,0,226132.0,0,0
+ecker_hu_DNAseq,U01 Ecker grant,2020Q2,humans,transcriptomics,dnaseq,3,0,0,0,0,3.0
+ecker_hu_sn_ATACseq,U01 Ecker grant,2020Q2,humans,epigenomics,atac-seq,2,0,0,9698.0,0,0
+ecker_hu_sn_ATACseq,U01 Ecker grant,2020Q3,humans,epigenomics,atac-seq,2,0,0,75283.0,0,0
+ecker_hu_sn_ATACseq,U01 Ecker grant,2020Q4,humans,epigenomics,atac-seq,2,0,0,182145.0,0,0
+ecker_hu_sn_ATACseq,U01 Ecker grant,2021Q1,humans,epigenomics,atac-seq,2,0,0,162166.0,0,0
+ecker_hu_sn_ATACseq,U01 Ecker grant,2021Q3,humans,epigenomics,atac-seq,0,0,0,76998.0,0,0
+ecker_hu_sn_ATACseq,U01 Ecker grant,2021Q4,humans,epigenomics,atac-seq,0,0,0,88167.0,0,0
+ecker_hu_sn_ATACseq,U01 Ecker grant,2022Q1,humans,epigenomics,atac-seq,0,0,0,116918.0,0,0
+ecker_hu_sn_ATACseq,U01 Ecker grant,2022Q2,humans,epigenomics,atac-seq,0,0,0,131103.0,0,0
+ecker_hu_sn_ATACseq,U01 Ecker grant,2022Q3,humans,epigenomics,atac-seq,0,0,0,1012763.0,0,0
+ecker_hu_sn_mCseq,U01 Ecker grant,2020Q2,humans,epigenomics,mC-seq2,2,0,0,5901.0,0,0
+ecker_hu_sn_mCseq,U01 Ecker grant,2021Q2,humans,epigenomics,mC-seq2,2,0,0,33660.0,0,0
+ecker_hu_sn_mCseq,U01 Ecker grant,2021Q3,humans,epigenomics,mC-seq2,0,0,0,31505.0,0,0
+ecker_hu_sn_mCseq,U01 Ecker grant,2021Q4,humans,epigenomics,mC-seq2,0,0,0,28659.0,0,0
+ecker_hu_sn_mCseq,U01 Ecker grant,2022Q2,humans,epigenomics,mC-seq2,0,0,0,121377.0,0,0
+ecker_hu_sn_mCseq,U01 Ecker grant,2022Q3,humans,epigenomics,mC-seq2,0,0,0,101130.0,0,0
+ecker_sn_ATACseq,U19 Ecker grant,2019Q1,mice,epigenomics,atac-seq,82,0,0,922876.0,0,0
+ecker_sn_ATACseq,U19 Ecker grant,2019Q2,mice,epigenomics,atac-seq,14,0,0,171703.0,0,0
+ecker_sn_ATACseq,U19 Ecker grant,2019Q3,mice,epigenomics,atac-seq,2,0,0,24481.0,0,0
+ecker_sn_ATACseq,U19 Ecker grant,2019Q4,mice,epigenomics,atac-seq,10,0,0,124041.0,0,0
+ecker_sn_ATACseq,U19 Ecker grant,2020Q1,mice,epigenomics,atac-seq,12,0,0,144284.0,0,0
+ecker_sn_ATACseq,U19 Ecker grant,2020Q2,mice,epigenomics,atac-seq,12,0,0,146461.0,0,0
+ecker_sn_ATACseq,U19 Ecker grant,2020Q3,mice,epigenomics,atac-seq,12,0,0,150344.0,0,0
+ecker_sn_ATACseq,U19 Ecker grant,2020Q4,mice,epigenomics,atac-seq,10,0,0,124830.0,0,0
+ecker_sn_ATACseq,U19 Ecker grant,2021Q1,mice,epigenomics,atac-seq,0,0,0,148365.0,0,0
+ecker_sn_ATACseq,U19 Ecker grant,2021Q2,mice,epigenomics,atac-seq,12,0,0,149469.0,0,0
+ecker_sn_ATACseq,U19 Ecker grant,2021Q3,mice,epigenomics,atac-seq,12,0,0,145758.0,0,0
+ecker_sn_ATACseq,U19 Ecker grant,2021Q4,mice,epigenomics,atac-seq,10,0,0,122856.0,0,0
+ecker_sn_ATACseq,U19 Ecker grant,2022Q1,mice,epigenomics,atac-seq,12,0,0,118243.0,0,0
+ecker_sn_ATACseq,U19 Ecker grant,2022Q2,mice,epigenomics,atac-seq,0,0,0,451606.0,0,0
+ecker_sn_mCseq,U19 Ecker grant,2019Q1,mice,epigenomics,mC-seq2,49,0,0,56198.0,0,0
+ecker_sn_mCseq,U19 Ecker grant,2019Q2,mice,epigenomics,mC-seq2,36,0,0,42265.0,0,0
+ecker_sn_mCseq,U19 Ecker grant,2019Q3,mice,epigenomics,mC-seq2,13,0,0,15145.0,0,0
+ecker_sn_mCseq,U19 Ecker grant,2019Q4,mice,epigenomics,mC-seq2,10,0,0,11681.0,0,0
+ecker_sn_mCseq,U19 Ecker grant,2020Q1,mice,epigenomics,mC-seq2,12,0,0,15690.0,0,0
+ecker_sn_mCseq,U19 Ecker grant,2020Q2,mice,epigenomics,mC-seq2,12,0,0,15643.0,0,0
+ecker_sn_mCseq,U19 Ecker grant,2020Q3,mice,epigenomics,mC-seq2,12,0,0,17155.0,0,0
+ecker_sn_mCseq,U19 Ecker grant,2020Q4,mice,epigenomics,mC-seq2,10,0,0,14390.0,0,0
+ecker_sn_mCseq,U19 Ecker grant,2021Q1,mice,epigenomics,mC-seq2,0,0,0,17506.0,0,0
+ecker_sn_mCseq,U19 Ecker grant,2021Q2,mice,epigenomics,mC-seq2,12,0,0,17503.0,0,0
+ecker_sn_mCseq,U19 Ecker grant,2021Q3,mice,epigenomics,mC-seq2,12,0,0,18391.0,0,0
+ecker_sn_mCseq,U19 Ecker grant,2021Q4,mice,epigenomics,mC-seq2,12,0,0,18028.0,0,0
+ecker_sn_mCseq,U19 Ecker grant,2022Q1,mice,epigenomics,mC-seq2,18,0,0,19925.0,0,0
+ecker_sn_mCseq,U19 Ecker grant,2022Q2,mice,epigenomics,mC-seq2,0,0,0,39347.0,0,0
+ecker_sn_mCseq,U19 Ecker grant,2022Q3,mice,epigenomics,mC-seq2,0,0,0,21387.0,0,0
+ecker_sn_mCseq_retro,U19 Ecker grant,2019Q1,mice,epigenomics,mC-seq2,5,0,0,3613.0,0,0
+ecker_sn_mCseq_retro,U19 Ecker grant,2019Q2,mice,epigenomics,mC-seq2,17,0,0,24183.0,0,0
+ecker_sn_mCseq_retro,U19 Ecker grant,2019Q4,mice,epigenomics,mC-seq2,8,0,0,4608.0,0,0
+ecker_sn_mCseq_retro,U19 Ecker grant,2020Q2,mice,epigenomics,mC-seq2,20,0,0,4612.0,0,0
+ecker_sn_mCseq_retro,U19 Ecker grant,2020Q3,mice,epigenomics,mC-seq2,8,0,0,4214.0,0,0
+ecker_sn_mCseq_retro,U19 Ecker grant,2020Q4,mice,epigenomics,mC-seq2,6,0,0,4567.0,0,0
+ecker_sn_mCseq_retro,U19 Ecker grant,2021Q2,mice,epigenomics,mC-seq2,10,0,0,3697.0,0,0
+ecker_sn_mCseq_retro,U19 Ecker grant,2021Q3,mice,epigenomics,mC-seq2,8,0,0,4003.0,0,0
+ecker_sn_mCseq_retro,U19 Ecker grant,2021Q4,mice,epigenomics,mC-seq2,7,0,0,4558.0,0,0
+ecker_sn_mCseq_retro,U19 Ecker grant,2022Q1,mice,epigenomics,mC-seq2,4,0,0,4142.0,0,0
+ecker_sn_mCseq_retro,U19 Ecker grant,2022Q2,mice,epigenomics,mC-seq2,0,0,0,4225.0,0,0
+ecker_sn_mCseq_retro,U19 Ecker grant,2022Q3,mice,epigenomics,mC-seq2,0,0,0,5865.0,0,0
+ecker_trio,U19 Ecker grant,2018Q3,mice,anatomy/morphology,trio tracing,10,0,10.0,0,0,0
+ecker_trio,U19 Ecker grant,2018Q4,mice,anatomy/morphology,trio tracing,5,0,5.0,0,0,0
+ecker_trio,U19 Ecker grant,2019Q1,mice,anatomy/morphology,trio tracing,4,0,4.0,0,0,0
+ecker_trio,U19 Ecker grant,2019Q2,mice,anatomy/morphology,trio tracing,4,0,8.0,0,0,0
+ecker_trio,U19 Ecker grant,2019Q3,mice,anatomy/morphology,trio tracing,4,0,4.0,0,0,0
+ecker_trio,U19 Ecker grant,2019Q4,mice,anatomy/morphology,trio tracing,4,0,4.0,0,0,0
+ecker_trio,U19 Ecker grant,2020Q1,mice,anatomy/morphology,trio tracing,4,0,4.0,0,0,0
+ecker_trio,U19 Ecker grant,2021Q2,mice,anatomy/morphology,trio tracing,5,0,5.0,0,0,0
+ecker_trio,U19 Ecker grant,2021Q3,mice,anatomy/morphology,trio tracing,15,0,15.0,0,0,0
+ecker_trio,U19 Ecker grant,2021Q4,mice,anatomy/morphology,trio tracing,0,0,9.0,0,0,0
+feng_fish,U01 Feng grant,2020Q1,primates,spatial,fish,1,0,0,10.0,0,0
+feng_fish,U01 Feng grant,2020Q3,primates,spatial,fish,1,0,0,10.0,0,0
+feng_fish,U01 Feng grant,2020Q4,primates,spatial,fish,2,0,0,25.0,0,0
+feng_fish,U01 Feng grant,2021Q1,primates,spatial,fish,2,0,0,56.0,0,0
+feng_fish,U01 Feng grant,2021Q2,primates,spatial,fish,1,0,0,44.0,0,0
+feng_fish,U01 Feng grant,2021Q3,primates,spatial,fish,2,0,0,78.0,0,0
+feng_fish,U01 Feng grant,2021Q4,primates,spatial,fish,1,0,0,5.0,0,0
+feng_fish,U01 Feng grant,2022Q1,primates,spatial,fish,1,0,0,39.0,0,0
+feng_fish,U01 Feng grant,2022Q2,primates,spatial,smfish,1,0,0,0.0,0,4.0
+feng_morph,U01 Feng grant,2020Q1,primates,anatomy/morphology,neuron morphology reconstruction,2,0,0,10.0,0,0
+feng_morph,U01 Feng grant,2020Q3,primates,anatomy/morphology,neuron morphology reconstruction,1,0,0,10.0,0,0
+feng_morph,U01 Feng grant,2020Q4,primates,anatomy/morphology,neuron morphology reconstruction,2,0,0,25.0,0,0
+feng_sn_10xv3,U01 Feng grant,2020Q2,primates,transcriptomics,10x chromium 3' sequencing,1,0,0,83276.0,0,0
+feng_sn_10xv3,U01 Feng grant,2020Q4,primates,transcriptomics,10x chromium 3' sequencing,2,0,0,103470.0,0,0
+feng_sn_10xv3,U01 Feng grant,2021Q1,primates,transcriptomics,10x chromium 3' sequencing,1,0,0,80000.0,0,0
+feng_sn_10xv3,U01 Feng grant,2021Q2,primates,transcriptomics,10x chromium 3' sequencing,1,0,0,78000.0,0,0
+feng_sn_10xv3,U01 Feng grant,2021Q3,primates,transcriptomics,10x chromium 3' sequencing,2,0,0,95789.0,0,0
+feng_sn_10xv3,U01 Feng grant,2021Q4,primates,transcriptomics,10x chromium 3' sequencing,2,0,0,69400.0,0,0
+feng_sn_10xv3,U01 Feng grant,2022Q1,primates,transcriptomics,10x chromium 3' sequencing,1,0,0,4.0,0,0
+feng_sn_10xv3,U01 Feng grant,2022Q2,primates,transcriptomics,10x chromium 3' sequencing,3,0,0,80000.0,0,0
+feng_sn_dropseq,U01 Feng grant,2018Q4,primates,transcriptomics,drop-seq,2,0,0,121350.0,0,0
+feng_sn_dropseq,U01 Feng grant,2019Q1,primates,transcriptomics,drop-seq,2,0,0,48345.0,0,0
+feng_sn_dropseq,U01 Feng grant,2019Q3,primates,transcriptomics,drop-seq,3,0,0,467442.0,0,0
+feng_sn_dropseq,U01 Feng grant,2019Q4,primates,transcriptomics,drop-seq,3,0,0,197230.0,0,0
+fischl_lsfm,U01 Fischl grant,2021Q1,humans,imaging,light sheet microscopy,1,0,0,0,0,29.0
+fischl_lsfm,U01 Fischl grant,2021Q3,humans,imaging,light sheet microscopy,1,0,0,0,0,49.0
+fischl_lsfm,U01 Fischl grant,2022Q3,humans,imaging,light sheet microscopy,1,0,0,0,0,40.0
+fischl_mri,U01 Fischl grant,2021Q1,humans,imaging,mri,8,0,0,0,0,8.0
+fischl_mri,U01 Fischl grant,2021Q2,humans,imaging,mri,1,0,0,0,0,1.0
+fischl_mri,U01 Fischl grant,2021Q3,humans,imaging,mri,3,0,0,0,0,3.0
+fischl_mri,U01 Fischl grant,2022Q3,humans,imaging,mri,2,0,0,0,0,2.0
+fischl_oct,U01 Fischl grant,2021Q1,humans,imaging,oct,3,0,0,0,0,78.0
+fischl_oct,U01 Fischl grant,2021Q2,humans,imaging,oct,1,0,0,0,0,50.0
+fischl_oct,U01 Fischl grant,2021Q4,humans,imaging,oct,1,0,0,0,0,52.0
+fischl_oct,U01 Fischl grant,2022Q2,humans,imaging,oct,1,0,0,0,0,40.0
+fischl_stereology,U01 Fischl grant,2021Q1,humans,anatomy/morphology,histology,1,0,0,0,0,16.0
+fischl_stereology,U01 Fischl grant,2022Q2,humans,anatomy/morphology,stereology,1,0,0,0,0,4.0
+fischl_stereology,U01 Fischl grant,2022Q3,humans,anatomy/morphology,stereology,1,0,0,0,0,8.0
+huang_antero,U19 Huang grant,2018Q3,mice,anatomy/morphology,anterograde tracing,8,0,8.0,0,0,0
+huang_antero,U19 Huang grant,2019Q1,mice,anatomy/morphology,anterograde tracing,8,0,8.0,0,0,0
+huang_antero,U19 Huang grant,2019Q3,mice,anatomy/morphology,anterograde tracing,8,0,8.0,0,0,0
+huang_antero,U19 Huang grant,2019Q4,mice,anatomy/morphology,anterograde tracing,8,0,8.0,0,0,0
+huang_antero,U19 Huang grant,2020Q1,mice,anatomy/morphology,anterograde tracing,11,0,11.0,0,0,0
+huang_antero,U19 Huang grant,2021Q2,mice,anatomy/morphology,anterograde tracing,6,0,6.0,0,0,0
+huang_antero,U19 Huang grant,2021Q3,mice,anatomy/morphology,anterograde tracing,4,0,4.0,0,0,0
+huang_ccf4_hist,U19 Huang grant,2022Q2,mice,anatomy/morphology,histology,1,0,1.0,0,0,0
+huang_ccf4_mri,U19 Huang grant,2022Q2,mice,imaging,mri,1,0,1.0,0,0,0
+huang_dev_cx_scATAC,U19 Huang grant,2021Q2,mice,epigenomics,atac-seq,0,0,0,8016.0,0,0
+huang_dev_cx_scATAC,U19 Huang grant,2021Q3,mice,epigenomics,atac-seq,0,0,0,9541.0,0,0
+huang_dev_cx_scRNA,U19 Huang grant,2021Q2,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,19544.0,0,0
+huang_dev_cx_scRNA,U19 Huang grant,2021Q3,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,22376.0,0,0
+huang_dev_cx_scRNA,U19 Huang grant,2021Q4,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,22680.0,0,0
+huang_fmost,U19 Huang grant,2020Q4,mice,imaging,fmost,111,0,111.0,0,0,0
+huang_fmost,U19 Huang grant,2021Q2,mice,imaging,fmost,53,0,53.0,0,0,0
+huang_fmost,U19 Huang grant,2021Q3,mice,imaging,fmost,28,0,28.0,0,0,0
+huang_fmost_cells,U19 Huang grant,2021Q2,mice,imaging,fmost,39,0,0,467.0,0,0
+huang_fmost_cells,U19 Huang grant,2021Q3,mice,imaging,fmost,0,0,0,99.0,0,0
+huang_input_conn,U19 Huang grant,2021Q1,mice,anatomy/morphology,retrograde transsynaptic tracing,0,0,5.0,0,0,0
+huang_pn_bulk_SSv4,U19 Huang grant,2019Q4,mice,transcriptomics,smart-seq v4,0,0,0,0,0,0
+huang_pn_bulk_SSv4,U19 Huang grant,2020Q1,mice,transcriptomics,smart-seq v4,0,0,0,0,0,0
+huang_pn_sn_10xv2,U19 Huang grant,2019Q4,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,83076.0,0,0
+huang_pn_sn_10xv2,U19 Huang grant,2020Q1,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,23017.0,0,0
+huang_pn_sn_10xv3,U19 Huang grant,2020Q4,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,99075.0,0,0
+huang_pn_sn_10xv3,U19 Huang grant,2021Q1,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,58621.0,0,0
+huang_retro,U19 Huang grant,2019Q1,mice,anatomy/morphology,retrograde tracing,12,0,12.0,0,0,0
+huang_retro,U19 Huang grant,2019Q3,mice,anatomy/morphology,retrograde tracing,12,0,12.0,0,0,0
+huang_retro,U19 Huang grant,2019Q4,mice,anatomy/morphology,retrograde tracing,12,0,12.0,0,0,0
+huang_retro,U19 Huang grant,2020Q1,mice,anatomy/morphology,retrograde tracing,9,0,9.0,0,0,0
+huang_retro,U19 Huang grant,2021Q2,mice,anatomy/morphology,retrograde tracing,5,0,5.0,0,0,0
+huang_retro,U19 Huang grant,2021Q3,mice,anatomy/morphology,retrograde tracing,4,0,4.0,0,0,0
+huang_sn_10xv2,U19 Huang grant,2018Q3,mice,transcriptomics,10x chromium 3' sequencing,8,0,0,307420.0,0,0
+huang_sn_10xv2,U19 Huang grant,2018Q4,mice,transcriptomics,10x chromium 3' sequencing,9,0,0,100004.0,0,0
+huang_sn_10xv2,U19 Huang grant,2019Q1,mice,transcriptomics,10x chromium 3' sequencing,7,0,0,61752.0,0,0
+huang_sn_10xv3,U19 Huang grant,2019Q1,mice,transcriptomics,10x chromium 3' sequencing,3,0,0,107272.0,0,0
+huang_sn_10xv3,U19 Huang grant,2019Q2,mice,transcriptomics,10x chromium 3' sequencing,16,0,0,1134137.0,0,0
+huang_sn_10xv3,U19 Huang grant,2019Q3,mice,transcriptomics,10x chromium 3' sequencing,4,0,0,408101.0,0,0
+huang_sn_10xv3,U19 Huang grant,2019Q4,mice,transcriptomics,10x chromium 3' sequencing,12,0,0,566462.0,0,0
+huang_sn_10xv3,U19 Huang grant,2020Q1,mice,transcriptomics,10x chromium 3' sequencing,2,0,0,103211.0,0,0
+huang_sn_10xv3,U19 Huang grant,2020Q4,mice,transcriptomics,10x chromium 3' sequencing,8,0,0,996134.0,0,0
+huang_sn_10xv3,U19 Huang grant,2021Q2,mice,transcriptomics,10x chromium 3' sequencing,11,0,0,2161948.0,0,0
+huang_sn_10xv3,U19 Huang grant,2021Q3,mice,transcriptomics,10x chromium 3' sequencing,8,0,0,1047694.0,0,0
+huang_sn_10xv3,U19 Huang grant,2022Q2,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,19788.0,0,0
+huang_sn_10xv3,U19 Huang grant,2022Q3,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,19783.0,0,0
+huang_stpt_conn,U19 Huang grant,2018Q3,mice,anatomy/morphology,anterograde tracing,0,0,22.0,0,0,0
+huang_stpt_conn,U19 Huang grant,2018Q4,mice,anatomy/morphology,anterograde tracing,0,0,28.0,0,0,0
+huang_stpt_conn,U19 Huang grant,2019Q1,mice,anatomy/morphology,anterograde tracing,0,0,28.0,0,0,0
+huang_stpt_conn,U19 Huang grant,2019Q2,mice,anatomy/morphology,anterograde tracing,0,0,40.0,0,0,0
+huang_stpt_conn,U19 Huang grant,2019Q3,mice,anatomy/morphology,anterograde tracing,0,0,30.0,0,0,0
+huang_stpt_conn,U19 Huang grant,2019Q4,mice,anatomy/morphology,anterograde tracing,0,0,25.0,0,0,0
+huang_stpt_conn,U19 Huang grant,2020Q1,mice,anatomy/morphology,anterograde tracing,0,0,33.0,0,0,0
+huang_stpt_conn,U19 Huang grant,2020Q2,mice,anatomy/morphology,anterograde tracing,0,0,5.0,0,0,0
+huang_stpt_conn,U19 Huang grant,2021Q1,mice,anatomy/morphology,anterograde tracing,0,0,21.0,0,0,0
+huang_stpt_count,U19 Huang grant,2018Q3,mice,imaging,stpt,0,0,27.0,0,0,0
+huang_stpt_count,U19 Huang grant,2018Q4,mice,imaging,stpt,0,0,9.0,0,0,0
+huang_stpt_count,U19 Huang grant,2021Q1,mice,imaging,stpt,0,0,22.0,0,0,0
+human_cortex_SS4_Open_GRU,multi-grant,2020Q4,humans,transcriptomics,smart-seq v4,3,0,0,9822.0,0,0
+human_cortex_SS4_restricted_GRU,multi-grant,2020Q4,humans,transcriptomics,smart-seq v4,7,0,0,101376.0,0,0
+human_cortex_SS4_restricted_limited,multi-grant,2020Q4,humans,transcriptomics,smart-seq v4,1,0,0,416.0,0,0
+kriegstein_sc_10xv2,U01 Kriegstein grant,2018Q4,humans,transcriptomics,10x chromium 3' sequencing,10,0,0,593921.0,0,0
+kriegstein_sc_10xv2,U01 Kriegstein grant,2019Q4,humans,transcriptomics,10x chromium 3' sequencing,4,0,0,36331.0,0,0
+kriegstein_sc_10xv2,U01 Kriegstein grant,2020Q1,humans,transcriptomics,10x chromium 3' sequencing,4,0,0,106257.0,0,0
+kriegstein_sc_10xv3,U01 Kriegstein grant,2019Q4,humans,transcriptomics,10x chromium 3' sequencing,1,0,0,113415.0,0,0
+kriegstein_sc_10xv3,U01 Kriegstein grant,2020Q3,humans,transcriptomics,10x chromium 3' sequencing,1,0,0,145600.0,0,0
+kriegstein_sc_ATACseq,U01 Kriegstein grant,2019Q2,humans,epigenomics,atac-seq,5,0,0,86904.0,0,0
+kriegstein_sc_ATACseq,U01 Kriegstein grant,2019Q4,humans,epigenomics,atac-seq,6,0,0,69430.0,0,0
+kriegstein_sc_ATACseq,U01 Kriegstein grant,2021Q3,humans,epigenomics,atac-seq,8,0,0,59405.0,0,0
+kriegstein_sc_multiome,U01 Kriegstein grant,2022Q2,humans,multimodal,10x genomics multiome,21,0,0,169362.0,0,0
+kriegstein_sc_multiome,U01 Kriegstein grant,2022Q3,humans,multimodal,10x genomics multiome,1,0,0,20720.0,0,0
+kriegstein_sn_10xv2,U01 Kriegstein grant,2018Q4,humans,transcriptomics,10x chromium 3' sequencing,34,0,0,196287.0,0,0
+kriegstein_sn_10xv2,U01 Kriegstein grant,2019Q1,humans,transcriptomics,10x chromium 3' sequencing,13,0,0,92512.0,0,0
+kriegstein_sn_10xv2,U01 Kriegstein grant,2019Q2,humans,transcriptomics,10x chromium 3' sequencing,6,0,0,219822.0,0,0
+kriegstein_sn_10xv2,U01 Kriegstein grant,2020Q4,humans,transcriptomics,10x chromium 3' sequencing,52,0,0,1315186.0,0,0
+kriegstein_spatial,U01 Kriegstein grant,2022Q3,humans,spatial,merfish,3,0,0,0,0,3.0
+lein_L5_pseq_t,U01 Lein grant,2021Q3,humans,multimodal,patch-seq,11,0,0,25.0,0,0
+lein_evo_10x_arcticgroundsquirrel,U01 Lein grant,2021Q2,small mammals,transcriptomics,10x chromium 3' sequencing,0,0,0,0,11.0,11.0
+lein_evo_10x_armadillo,U01 Lein grant,2021Q2,small mammals,transcriptomics,10x chromium 3' sequencing,0,0,0,0,12.0,12.0
+lein_evo_10x_cat,U01 Lein grant,2021Q3,small mammals,transcriptomics,10x chromium 3' sequencing,3,0,0,135228.0,0,0
+lein_evo_10x_chimp,U01 Lein grant,2021Q2,primates,transcriptomics,10x chromium 3' sequencing,0,0,0,0,12.0,12.0
+lein_evo_10x_ferret,U01 Lein grant,2021Q2,small mammals,transcriptomics,10x chromium 3' sequencing,0,0,0,0,12.0,12.0
+lein_evo_10x_galago,U01 Lein grant,2021Q3,primates,transcriptomics,10x chromium 3' sequencing,2,0,0,132956.0,0,0
+lein_evo_10x_gorilla,U01 Lein grant,2021Q2,primates,transcriptomics,10x chromium 3' sequencing,0,0,0,0,14.0,14.0
+lein_evo_10x_greenmonkey,U01 Lein grant,2021Q2,primates,transcriptomics,10x chromium 3' sequencing,0,0,0,0,12.0,12.0
+lein_evo_10x_nemestrina,U01 Lein grant,2021Q2,primates,transcriptomics,10x chromium 3' sequencing,0,0,0,0,12.0,12.0
+lein_evo_10x_opposum,U01 Lein grant,2021Q2,small mammals,transcriptomics,10x chromium 3' sequencing,0,0,0,0,12.0,12.0
+lein_evo_10x_owlmonkey,U01 Lein grant,2021Q2,primates,transcriptomics,10x chromium 3' sequencing,0,0,0,0,12.0,12.0
+lein_evo_10x_pig,U01 Lein grant,2021Q3,small mammals,transcriptomics,10x chromium 3' sequencing,4,0,0,114075.0,0,0
+lein_evo_10x_rabbit,U01 Lein grant,2021Q2,small mammals,transcriptomics,10x chromium 3' sequencing,0,0,0,0,13.0,13.0
+lein_evo_10x_rat,U01 Lein grant,2021Q2,small mammals,transcriptomics,10x chromium 3' sequencing,0,0,0,0,12.0,12.0
+lein_evo_10x_rhesus,U01 Lein grant,2021Q2,primates,transcriptomics,10x chromium 3' sequencing,0,0,0,0,13.0,13.0
+lein_evo_10x_treeshrew,U01 Lein grant,2021Q3,small mammals,transcriptomics,10x chromium 3' sequencing,5,0,0,139650.0,0,0
+lein_evo_Iso_Seq_arctic_ground_squirrel,U01 Lein grant,2022Q1,small mammals,transcriptomics,pacbio long read sequencing,1,0,0,0,0,1.0
+lein_evo_Iso_Seq_armadillo,U01 Lein grant,2022Q1,small mammals,transcriptomics,pacbio long read sequencing,1,0,0,0,0,1.0
+lein_evo_Iso_Seq_greenmonkey,U01 Lein grant,2022Q1,primates,transcriptomics,pacbio long read sequencing,1,0,0,0,0,1.0
+lein_evo_Iso_Seq_nemestrina,U01 Lein grant,2022Q1,primates,transcriptomics,pacbio long read sequencing,1,0,0,0,0,1.0
+lein_evo_Iso_Seq_opossum,U01 Lein grant,2022Q1,small mammals,transcriptomics,pacbio long read sequencing,1,0,0,0,0,1.0
+lein_evo_Iso_Seq_squirrel_monkey,U01 Lein grant,2022Q1,primates,transcriptomics,pacbio long read sequencing,1,0,0,0,0,1.0
+lein_human_pseq_e,U01 Lein grant,2021Q3,humans,multimodal,patch-seq,0,0,0,717.0,0,0
+lein_human_pseq_e,U01 Lein grant,2021Q4,humans,multimodal,patch-seq,0,0,0,0.0,0,0
+lein_human_pseq_e,U01 Lein grant,2022Q1,humans,multimodal,patch-seq,32,0,0,91.0,0,0
+lein_human_pseq_e,U01 Lein grant,2022Q2,humans,multimodal,patch-seq,0,0,0,36.0,0,0
+lein_human_pseq_m,U01 Lein grant,2021Q3,humans,multimodal,patch-seq,0,0,0,108.0,0,0
+lein_human_pseq_m,U01 Lein grant,2021Q4,humans,multimodal,patch-seq,0,0,0,0.0,0,0
+lein_human_pseq_m,U01 Lein grant,2022Q1,humans,multimodal,patch-seq,0,0,0,22.0,0,0
+lein_human_pseq_m,U01 Lein grant,2022Q2,humans,multimodal,patch-seq,0,0,0,529.0,0,0
+lein_human_pseq_m,U01 Lein grant,2022Q3,humans,multimodal,patch-seq,11,0,0,14.0,0,0
+lein_human_pseq_t,U01 Lein grant,2021Q3,humans,multimodal,patch-seq,0,0,0,717.0,0,0
+lein_human_pseq_t,U01 Lein grant,2021Q4,humans,multimodal,patch-seq,0,0,0,0.0,0,0
+lein_human_pseq_t,U01 Lein grant,2022Q1,humans,multimodal,patch-seq,32,0,0,91.0,0,0
+lein_human_pseq_t,U01 Lein grant,2022Q2,humans,multimodal,patch-seq,0,0,0,36.0,0,0
+lein_sn_10xv2,U01 Lein grant,2019Q1,humans,transcriptomics,10x chromium 3' sequencing,1,0,0,115021.0,0,0
+lein_sn_10xv2,U01 Lein grant,2019Q3,humans,transcriptomics,10x chromium 3' sequencing,1,0,0,65745.0,0,0
+lein_sn_10xv3,U01 Lein grant,2019Q3,humans,transcriptomics,10x chromium 3' sequencing,1,0,0,915985.0,0,0
+lein_sn_10xv3,U01 Lein grant,2020Q1,humans,transcriptomics,10x chromium 3' sequencing,3,0,0,504559.0,0,0
+lein_sn_10xv3,U01 Lein grant,2020Q3,humans,transcriptomics,10x chromium 3' sequencing,2,0,0,223688.0,0,0
+lein_sn_10xv3,U01 Lein grant,2020Q4,humans,transcriptomics,10x chromium 3' sequencing,2,0,0,65198.0,0,0
+lein_sn_10xv3,U01 Lein grant,2021Q3,humans,transcriptomics,10x chromium 3' sequencing,2,0,0,525793.0,0,0
+lein_sn_10xv3,U01 Lein grant,2022Q1,humans,transcriptomics,10x chromium 3' sequencing,2,0,0,869816.0,0,0
+lein_sn_SSv4,U01 Lein grant,2019Q1,humans,transcriptomics,smart-seq v4,2,0,0,4481.0,0,0
+lein_sn_SSv4,U01 Lein grant,2021Q2,humans,transcriptomics,10x chromium 3' sequencing,2,0,0,240502.0,0,0
+lein_sn_hippocampus,U01 Lein grant,2021Q3,humans,transcriptomics,smart-seq v4,3,0,0,0,10708.0,10708.0
+macosko_bg_shareseq_macaque,U01 Macosko grant,2021Q3,primates,multimodal,share-seq,1,0,0,14000.0,0,0
+macosko_bg_slideseq_histologydataset_human,U01 Macosko grant,2021Q4,humans,anatomy/morphology,histology,7,0,0,0,0,17.0
+macosko_bg_slideseq_histologydataset_macaque,U01 Macosko grant,2021Q3,primates,anatomy/morphology,histology,2,0,0,0,0,12.0
+macosko_bg_slideseq_human,U01 Macosko grant,2022Q1,humans,spatial,slide-seq,7,0,0,821968.0,0,0
+macosko_bg_slideseq_macaque,U01 Macosko grant,2021Q3,primates,spatial,slide-seq,3,0,0,2209973.0,0,0
+macosko_mouse_slideseq_histologydataset,RF1 Macosko grant,2021Q3,mice,anatomy/morphology,histology,3,0,0,0,0,6.0
+macosko_mouse_slideseq_histologydataset,RF1 Macosko grant,2021Q4,mice,anatomy/morphology,histology,1,0,0,0,0,16.0
+macosko_mouse_slideseq_histologydataset,RF1 Macosko grant,2022Q1,mice,anatomy/morphology,histology,1,0,0,0,0,114.0
+macosko_mouse_slideseq_slideseqdataset,RF1 Macosko grant,2021Q3,mice,spatial,slide-seq,4,0,0,2485466.0,0,0
+macosko_mouse_slideseq_slideseqdataset,RF1 Macosko grant,2021Q4,mice,spatial,slide-seq,1,0,0,3162707.0,0,0
+macosko_mouse_slideseq_slideseqdataset,RF1 Macosko grant,2022Q1,mice,spatial,slide-seq,1,0,0,13122200.0,0,0
+mop_evo_pseq_hu_t,U01 Lein grant,2021Q2,humans,multimodal,patch-seq,1,0,0,4.0,0,0
+mop_evo_pseq_hu_t,U01 Lein grant,2021Q3,humans,multimodal,patch-seq,1,0,0,4.0,0,0
+nowakowski_evobc,RF1 Nowakowski grant,2020Q4,mice,transcriptomics,10x chromium 3' sequencing,1,0,0,20424.0,0,0
+nowakowski_evobc,RF1 Nowakowski grant,2021Q4,mice,transcriptomics,10x chromium 3' sequencing,1,0,0,9304.0,0,0
+nowakowski_evobc,RF1 Nowakowski grant,2022Q1,mice,transcriptomics,10x chromium 3' sequencing,3,0,0,60391.0,0,0
+nowakowski_pndev_10xv3,RF1 Nowakowski grant,2021Q1,mice,transcriptomics,10x chromium 3' sequencing,1,0,0,124580.0,0,0
+osten_ls,U01 Osten grant,2022Q2,mice,anatomy/morphology,olst,12,0,12.0,0,0,0
+osten_stpt,U01 Osten grant,2018Q3,mice,imaging,stpt,107,0,107.0,0,0,0
+osten_stpt,U01 Osten grant,2018Q4,mice,imaging,stpt,53,0,53.0,0,0,0
+osten_stpt,U01 Osten grant,2019Q1,mice,imaging,stpt,44,0,44.0,0,0,0
+osten_stpt,U01 Osten grant,2019Q2,mice,imaging,stpt,30,0,30.0,0,0,0
+osten_stpt,U01 Osten grant,2019Q3,mice,imaging,stpt,21,0,22.0,0,0,0
+osten_stpt,U01 Osten grant,2019Q4,mice,imaging,stpt,30,0,30.0,0,0,0
+osten_stpt,U01 Osten grant,2020Q1,mice,imaging,stpt,28,0,28.0,0,0,0
+osten_stpt,U01 Osten grant,2020Q2,mice,imaging,stpt,34,0,35.0,0,0,0
+osten_stpt,U01 Osten grant,2020Q3,mice,imaging,stpt,44,0,44.0,0,0,0
+sestan_multiome_10x_human,U01 Sestan grant,2022Q2,humans,multimodal,10x chromium multiome,2,0,0,7367.0,0,0
+sestan_multiome_10x_human,U01 Sestan grant,2022Q3,humans,multimodal,10x chromium multiome,6,0,0,124164.0,0,0
+sestan_multiome_10x_nhp,U01 Sestan grant,2022Q2,primates,multimodal,10x chromium multiome,2,0,0,88347.0,0,0
+sestan_multiome_10x_nhp,U01 Sestan grant,2022Q3,primates,multimodal,10x chromium multiome,1,0,0,63682.0,0,0
+sestan_multiome_10x_nhp,U01 Sestan grant,2022Q3,primates,multimodal,10x chromium multiome,2,0,0,63682.0,0,0
+sestan_multiome_10x_nhp,U01 Sestan grant,2022Q3,primates,multimodal,10x chromium multiome,4,0,0,63682.0,0,0
+sestan_sc_10xv2_nhp_dev,U01 Sestan grant,2022Q1,primates,transcriptomics,10x chromium 3' sequencing,8,0,0,226237.0,0,0
+sestan_sc_10xv3_nhp_dev,U01 Sestan grant,2022Q1,primates,transcriptomics,10x chromium 3' sequencing,1,0,0,45075.0,0,0
+sestan_sn_10xv3_human,U01 Sestan grant,2021Q4,humans,transcriptomics,10x chromium 3' sequencing,6,0,0,219058.0,0,0
+sestan_sn_10xv3_human_pfc,U01 Sestan grant,2021Q4,humans,transcriptomics,10x chromium 3' sequencing,4,0,0,171997.0,0,0
+sestan_sn_10xv3_nhp_adult,U01 Sestan grant,2021Q4,primates,transcriptomics,10x chromium 3' sequencing,3,0,0,36107.0,0,0
+sestan_sn_10xv3_nhp_adult,U01 Sestan grant,2022Q1,primates,transcriptomics,10x chromium 3' sequencing,3,0,0,48734.0,0,0
+sestan_sn_10xv3_nhp_adult_pfc,U01 Sestan grant,2021Q4,primates,transcriptomics,10x chromium 3' sequencing,4,0,0,1315797.0,0,0
+sestan_sn_10xv3_pig,U01 Sestan grant,2021Q4,small mammals,transcriptomics,10x chromium 3' sequencing,9,0,0,97436.0,0,0
+snyder-mackler_macaque_scATAC,U01 Snyder-Mackler grant,2022Q1,primates,epigenomics,sci-atac-seq3,0,0,0,110.0,0,0
+snyder-mackler_macaque_scRNA,U01 Snyder-Mackler grant,2021Q3,primates,transcriptomics,sci-rna-seq3,0,0,0,70.0,0,0
+tasic_ATACseq,RF1 Tasic grant,2020Q2,mice,epigenomics,atac-seq,8,0,0,221.0,0,0
+tasic_sc_SSv4,multi-grant,2021Q4,mice,transcriptomics,smart-seq v4,34,0,0,5925.0,0,0
+tasic_sc_SSv4,multi-grant,2022Q3,mice,transcriptomics,smart-seq v4,101,0,0,288.0,0,0
+tasic_sc_SSv4,multi-grant,2022Q3,mice,transcriptomics,smart-seq v4,101,0,0,13929.0,0,0
+tasic_stpt,multi-grant,2022Q1,mice,anatomy/morphology,enhancer virus labeling,27,0,81.0,0,0,0
+tasic_stpt,multi-grant,2022Q2,mice,anatomy/morphology,enhancer virus labeling,37,0,111.0,0,0,0
+tasic_stpt,multi-grant,2022Q3,mice,imaging,stpt,0,0,87.0,0,0,0
+tilgner_sc_ONT,RF1 Tilgner grant,2021Q4,mice,transcriptomics,10x chromium 3' sequencing,8,0,0,189503.0,0,0
+tilgner_sc_pb,RF1 Tilgner grant,2021Q1,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,38311.0,0,0
+tilgner_sc_pb,RF1 Tilgner grant,2021Q4,mice,transcriptomics,10x chromium 3' sequencing,2,0,0,48501.0,0,0
+yang_MORF_confocal,U01 Yang grant,2019Q1,mice,anatomy/morphology,morf genetic sparse labeling,1,0,0,0,0,1.0
+yang_MORF_confocal,U01 Yang grant,2019Q2,mice,anatomy/morphology,morf genetic sparse labeling,1,0,0,0,0,1.0
+yang_MORF_confocal,U01 Yang grant,2019Q3,mice,anatomy/morphology,morf genetic sparse labeling,3,0,0,0,0,3.0
+yang_MORF_confocal,U01 Yang grant,2019Q4,mice,anatomy/morphology,morf genetic sparse labeling,2,0,0,0,0,2.0
+yang_MORF_confocal,U01 Yang grant,2020Q2,mice,anatomy/morphology,morf genetic sparse labeling,3,0,0,0,0,3.0
+yang_MORF_confocal,U01 Yang grant,2020Q3,mice,anatomy/morphology,morf genetic sparse labeling,4,0,0,0,0,4.0
+yang_MORF_confocal,U01 Yang grant,2020Q4,mice,anatomy/morphology,morf genetic sparse labeling,2,0,0,0,0,2.0
+yang_MORF_confocal,U01 Yang grant,2021Q2,mice,anatomy/morphology,morf genetic sparse labeling,6,0,0,0,0,6.0
+yang_MORF_confocal,U01 Yang grant,2021Q3,mice,anatomy/morphology,morf genetic sparse labeling,4,0,0,0,0,4.0
+yang_MORF_confocal,U01 Yang grant,2021Q4,mice,anatomy/morphology,morf genetic sparse labeling,3,0,0,0,0,3.0
+yang_MORF_confocal,U01 Yang grant,2022Q1,mice,anatomy/morphology,morf genetic sparse labeling,4,0,0,0,0,4.0
+yang_MORF_confocal,U01 Yang grant,2022Q3,mice,anatomy/morphology,morf genetic sparse labeling,2,0,0,0,0,2.0
+yang_MORF_confocal,U01 Yang grant,2022Q3,mice,anatomy/morphology,morf genetic sparse labeling,2,0,0,0,0,0.0
+yang_MORF_confocal,U01 Yang grant,2022Q3,mice,anatomy/morphology,neuron morphology reconstruction,1,0,0,0,0,2.0
+yang_MORF_confocal,U01 Yang grant,2022Q3,mice,anatomy/morphology,neuron morphology reconstruction,1,0,0,0,0,0.0
+yang_morf_cells,U01 Yang grant,2020Q4,mice,anatomy/morphology,neuron morphology reconstruction,1,0,0,238.0,0,0
+yang_morf_cells,U01 Yang grant,2021Q2,mice,anatomy/morphology,neuron morphology reconstruction,2,0,0,1719.0,0,0
+yang_morf_cells,U01 Yang grant,2021Q3,mice,anatomy/morphology,neuron morphology reconstruction,4,0,0,745.0,0,0
+yang_morf_cells,U01 Yang grant,2021Q4,mice,anatomy/morphology,neuron morphology reconstruction,1,0,0,34.0,0,0
+yang_morf_cells,U01 Yang grant,2022Q1,mice,anatomy/morphology,neuron morphology reconstruction,2,0,0,1021.0,0,0
+yang_morf_cells,U01 Yang grant,2022Q3,mice,anatomy/morphology,neuron morphology reconstruction,1,0,0,90.0,0,0
+zeng_anderson_sc_10xv2,U19 Zeng grant,2019Q3,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,168877.0,0,0
+zeng_anderson_sc_10xv3,U19 Zeng grant,2021Q4,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,226798.0,0,0
+zeng_fmost,U19 Zeng grant,2019Q1,mice,imaging,fmost,16,0,16.0,0,0,0
+zeng_fmost,U19 Zeng grant,2019Q3,mice,imaging,fmost,13,0,13.0,0,0,0
+zeng_fmost,U19 Zeng grant,2019Q4,mice,imaging,fmost,19,0,19.0,0,0,0
+zeng_fmost,U19 Zeng grant,2020Q1,mice,imaging,fmost,2,0,2.0,0,0,0
+zeng_fmost,U19 Zeng grant,2020Q4,mice,imaging,fmost,1,0,1.0,0,0,0
+zeng_fmost,U19 Zeng grant,2021Q1,mice,imaging,fmost,86,0,86.0,0,0,0
+zeng_fmost,U19 Zeng grant,2021Q2,mice,imaging,fmost,2,0,2.0,0,0,0
+zeng_fmost,U19 Zeng grant,2021Q3,mice,imaging,fmost,8,0,8.0,0,0,0
+zeng_fmost_cells,U19 Zeng grant,2020Q4,mice,anatomy/morphology,neuron morphology reconstruction,32,0,0,1660.0,0,0
+zeng_fmost_cells,U19 Zeng grant,2021Q3,mice,anatomy/morphology,neuron morphology reconstruction,9,0,0,81.0,0,0
+zeng_mouselight,U19 Zeng grant,2019Q4,mice,imaging,mouselight,1,0,1.0,0,0,0
+zeng_retro,U19 Zeng grant,2019Q1,mice,anatomy/morphology,retrograde transsynaptic tracing,330,0,330.0,0,0,0
+zeng_retro,U19 Zeng grant,2019Q2,mice,anatomy/morphology,retrograde transsynaptic tracing,23,0,23.0,0,0,0
+zeng_retro,U19 Zeng grant,2019Q3,mice,anatomy/morphology,retrograde transsynaptic tracing,58,0,58.0,0,0,0
+zeng_retro,U19 Zeng grant,2019Q4,mice,anatomy/morphology,retrograde transsynaptic tracing,47,0,47.0,0,0,0
+zeng_retro,U19 Zeng grant,2020Q2,mice,anatomy/morphology,retrograde transsynaptic tracing,22,0,22.0,0,0,0
+zeng_retro,U19 Zeng grant,2020Q3,mice,anatomy/morphology,retrograde transsynaptic tracing,192,0,192.0,0,0,0
+zeng_retro,U19 Zeng grant,2021Q1,mice,anatomy/morphology,retrograde transsynaptic tracing,69,0,69.0,0,0,0
+zeng_retro,U19 Zeng grant,2021Q2,mice,anatomy/morphology,retrograde transsynaptic tracing,5,0,5.0,0,0,0
+zeng_retro,U19 Zeng grant,2021Q3,mice,anatomy/morphology,retrograde transsynaptic tracing,196,0,196.0,0,0,0
+zeng_retro,U19 Zeng grant,2021Q4,mice,anatomy/morphology,retrograde transsynaptic tracing,8,0,8.0,0,0,0
+zeng_retro,U19 Zeng grant,2022Q1,mice,anatomy/morphology,retrograde transsynaptic tracing,44,0,44.0,0,0,0
+zeng_sc_10xv2,U19 Zeng grant,2019Q2,mice,transcriptomics,10x chromium 3' sequencing,6,0,0,174669.0,0,0
+zeng_sc_10xv2,U19 Zeng grant,2020Q4,mice,transcriptomics,10x chromium 3' sequencing,89,0,0,2285084.0,0,0
+zeng_sc_10xv2,U19 Zeng grant,2022Q1,mice,transcriptomics,10x chromium 3' sequencing,3,0,0,59335.0,0,0
+zeng_sc_10xv3,U19 Zeng grant,2019Q2,mice,transcriptomics,10x chromium 3' sequencing,4,0,0,216103.0,0,0
+zeng_sc_10xv3,U19 Zeng grant,2020Q2,mice,transcriptomics,10x chromium 3' sequencing,6,0,0,218908.0,0,0
+zeng_sc_10xv3,U19 Zeng grant,2020Q4,mice,transcriptomics,10x chromium 3' sequencing,39,0,0,880514.0,0,0
+zeng_sc_10xv3,U19 Zeng grant,2021Q4,mice,transcriptomics,10x chromium 3' sequencing,102,0,0,1874773.0,0,0
+zeng_sc_10xv3,U19 Zeng grant,2022Q1,mice,transcriptomics,10x chromium 3' sequencing,91,0,0,1560503.0,0,0
+zeng_sc_SSv4,U19 Zeng grant,2019Q1,mice,transcriptomics,smart-seq v4,495,0,0,66892.0,0,0
+zeng_sc_SSv4,U19 Zeng grant,2019Q2,mice,transcriptomics,smart-seq v4,28,0,0,12005.0,0,0
+zeng_sc_SSv4,U19 Zeng grant,2019Q4,mice,transcriptomics,smart-seq v4,93,0,0,20163.0,0,0
+zeng_sc_SSv4,U19 Zeng grant,2020Q2,mice,transcriptomics,smart-seq v4,29,0,0,11398.0,0,0
+zeng_sc_SSv4,U19 Zeng grant,2020Q3,mice,transcriptomics,smart-seq v4,12,0,0,989.0,0,0
+zeng_sc_SSv4,U19 Zeng grant,2020Q4,mice,transcriptomics,smart-seq v4,143,0,0,45916.0,0,0
+zeng_sc_SSv4,U19 Zeng grant,2021Q4,mice,transcriptomics,smart-seq v4,478,0,0,49813.0,0,0
+zeng_sc_SSv4,U19 Zeng grant,2022Q2,mice,transcriptomics,smart-seq v4,71,0,0,1998.0,0,0
+zeng_sn_10xv2,U19 Zeng grant,2020Q4,mice,transcriptomics,10x chromium 3' sequencing,3,0,0,90902.0,0,0
+zeng_sn_10xv2,U19 Zeng grant,2022Q1,mice,transcriptomics,10x chromium 3' sequencing,2,0,0,488015.0,0,0
+zeng_sn_10xv3,U19 Zeng grant,2020Q4,mice,transcriptomics,10x chromium 3' sequencing,1,0,0,90382.0,0,0
+zeng_sn_10xv3,U19 Zeng grant,2022Q1,mice,transcriptomics,10x chromium 3' sequencing,1,0,0,7025.0,0,0
+zeng_sn_SSv4,U19 Zeng grant,2019Q1,mice,transcriptomics,smart-seq v4,10,0,0,6816.0,0,0
+zeng_sn_SSv4,U19 Zeng grant,2021Q4,mice,transcriptomics,smart-seq v4,16,0,0,8741.0,0,0
+zhangl_anatomy,U01 ZhangLi grant,2021Q2,mice,anatomy/morphology,trio tracing,0,0,0,0,0,0
+zhangl_anatomy,U01 ZhangLi grant,2022Q1,mice,imaging,visor,0,0,0,0,0,0
+zhangl_ephys,U01 ZhangLi grant,2022Q1,mice,multimodal,whole cell patch clamp,0,0,0,25.0,0,0
+zhangl_kz_omics,U01 ZhangLi grant,2021Q1,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,23190.0,0,0
+zhangl_kz_omics,U01 ZhangLi grant,2021Q2,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,186.0,0,0
+zhangl_kz_omics,U01 ZhangLi grant,2021Q4,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,10112.0,0,0
+zhangl_kz_omics,U01 ZhangLi grant,2022Q1,mice,transcriptomics,10x chromium 3' sequencing,0,0,0,53486.0,0,0
+zhangl_seqfish,U01 ZhangLi grant,2020Q1,mice,spatial,seqfish,0,0,0,0,0,2.0
+zhangl_seqfish,U01 ZhangLi grant,2021Q2,mice,spatial,seqfish,0,0,0,0,0,2.0
+zhangl_seqfish,U01 ZhangLi grant,2022Q1,mice,spatial,seqfish,0,0,0,0,0,2.0
+zhuang_dulac_merfish_HYP_1,U19 Huang grant,2022Q1,mice,spatial,merfish,0,0,0,0,0,200.0
+zhuang_dulac_merfish_HYP_2,U19 Huang grant,2022Q2,mice,spatial,merfish,0,0,0,0,0,1.0
+zhuang_dulac_merfish_MOB,U19 Zeng grant,2021Q3,mice,spatial,merfish,0,0,0,0,0,355.0
+zhuang_dulac_merfish_MOE,U19 Zeng grant,2021Q1,mice,spatial,merfish,0,0,0,3300000.0,0,0
+zhuang_dulac_merfish_PAG,U19 Huang grant,2020Q2,mice,spatial,merfish,0,0,0,2900000.0,0,0
+zhuang_dulac_merfish_PAG_2,U19 Huang grant,2021Q2,mice,spatial,merfish,0,0,0,2900000.0,0,0
+zhuang_merfish_M1,multi-grant,2020Q1,mice,spatial,merfish,0,0,0,600000.0,0,0
+zhuang_merfish_NAc,U19 Huang grant,2021Q1,mice,spatial,merfish,0,0,0,750000.0,0,0
