@@ -43,7 +43,11 @@ app.layout = html.Div([
                 dcc.RadioItems(id='specimen_name',
                     options = subspecimen_count_selections,
                     value = subspecimen_count_selections[0], inline= False)]),
-        dcc.Tab(label = 'Sample/Donor Count', value = 'donor_count')
+        dcc.Tab(label = 'Sample/Donor Count', value = 'donor_count'),
+        dcc.Tab(label = 'Archive Views', value = 'archives', children=[
+                dcc.RadioItems(id='specimen_name',
+                    options = subspecimen_count_selections,
+                    value = subspecimen_count_selections[0], inline= False)])
         
         ]),
     html.Div(id='graph-output')
@@ -114,7 +118,17 @@ def update_fig(tabs, specimen_name):
         return html.Div([
             dcc.Graph(figure = fig, style={'height': 1000, 'width': '100%', 'display':'block'})
         ])
-        
+
+    # elif tabs == 'archives':
+    #     df_archives = df[['quarters', 'archive', specimen_name]].groupby(['quarters', 'archive'], as_index=False)[specimen_name].sum()
+    #     fig1 = px.bar(df_archives[df_archives['archive'] == 'NEMO'], x = 'quarters', y = specimen_name, title= 'NEMO Specimen Counts')
+
+    #     return html.Div([
+    #     dcc.Graph(figure = fig1, style={'height': 500, 'width': '30%', 'display':'inline-block'})
+    #     ])
+
+
+
 ## launch command
 if __name__ == '__main__':
     app.run_server()
