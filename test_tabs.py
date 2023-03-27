@@ -87,13 +87,13 @@ def update_fig(tabs, specimen_name):
         df_multimodal = df[df['modality'] == 'multimodal'].groupby(['quarters', 'grant_reference_id'], as_index= False)['cell_count'].sum()
         fig5 = px.bar(df_multimodal, x = 'quarters', y = 'cell_count', color= 'grant_reference_id', title = 'Multimodal')
         fig5.update_layout(xaxis_title = "Quarters", yaxis_title = 'Cells')
-    
+
         return html.Div([
-        dcc.Graph(figure = fig1, style={'height': '50%', 'width': '30%', 'display':'inline-block'}),
-        dcc.Graph(figure = fig2, style={'height': '50%','width': '30%', 'display':'inline-block'}),
-        dcc.Graph(figure = fig3, style={'height': '50%','width': '30%', 'display':'inline-block'}),
-        dcc.Graph(figure = fig4, style={'height': '50%','width': '30%', 'display':'inline-block'}),
-        dcc.Graph(figure = fig5, style={'height': '50%','width': '30%', 'display':'inline-block'})
+        dcc.Graph(figure = fig1, style={'height': 500, 'width': '30%', 'display':'inline-block'}),
+        dcc.Graph(figure = fig2, style={'height': 500,'width': '30%', 'display':'inline-block'}),
+        dcc.Graph(figure = fig3, style={'height': 500,'width': '30%', 'display':'inline-block'}),
+        dcc.Graph(figure = fig4, style={'height': 500,'width': '30%', 'display':'inline-block'}),
+        dcc.Graph(figure = fig5, style={'height': 500,'width': '30%', 'display':'inline-block'})
       ])
     
     elif tabs == 'deposition':
@@ -101,7 +101,7 @@ def update_fig(tabs, specimen_name):
         fig.update_xaxes(categoryorder='array', categoryarray = quarter_order)
         fig.update_layout(xaxis_title = "Quarters", yaxis_title = 'Number of Specimens Processed')
         return html.Div([
-            dcc.Graph(figure = fig, style={'height': '100%', 'width': '100%', 'display':'block'})
+            dcc.Graph(figure = fig, style={'height': 1000, 'width': '100%', 'display':'block'})
         ])
     
     elif tabs == 'donor_count':
@@ -112,7 +112,7 @@ def update_fig(tabs, specimen_name):
         fig.update_layout(xaxis_title = "Quarters", yaxis_title = 'Number of Subjects/Donors')
 
         return html.Div([
-            dcc.Graph(figure = fig, style={'height': '100%', 'width': '100%', 'display':'block'})
+            dcc.Graph(figure = fig, style={'height': 1000, 'width': '100%', 'display':'block'})
         ])
         
 ## launch command
