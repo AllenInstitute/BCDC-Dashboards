@@ -5,7 +5,7 @@ This repository is intended to store the codes for the BICAN dashboard, which ta
 1. Input: BCDC-Metadata
 2. Data Wrangling: dashboard_data_wrangling.ipynb
     Output: dash_count_df.csv
-3. Dashboard script: tast_dash_counts.py (takes dash_count_df.csv as input)
+3. Dashboard script: test_tabs.py (takes dash_count_df.csv as input)
     Output: Dashboard page with visualizations
 
 ### Business logics:
