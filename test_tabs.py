@@ -20,9 +20,7 @@ cwd = os.getcwd() # directory this file is saved in
 ## sample/subject table
 df_sample = pd.read_csv(os.path.join(cwd, 'dash_sample_count_df.csv'), encoding='unicode_escape')
 df = pd.read_csv(os.path.join(cwd, 'dash_specimen_count_df.csv'), encoding='unicode_escape')
-df_main = df.pivot_table(index=['modality', 'technique'], columns='grant_reference_id', values='species', aggfunc='first').notnull().astype('int').reset_index()
-df_main.loc[df_main['modality'].duplicated(), 'modality'] = '  '
-df_main = df_main.replace(to_replace = 0, value = '')
+
 
 
 ## sort the quarters for the plots in case they are not in order
@@ -56,7 +54,12 @@ app.layout = html.Div([
     ),
     
     dcc.Tabs(id="tabs", value='data_types', children=[
-        dcc.Tab(label = 'Data Types', value = 'data_types'),
+        dcc.Tab(label = 'Data Types', value = 'data_types', children=[
+            html.Label(['View'], style={'font-weight': 'bold', "text-align": "center"}),
+                dcc.Dropdown(id='dtype_view',
+                    options = ['Grant', 'Species', 'Archive'],
+                    value = 'Grant', style={'width':'60%'})
+        ]),
         dcc.Tab(label = 'Cumulative Totals', value = 'cumulatives', children=[
             html.Label(['x-axis'], style={'font-weight': 'bold', "text-align": "center"}),
                 dcc.Dropdown(id='x_cumulative',
@@ -125,9 +128,10 @@ app.layout = html.Div([
     Input('colors_test', 'value'),
     Input('metrics_test', 'value'),
     Input('x_selection', 'value'), 
-    Input('x_cumulative', 'value'))
+    Input('x_cumulative', 'value'),
+    Input('dtype_view', 'value'))
 
-def update_fig(tabs, specimen_name, view_type, x_axis, xaxis_test, colors_test, metrics_test, x_selection, x_cumulative):
+def update_fig(tabs, specimen_name, view_type, x_axis, xaxis_test, colors_test, metrics_test, x_selection, x_cumulative, dtype_view):
 
     axis_val = axis_lookup[x_axis]
     col_name = col_lookup[specimen_name]
@@ -238,6 +242,11 @@ def update_fig(tabs, specimen_name, view_type, x_axis, xaxis_test, colors_test, 
         ])
     
     elif tabs == 'data_types':
+        dtype = axis_lookup[dtype_view]
+        df_main = df.pivot_table(index=['modality', 'technique'], columns=dtype, values='data_collection_reference_id', aggfunc='first').notnull().astype('int').reset_index()
+        df_main.loc[df_main['modality'].duplicated(), 'modality'] = '  '
+        df_main = df_main.replace(to_replace = 0, value = '')
+
         table = go.Table(
             header = dict(values = df_main.columns.tolist(), font = dict(color = 'black', size = 11)),
             cells = dict(values = df_main.T, 
