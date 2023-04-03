@@ -48,10 +48,10 @@ dong_trio,U01 Dong grant,whole brain,BIL,2020Q1,mouse,anatomy/morphology,trio tr
 dong_trio,U01 Dong grant,whole brain,BIL,2021Q1,mouse,anatomy/morphology,trio tracing,6
 dong_trio,U01 Dong grant,whole brain,BIL,2022Q1,mouse,anatomy/morphology,trio tracing,8
 dong_trio,U01 Dong grant,whole brain,BIL,2022Q2,mouse,anatomy/morphology,trio tracing,8
-dulac_hyp_sn_10xv2,U19 Huang grant,library,NEMO,2021Q1,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,16
-dulac_pag_sn_10xv2,U19 Huang grant,library,NEMO,2021Q1,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,18
+dulac_hyp_sn_10xv2,U19 Huang grant,library,NEMO,2021Q1,mouse,transcriptomics,10x chromium 3' sequencing,16
+dulac_pag_sn_10xv2,U19 Huang grant,library,NEMO,2021Q1,mouse,transcriptomics,10x chromium 3' sequencing,18
 dulac_poa_dev_sn_10x_RNAseq,U19 Huang grant,library,NEMO,2022Q1,mouse,multimodal,10x genomics multiome,23
-ecker_hu_DNAseq,U01 Ecker grant,tissue sample,NEMO,2020Q2,humans,transcriptomics/epigenomics,dnaseq,3
+ecker_hu_DNAseq,U01 Ecker grant,tissue sample,NEMO,2020Q2,humans,transcriptomics,dnaseq,3
 ecker_hu_sn_ATACseq,U01 Ecker grant,library,NEMO,2020Q2,humans,epigenomics,atac-seq,2
 ecker_hu_sn_ATACseq,U01 Ecker grant,library,NEMO,2020Q3,humans,epigenomics,atac-seq,8
 ecker_hu_sn_ATACseq,U01 Ecker grant,library,NEMO,2020Q4,humans,epigenomics,atac-seq,22
@@ -130,18 +130,18 @@ feng_fish,U01 Feng grant,cell in slice,BIL,2022Q1,non-human primates,spatial tra
 feng_morph,U01 Feng grant,whole cell,BIL,2020Q1,non-human primates,cell morphology,neuron morphology reconstruction,10
 feng_morph,U01 Feng grant,whole cell,BIL,2020Q3,non-human primates,cell morphology,neuron morphology reconstruction,10
 feng_morph,U01 Feng grant,whole cell,BIL,2020Q4,non-human primates,cell morphology,neuron morphology reconstruction,25
-feng_sn_10xv3,U01 Feng grant,library,NEMO,2020Q2,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,4
-feng_sn_10xv3,U01 Feng grant,library,NEMO,2020Q4,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,6
-feng_sn_10xv3,U01 Feng grant,library,NEMO,2021Q1,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,4
-feng_sn_10xv3,U01 Feng grant,library,NEMO,2021Q2,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,4
-feng_sn_10xv3,U01 Feng grant,library,NEMO,2021Q3,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,3
-feng_sn_10xv3,U01 Feng grant,library,NEMO,2021Q4,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,4
-feng_sn_10xv3,U01 Feng grant,library,NEMO,2022Q1,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,4
-feng_sn_10xv3,U01 Feng grant,library,NEMO,2022Q2,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,4
-feng_sn_dropseq,U01 Feng grant,library,NEMO,2018Q4,non-human primates,transcriptomics/epigenomics,drop-seq,7
-feng_sn_dropseq,U01 Feng grant,library,NEMO,2019Q1,non-human primates,transcriptomics/epigenomics,drop-seq,2
-feng_sn_dropseq,U01 Feng grant,library,NEMO,2019Q3,non-human primates,transcriptomics/epigenomics,drop-seq,23
-feng_sn_dropseq,U01 Feng grant,library,NEMO,2019Q4,non-human primates,transcriptomics/epigenomics,drop-seq,6
+feng_sn_10xv3,U01 Feng grant,library,NEMO,2020Q2,non-human primates,transcriptomics,10x chromium 3' sequencing,4
+feng_sn_10xv3,U01 Feng grant,library,NEMO,2020Q4,non-human primates,transcriptomics,10x chromium 3' sequencing,6
+feng_sn_10xv3,U01 Feng grant,library,NEMO,2021Q1,non-human primates,transcriptomics,10x chromium 3' sequencing,4
+feng_sn_10xv3,U01 Feng grant,library,NEMO,2021Q2,non-human primates,transcriptomics,10x chromium 3' sequencing,4
+feng_sn_10xv3,U01 Feng grant,library,NEMO,2021Q3,non-human primates,transcriptomics,10x chromium 3' sequencing,3
+feng_sn_10xv3,U01 Feng grant,library,NEMO,2021Q4,non-human primates,transcriptomics,10x chromium 3' sequencing,4
+feng_sn_10xv3,U01 Feng grant,library,NEMO,2022Q1,non-human primates,transcriptomics,10x chromium 3' sequencing,4
+feng_sn_10xv3,U01 Feng grant,library,NEMO,2022Q2,non-human primates,transcriptomics,10x chromium 3' sequencing,4
+feng_sn_dropseq,U01 Feng grant,library,NEMO,2018Q4,non-human primates,transcriptomics,drop-seq,7
+feng_sn_dropseq,U01 Feng grant,library,NEMO,2019Q1,non-human primates,transcriptomics,drop-seq,2
+feng_sn_dropseq,U01 Feng grant,library,NEMO,2019Q3,non-human primates,transcriptomics,drop-seq,23
+feng_sn_dropseq,U01 Feng grant,library,NEMO,2019Q4,non-human primates,transcriptomics,drop-seq,6
 fischl_lsfm,U01 Fischl grant,brain region,DANDI,2021Q1,humans,imaging,light sheet microscopy,2
 fischl_lsfm,U01 Fischl grant,brain region,DANDI,2021Q3,humans,imaging,light sheet microscopy,1
 fischl_lsfm,U01 Fischl grant,brain region,DANDI,2022Q3,humans,imaging,light sheet microscopy,1
@@ -167,40 +167,40 @@ huang_ccf4_hist,U19 Huang grant,whole brain,BIL,2022Q2,mouse,anatomy/morphology,
 huang_ccf4_mri,U19 Huang grant,whole brain,BIL,2022Q2,mouse,imaging,mri,1
 huang_dev_cx_scATAC,U19 Huang grant,library,NEMO,2021Q2,mouse,epigenomics,atac-seq,1
 huang_dev_cx_scATAC,U19 Huang grant,library,NEMO,2021Q3,mouse,epigenomics,atac-seq,1
-huang_dev_cx_scRNA,U19 Huang grant,library,NEMO,2021Q2,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,3
-huang_dev_cx_scRNA,U19 Huang grant,library,NEMO,2021Q3,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,3
-huang_dev_cx_scRNA,U19 Huang grant,library,NEMO,2021Q4,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,3
+huang_dev_cx_scRNA,U19 Huang grant,library,NEMO,2021Q2,mouse,transcriptomics,10x chromium 3' sequencing,3
+huang_dev_cx_scRNA,U19 Huang grant,library,NEMO,2021Q3,mouse,transcriptomics,10x chromium 3' sequencing,3
+huang_dev_cx_scRNA,U19 Huang grant,library,NEMO,2021Q4,mouse,transcriptomics,10x chromium 3' sequencing,3
 huang_fmost,U19 Huang grant,whole brain,BIL,2020Q4,mouse,imaging,fmost,111
 huang_fmost,U19 Huang grant,whole brain,BIL,2021Q2,mouse,imaging,fmost,53
 huang_fmost,U19 Huang grant,whole brain,BIL,2021Q3,mouse,imaging,fmost,28
 huang_fmost_cells,U19 Huang grant,whole cell,BIL,2021Q2,mouse,imaging,fmost,467
 huang_fmost_cells,U19 Huang grant,whole cell,BIL,2021Q3,mouse,imaging,fmost,99
 huang_input_conn,U19 Huang grant,whole brain,BIL,2021Q1,mouse,anatomy/morphology,retrograde transsynaptic tracing,5
-huang_pn_bulk_SSv4,U19 Huang grant,library,NEMO,2019Q4,mouse,transcriptomics/epigenomics,smart-seq v4,11
-huang_pn_bulk_SSv4,U19 Huang grant,library,NEMO,2020Q1,mouse,transcriptomics/epigenomics,smart-seq v4,8
-huang_pn_sn_10xv2,U19 Huang grant,library,NEMO,2019Q4,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,40
-huang_pn_sn_10xv2,U19 Huang grant,library,NEMO,2020Q1,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,7
-huang_pn_sn_10xv3,U19 Huang grant,library,NEMO,2020Q4,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,12
-huang_pn_sn_10xv3,U19 Huang grant,library,NEMO,2021Q1,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,6
+huang_pn_bulk_SSv4,U19 Huang grant,library,NEMO,2019Q4,mouse,transcriptomics,smart-seq v4,11
+huang_pn_bulk_SSv4,U19 Huang grant,library,NEMO,2020Q1,mouse,transcriptomics,smart-seq v4,8
+huang_pn_sn_10xv2,U19 Huang grant,library,NEMO,2019Q4,mouse,transcriptomics,10x chromium 3' sequencing,40
+huang_pn_sn_10xv2,U19 Huang grant,library,NEMO,2020Q1,mouse,transcriptomics,10x chromium 3' sequencing,7
+huang_pn_sn_10xv3,U19 Huang grant,library,NEMO,2020Q4,mouse,transcriptomics,10x chromium 3' sequencing,12
+huang_pn_sn_10xv3,U19 Huang grant,library,NEMO,2021Q1,mouse,transcriptomics,10x chromium 3' sequencing,6
 huang_retro,U19 Huang grant,whole brain,BIL,2019Q1,mouse,anatomy/morphology,retrograde tracing,12
 huang_retro,U19 Huang grant,whole brain,BIL,2019Q3,mouse,anatomy/morphology,retrograde tracing,12
 huang_retro,U19 Huang grant,whole brain,BIL,2019Q4,mouse,anatomy/morphology,retrograde tracing,12
 huang_retro,U19 Huang grant,whole brain,BIL,2020Q1,mouse,anatomy/morphology,retrograde tracing,9
 huang_retro,U19 Huang grant,whole brain,BIL,2021Q2,mouse,anatomy/morphology,retrograde tracing,5
 huang_retro,U19 Huang grant,whole brain,BIL,2021Q3,mouse,anatomy/morphology,retrograde tracing,4
-huang_sn_10xv2,U19 Huang grant,library,NEMO,2018Q3,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,62
-huang_sn_10xv2,U19 Huang grant,library,NEMO,2018Q4,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,18
-huang_sn_10xv2,U19 Huang grant,library,NEMO,2019Q1,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,38
-huang_sn_10xv3,U19 Huang grant,library,NEMO,2019Q1,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,17
-huang_sn_10xv3,U19 Huang grant,library,NEMO,2019Q2,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,162
-huang_sn_10xv3,U19 Huang grant,library,NEMO,2019Q3,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,42
-huang_sn_10xv3,U19 Huang grant,library,NEMO,2019Q4,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,55
-huang_sn_10xv3,U19 Huang grant,library,NEMO,2020Q1,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,13
-huang_sn_10xv3,U19 Huang grant,library,NEMO,2020Q4,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,93
-huang_sn_10xv3,U19 Huang grant,library,NEMO,2021Q2,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,174
-huang_sn_10xv3,U19 Huang grant,library,NEMO,2021Q3,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,95
-huang_sn_10xv3,U19 Huang grant,library,NEMO,2022Q2,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,3
-huang_sn_10xv3,U19 Huang grant,library,NEMO,2022Q3,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,5
+huang_sn_10xv2,U19 Huang grant,library,NEMO,2018Q3,mouse,transcriptomics,10x chromium 3' sequencing,62
+huang_sn_10xv2,U19 Huang grant,library,NEMO,2018Q4,mouse,transcriptomics,10x chromium 3' sequencing,18
+huang_sn_10xv2,U19 Huang grant,library,NEMO,2019Q1,mouse,transcriptomics,10x chromium 3' sequencing,38
+huang_sn_10xv3,U19 Huang grant,library,NEMO,2019Q1,mouse,transcriptomics,10x chromium 3' sequencing,17
+huang_sn_10xv3,U19 Huang grant,library,NEMO,2019Q2,mouse,transcriptomics,10x chromium 3' sequencing,162
+huang_sn_10xv3,U19 Huang grant,library,NEMO,2019Q3,mouse,transcriptomics,10x chromium 3' sequencing,42
+huang_sn_10xv3,U19 Huang grant,library,NEMO,2019Q4,mouse,transcriptomics,10x chromium 3' sequencing,55
+huang_sn_10xv3,U19 Huang grant,library,NEMO,2020Q1,mouse,transcriptomics,10x chromium 3' sequencing,13
+huang_sn_10xv3,U19 Huang grant,library,NEMO,2020Q4,mouse,transcriptomics,10x chromium 3' sequencing,93
+huang_sn_10xv3,U19 Huang grant,library,NEMO,2021Q2,mouse,transcriptomics,10x chromium 3' sequencing,174
+huang_sn_10xv3,U19 Huang grant,library,NEMO,2021Q3,mouse,transcriptomics,10x chromium 3' sequencing,95
+huang_sn_10xv3,U19 Huang grant,library,NEMO,2022Q2,mouse,transcriptomics,10x chromium 3' sequencing,3
+huang_sn_10xv3,U19 Huang grant,library,NEMO,2022Q3,mouse,transcriptomics,10x chromium 3' sequencing,5
 huang_stpt_conn,U19 Huang grant,whole brain,BIL,2018Q3,mouse,anatomy/morphology,anterograde tracing,22
 huang_stpt_conn,U19 Huang grant,whole brain,BIL,2018Q4,mouse,anatomy/morphology,anterograde tracing,28
 huang_stpt_conn,U19 Huang grant,whole brain,BIL,2019Q1,mouse,anatomy/morphology,anterograde tracing,28
@@ -213,50 +213,50 @@ huang_stpt_conn,U19 Huang grant,whole brain,BIL,2021Q1,mouse,anatomy/morphology,
 huang_stpt_count,U19 Huang grant,whole brain,BIL,2018Q3,mouse,imaging,stpt,27
 huang_stpt_count,U19 Huang grant,whole brain,BIL,2018Q4,mouse,imaging,stpt,9
 huang_stpt_count,U19 Huang grant,whole brain,BIL,2021Q1,mouse,imaging,stpt,22
-human_cortex_SS4_Open_GRU,Allen Institute funder,library,NEMO,2020Q4,humans,transcriptomics/epigenomics,smart-seq v4,4911
-human_cortex_SS4_Open_GRU,U01 Lein grant,library,NEMO,2020Q4,humans,transcriptomics/epigenomics,smart-seq v4,4911
-human_cortex_SS4_restricted_GRU,Allen Institute funder,library,NEMO,2020Q4,humans,transcriptomics/epigenomics,smart-seq v4,50688
-human_cortex_SS4_restricted_GRU,U01 Lein grant,library,NEMO,2020Q4,humans,transcriptomics/epigenomics,smart-seq v4,50688
-human_cortex_SS4_restricted_limited,Allen Institute funder,library,NEMO,2020Q4,humans,transcriptomics/epigenomics,smart-seq v4,208
-human_cortex_SS4_restricted_limited,U01 Lein grant,library,NEMO,2020Q4,humans,transcriptomics/epigenomics,smart-seq v4,208
-kriegstein_sc_10xv2,U01 Kriegstein grant,library,NEMO,2018Q4,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,83
-kriegstein_sc_10xv2,U01 Kriegstein grant,library,NEMO,2019Q4,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,4
-kriegstein_sc_10xv2,U01 Kriegstein grant,library,NEMO,2020Q1,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,17
-kriegstein_sc_10xv3,U01 Kriegstein grant,library,NEMO,2019Q4,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,16
-kriegstein_sc_10xv3,U01 Kriegstein grant,library,NEMO,2020Q3,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,13
+human_cortex_SS4_Open_GRU,Allen Institute funder,library,NEMO,2020Q4,humans,transcriptomics,smart-seq v4,4911
+human_cortex_SS4_Open_GRU,U01 Lein grant,library,NEMO,2020Q4,humans,transcriptomics,smart-seq v4,4911
+human_cortex_SS4_restricted_GRU,Allen Institute funder,library,NEMO,2020Q4,humans,transcriptomics,smart-seq v4,50688
+human_cortex_SS4_restricted_GRU,U01 Lein grant,library,NEMO,2020Q4,humans,transcriptomics,smart-seq v4,50688
+human_cortex_SS4_restricted_limited,Allen Institute funder,library,NEMO,2020Q4,humans,transcriptomics,smart-seq v4,208
+human_cortex_SS4_restricted_limited,U01 Lein grant,library,NEMO,2020Q4,humans,transcriptomics,smart-seq v4,208
+kriegstein_sc_10xv2,U01 Kriegstein grant,library,NEMO,2018Q4,humans,transcriptomics,10x chromium 3' sequencing,83
+kriegstein_sc_10xv2,U01 Kriegstein grant,library,NEMO,2019Q4,humans,transcriptomics,10x chromium 3' sequencing,4
+kriegstein_sc_10xv2,U01 Kriegstein grant,library,NEMO,2020Q1,humans,transcriptomics,10x chromium 3' sequencing,17
+kriegstein_sc_10xv3,U01 Kriegstein grant,library,NEMO,2019Q4,humans,transcriptomics,10x chromium 3' sequencing,16
+kriegstein_sc_10xv3,U01 Kriegstein grant,library,NEMO,2020Q3,humans,transcriptomics,10x chromium 3' sequencing,13
 kriegstein_sc_ATACseq,U01 Kriegstein grant,library,NEMO,2019Q2,humans,epigenomics,atac-seq,14
 kriegstein_sc_ATACseq,U01 Kriegstein grant,library,NEMO,2019Q4,humans,epigenomics,atac-seq,8
 kriegstein_sc_ATACseq,U01 Kriegstein grant,library,NEMO,2021Q3,humans,epigenomics,atac-seq,8
 kriegstein_sc_multiome,U01 Kriegstein grant,library,NEMO,2022Q2,humans,multimodal,10x genomics multiome,21
 kriegstein_sc_multiome,U01 Kriegstein grant,library,NEMO,2022Q3,humans,multimodal,10x genomics multiome,3
-kriegstein_sn_10xv2,U01 Kriegstein grant,library,NEMO,2018Q4,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,52
-kriegstein_sn_10xv2,U01 Kriegstein grant,library,NEMO,2019Q1,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,23
-kriegstein_sn_10xv2,U01 Kriegstein grant,library,NEMO,2019Q2,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,15
-kriegstein_sn_10xv2,U01 Kriegstein grant,library,NEMO,2020Q4,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,117
+kriegstein_sn_10xv2,U01 Kriegstein grant,library,NEMO,2018Q4,humans,transcriptomics,10x chromium 3' sequencing,52
+kriegstein_sn_10xv2,U01 Kriegstein grant,library,NEMO,2019Q1,humans,transcriptomics,10x chromium 3' sequencing,23
+kriegstein_sn_10xv2,U01 Kriegstein grant,library,NEMO,2019Q2,humans,transcriptomics,10x chromium 3' sequencing,15
+kriegstein_sn_10xv2,U01 Kriegstein grant,library,NEMO,2020Q4,humans,transcriptomics,10x chromium 3' sequencing,117
 kriegstein_spatial,U01 Kriegstein grant,brain region,BIL,2022Q3,humans,spatial transcriptomics,merfish,3
 lein_L5_pseq_t,U01 Lein grant,library,NEMO,2021Q3,humans,multimodal,patch-seq,25
-lein_evo_10x_arcticgroundsquirrel,U01 Lein grant,library,NEMO,2021Q2,other mammals,transcriptomics/epigenomics,10x chromium 3' sequencing,11
-lein_evo_10x_armadillo,U01 Lein grant,library,NEMO,2021Q2,other mammals,transcriptomics/epigenomics,10x chromium 3' sequencing,12
-lein_evo_10x_cat,U01 Lein grant,library,NEMO,2021Q3,other mammals,transcriptomics/epigenomics,10x chromium 3' sequencing,12
-lein_evo_10x_chimp,U01 Lein grant,library,NEMO,2021Q2,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,12
-lein_evo_10x_ferret,U01 Lein grant,library,NEMO,2021Q2,other mammals,transcriptomics/epigenomics,10x chromium 3' sequencing,12
-lein_evo_10x_galago,U01 Lein grant,library,NEMO,2021Q3,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,12
-lein_evo_10x_gorilla,U01 Lein grant,library,NEMO,2021Q2,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,14
-lein_evo_10x_greenmonkey,U01 Lein grant,library,NEMO,2021Q2,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,12
-lein_evo_10x_nemestrina,U01 Lein grant,library,NEMO,2021Q2,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,12
-lein_evo_10x_opposum,U01 Lein grant,library,NEMO,2021Q2,other mammals,transcriptomics/epigenomics,10x chromium 3' sequencing,12
-lein_evo_10x_owlmonkey,U01 Lein grant,library,NEMO,2021Q2,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,12
-lein_evo_10x_pig,U01 Lein grant,library,NEMO,2021Q3,other mammals,transcriptomics/epigenomics,10x chromium 3' sequencing,10
-lein_evo_10x_rabbit,U01 Lein grant,library,NEMO,2021Q2,other mammals,transcriptomics/epigenomics,10x chromium 3' sequencing,13
-lein_evo_10x_rat,U01 Lein grant,library,NEMO,2021Q2,other mammals,transcriptomics/epigenomics,10x chromium 3' sequencing,12
-lein_evo_10x_rhesus,U01 Lein grant,library,NEMO,2021Q2,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,13
-lein_evo_10x_treeshrew,U01 Lein grant,library,NEMO,2021Q3,other mammals,transcriptomics/epigenomics,10x chromium 3' sequencing,13
-lein_evo_Iso_Seq_arctic_ground_squirrel,U01 Lein grant,tissue sample,NEMO,2022Q1,other mammals,transcriptomics/epigenomics,pacbio long read sequencing,1
-lein_evo_Iso_Seq_armadillo,U01 Lein grant,tissue sample,NEMO,2022Q1,other mammals,transcriptomics/epigenomics,pacbio long read sequencing,1
-lein_evo_Iso_Seq_greenmonkey,U01 Lein grant,tissue sample,NEMO,2022Q1,non-human primates,transcriptomics/epigenomics,pacbio long read sequencing,1
-lein_evo_Iso_Seq_nemestrina,U01 Lein grant,tissue sample,NEMO,2022Q1,non-human primates,transcriptomics/epigenomics,pacbio long read sequencing,1
-lein_evo_Iso_Seq_opossum,U01 Lein grant,tissue sample,NEMO,2022Q1,other mammals,transcriptomics/epigenomics,pacbio long read sequencing,1
-lein_evo_Iso_Seq_squirrel_monkey,U01 Lein grant,tissue sample,NEMO,2022Q1,non-human primates,transcriptomics/epigenomics,pacbio long read sequencing,1
+lein_evo_10x_arcticgroundsquirrel,U01 Lein grant,library,NEMO,2021Q2,other mammals,transcriptomics,10x chromium 3' sequencing,11
+lein_evo_10x_armadillo,U01 Lein grant,library,NEMO,2021Q2,other mammals,transcriptomics,10x chromium 3' sequencing,12
+lein_evo_10x_cat,U01 Lein grant,library,NEMO,2021Q3,other mammals,transcriptomics,10x chromium 3' sequencing,12
+lein_evo_10x_chimp,U01 Lein grant,library,NEMO,2021Q2,non-human primates,transcriptomics,10x chromium 3' sequencing,12
+lein_evo_10x_ferret,U01 Lein grant,library,NEMO,2021Q2,other mammals,transcriptomics,10x chromium 3' sequencing,12
+lein_evo_10x_galago,U01 Lein grant,library,NEMO,2021Q3,non-human primates,transcriptomics,10x chromium 3' sequencing,12
+lein_evo_10x_gorilla,U01 Lein grant,library,NEMO,2021Q2,non-human primates,transcriptomics,10x chromium 3' sequencing,14
+lein_evo_10x_greenmonkey,U01 Lein grant,library,NEMO,2021Q2,non-human primates,transcriptomics,10x chromium 3' sequencing,12
+lein_evo_10x_nemestrina,U01 Lein grant,library,NEMO,2021Q2,non-human primates,transcriptomics,10x chromium 3' sequencing,12
+lein_evo_10x_opposum,U01 Lein grant,library,NEMO,2021Q2,other mammals,transcriptomics,10x chromium 3' sequencing,12
+lein_evo_10x_owlmonkey,U01 Lein grant,library,NEMO,2021Q2,non-human primates,transcriptomics,10x chromium 3' sequencing,12
+lein_evo_10x_pig,U01 Lein grant,library,NEMO,2021Q3,other mammals,transcriptomics,10x chromium 3' sequencing,10
+lein_evo_10x_rabbit,U01 Lein grant,library,NEMO,2021Q2,other mammals,transcriptomics,10x chromium 3' sequencing,13
+lein_evo_10x_rat,U01 Lein grant,library,NEMO,2021Q2,other mammals,transcriptomics,10x chromium 3' sequencing,12
+lein_evo_10x_rhesus,U01 Lein grant,library,NEMO,2021Q2,non-human primates,transcriptomics,10x chromium 3' sequencing,13
+lein_evo_10x_treeshrew,U01 Lein grant,library,NEMO,2021Q3,other mammals,transcriptomics,10x chromium 3' sequencing,13
+lein_evo_Iso_Seq_arctic_ground_squirrel,U01 Lein grant,tissue sample,NEMO,2022Q1,other mammals,transcriptomics,pacbio long read sequencing,1
+lein_evo_Iso_Seq_armadillo,U01 Lein grant,tissue sample,NEMO,2022Q1,other mammals,transcriptomics,pacbio long read sequencing,1
+lein_evo_Iso_Seq_greenmonkey,U01 Lein grant,tissue sample,NEMO,2022Q1,non-human primates,transcriptomics,pacbio long read sequencing,1
+lein_evo_Iso_Seq_nemestrina,U01 Lein grant,tissue sample,NEMO,2022Q1,non-human primates,transcriptomics,pacbio long read sequencing,1
+lein_evo_Iso_Seq_opossum,U01 Lein grant,tissue sample,NEMO,2022Q1,other mammals,transcriptomics,pacbio long read sequencing,1
+lein_evo_Iso_Seq_squirrel_monkey,U01 Lein grant,tissue sample,NEMO,2022Q1,non-human primates,transcriptomics,pacbio long read sequencing,1
 lein_human_pseq_e,U01 Lein grant,cell in slice,DANDI,2021Q3,humans,multimodal,patch-seq,717
 lein_human_pseq_e,U01 Lein grant,cell in slice,DANDI,2021Q4,humans,multimodal,patch-seq,291
 lein_human_pseq_e,U01 Lein grant,cell in slice,DANDI,2022Q1,humans,multimodal,patch-seq,91
@@ -270,17 +270,17 @@ lein_human_pseq_t,U01 Lein grant,library,NEMO,2021Q3,humans,multimodal,patch-seq
 lein_human_pseq_t,U01 Lein grant,library,NEMO,2021Q4,humans,multimodal,patch-seq,291
 lein_human_pseq_t,U01 Lein grant,library,NEMO,2022Q1,humans,multimodal,patch-seq,91
 lein_human_pseq_t,U01 Lein grant,library,NEMO,2022Q2,humans,multimodal,patch-seq,36
-lein_sn_10xv2,U01 Lein grant,library,NEMO,2019Q1,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,20
-lein_sn_10xv2,U01 Lein grant,library,NEMO,2019Q3,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,8
-lein_sn_10xv3,U01 Lein grant,library,NEMO,2019Q3,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,133
-lein_sn_10xv3,U01 Lein grant,library,NEMO,2020Q1,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,79
-lein_sn_10xv3,U01 Lein grant,library,NEMO,2020Q3,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,36
-lein_sn_10xv3,U01 Lein grant,library,NEMO,2020Q4,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,10
-lein_sn_10xv3,U01 Lein grant,library,NEMO,2021Q3,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,89
-lein_sn_10xv3,U01 Lein grant,library,NEMO,2022Q1,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,161
-lein_sn_SSv4,U01 Lein grant,library,NEMO,2021Q2,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,39
-lein_sn_SSv4,U01 Lein grant,specimen,NEMO,2019Q1,humans,transcriptomics/epigenomics,smart-seq v4,2
-lein_sn_hippocampus,U01 Lein grant,library,NEMO,2021Q3,humans,transcriptomics/epigenomics,smart-seq v4,10708
+lein_sn_10xv2,U01 Lein grant,library,NEMO,2019Q1,humans,transcriptomics,10x chromium 3' sequencing,20
+lein_sn_10xv2,U01 Lein grant,library,NEMO,2019Q3,humans,transcriptomics,10x chromium 3' sequencing,8
+lein_sn_10xv3,U01 Lein grant,library,NEMO,2019Q3,humans,transcriptomics,10x chromium 3' sequencing,133
+lein_sn_10xv3,U01 Lein grant,library,NEMO,2020Q1,humans,transcriptomics,10x chromium 3' sequencing,79
+lein_sn_10xv3,U01 Lein grant,library,NEMO,2020Q3,humans,transcriptomics,10x chromium 3' sequencing,36
+lein_sn_10xv3,U01 Lein grant,library,NEMO,2020Q4,humans,transcriptomics,10x chromium 3' sequencing,10
+lein_sn_10xv3,U01 Lein grant,library,NEMO,2021Q3,humans,transcriptomics,10x chromium 3' sequencing,89
+lein_sn_10xv3,U01 Lein grant,library,NEMO,2022Q1,humans,transcriptomics,10x chromium 3' sequencing,161
+lein_sn_SSv4,U01 Lein grant,library,NEMO,2021Q2,humans,transcriptomics,10x chromium 3' sequencing,39
+lein_sn_SSv4,U01 Lein grant,specimen,NEMO,2019Q1,humans,transcriptomics,smart-seq v4,2
+lein_sn_hippocampus,U01 Lein grant,library,NEMO,2021Q3,humans,transcriptomics,smart-seq v4,10708
 macosko_bg_shareseq_macaque,U01 Macosko grant,library,NEMO,2021Q3,non-human primates,multimodal,share-seq,2
 macosko_bg_slideseq_histologydataset_human,U01 Macosko grant,brain slice,BIL,2021Q4,humans,anatomy/morphology,histology,7
 macosko_bg_slideseq_histologydataset_macaque,U01 Macosko grant,brain slice,BIL,2021Q3,non-human primates,anatomy/morphology,histology,12
@@ -295,10 +295,10 @@ macosko_mouse_slideseq_slideseqdataset,RF1 Macosko grant,library,NEMO,2022Q1,mou
 mop_evo_pseq_hu_t,U01 Lein grant,library,NEMO,2021Q2,humans,multimodal,patch-seq,4
 mop_evo_pseq_hu_t,U01 Lein grant,library,NEMO,2021Q3,humans,multimodal,patch-seq,4
 mueller_mouselight,RF1 Mueller grant,whole brain,BIL,2022Q1,mouse,imaging,mouselight,3
-nowakowski_evobc,RF1 Nowakowski grant,library,NEMO,2020Q4,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,1
-nowakowski_evobc,RF1 Nowakowski grant,library,NEMO,2021Q4,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,2
-nowakowski_evobc,RF1 Nowakowski grant,library,NEMO,2022Q1,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,3
-nowakowski_pndev_10xv3,RF1 Nowakowski grant,library,NEMO,2021Q1,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,4
+nowakowski_evobc,RF1 Nowakowski grant,library,NEMO,2020Q4,mouse,transcriptomics,10x chromium 3' sequencing,1
+nowakowski_evobc,RF1 Nowakowski grant,library,NEMO,2021Q4,mouse,transcriptomics,10x chromium 3' sequencing,2
+nowakowski_evobc,RF1 Nowakowski grant,library,NEMO,2022Q1,mouse,transcriptomics,10x chromium 3' sequencing,3
+nowakowski_pndev_10xv3,RF1 Nowakowski grant,library,NEMO,2021Q1,mouse,transcriptomics,10x chromium 3' sequencing,4
 osten_ls,U01 Osten grant,whole brain,BIL,2022Q2,mouse,anatomy/morphology,olst,12
 osten_stpt,U01 Osten grant,whole brain,BIL,2018Q3,mouse,imaging,stpt,107
 osten_stpt,U01 Osten grant,whole brain,BIL,2018Q4,mouse,imaging,stpt,53
@@ -313,23 +313,23 @@ sestan_multiome_10x_human,U01 Sestan grant,library,NEMO,2022Q2,humans,multimodal
 sestan_multiome_10x_human,U01 Sestan grant,library,NEMO,2022Q3,humans,multimodal,10x chromium multiome,13
 sestan_multiome_10x_nhp,U01 Sestan grant,library,NEMO,2022Q2,non-human primates,multimodal,10x chromium multiome,6
 sestan_multiome_10x_nhp,U01 Sestan grant,library,NEMO,2022Q3,non-human primates,multimodal,10x chromium multiome,9
-sestan_sc_10xv2_nhp_dev,U01 Sestan grant,library,NEMO,2022Q1,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,27
-sestan_sc_10xv3_nhp_dev,U01 Sestan grant,library,NEMO,2022Q1,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,3
-sestan_sn_10xv3_human,U01 Sestan grant,library,NEMO,2021Q4,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,37
-sestan_sn_10xv3_human_pfc,U01 Sestan grant,library,NEMO,2021Q4,humans,transcriptomics/epigenomics,10x chromium 3' sequencing,16
-sestan_sn_10xv3_nhp_adult,U01 Sestan grant,library,NEMO,2021Q4,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,4
-sestan_sn_10xv3_nhp_adult,U01 Sestan grant,library,NEMO,2022Q1,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,3
-sestan_sn_10xv3_nhp_adult_pfc,U01 Sestan grant,library,NEMO,2021Q4,non-human primates,transcriptomics/epigenomics,10x chromium 3' sequencing,47
-sestan_sn_10xv3_pig,U01 Sestan grant,library,NEMO,2021Q4,other mammals,transcriptomics/epigenomics,10x chromium 3' sequencing,9
+sestan_sc_10xv2_nhp_dev,U01 Sestan grant,library,NEMO,2022Q1,non-human primates,transcriptomics,10x chromium 3' sequencing,27
+sestan_sc_10xv3_nhp_dev,U01 Sestan grant,library,NEMO,2022Q1,non-human primates,transcriptomics,10x chromium 3' sequencing,3
+sestan_sn_10xv3_human,U01 Sestan grant,library,NEMO,2021Q4,humans,transcriptomics,10x chromium 3' sequencing,37
+sestan_sn_10xv3_human_pfc,U01 Sestan grant,library,NEMO,2021Q4,humans,transcriptomics,10x chromium 3' sequencing,16
+sestan_sn_10xv3_nhp_adult,U01 Sestan grant,library,NEMO,2021Q4,non-human primates,transcriptomics,10x chromium 3' sequencing,4
+sestan_sn_10xv3_nhp_adult,U01 Sestan grant,library,NEMO,2022Q1,non-human primates,transcriptomics,10x chromium 3' sequencing,3
+sestan_sn_10xv3_nhp_adult_pfc,U01 Sestan grant,library,NEMO,2021Q4,non-human primates,transcriptomics,10x chromium 3' sequencing,47
+sestan_sn_10xv3_pig,U01 Sestan grant,library,NEMO,2021Q4,other mammals,transcriptomics,10x chromium 3' sequencing,9
 snyder-mackler_macaque_scATAC,U01 Snyder-Mackler grant,library,NEMO,2022Q1,non-human primates,epigenomics,sci-atac-seq3,110
-snyder-mackler_macaque_scRNA,U01 Snyder-Mackler grant,library,NEMO,2021Q3,non-human primates,transcriptomics/epigenomics,sci-rna-seq3,70
+snyder-mackler_macaque_scRNA,U01 Snyder-Mackler grant,library,NEMO,2021Q3,non-human primates,transcriptomics,sci-rna-seq3,70
 tasic_ATACseq,RF1 Tasic grant,library,NEMO,2020Q2,mouse,epigenomics,atac-seq,221
-tasic_sc_SSv4,RF1 Tasic grant,library,NEMO,2021Q4,mouse,transcriptomics/epigenomics,smart-seq v4,1975
-tasic_sc_SSv4,RF1 Levi grant,library,NEMO,2021Q4,mouse,transcriptomics/epigenomics,smart-seq v4,1975
-tasic_sc_SSv4,Allen Institute funder,library,NEMO,2021Q4,mouse,transcriptomics/epigenomics,smart-seq v4,1975
-tasic_sc_SSv4,RF1 Tasic grant,library,NEMO,2022Q3,mouse,transcriptomics/epigenomics,smart-seq v4,4739
-tasic_sc_SSv4,RF1 Levi grant,library,NEMO,2022Q3,mouse,transcriptomics/epigenomics,smart-seq v4,4739
-tasic_sc_SSv4,Allen Institute funder,library,NEMO,2022Q3,mouse,transcriptomics/epigenomics,smart-seq v4,4739
+tasic_sc_SSv4,RF1 Tasic grant,library,NEMO,2021Q4,mouse,transcriptomics,smart-seq v4,1975
+tasic_sc_SSv4,RF1 Levi grant,library,NEMO,2021Q4,mouse,transcriptomics,smart-seq v4,1975
+tasic_sc_SSv4,Allen Institute funder,library,NEMO,2021Q4,mouse,transcriptomics,smart-seq v4,1975
+tasic_sc_SSv4,RF1 Tasic grant,library,NEMO,2022Q3,mouse,transcriptomics,smart-seq v4,4739
+tasic_sc_SSv4,RF1 Levi grant,library,NEMO,2022Q3,mouse,transcriptomics,smart-seq v4,4739
+tasic_sc_SSv4,Allen Institute funder,library,NEMO,2022Q3,mouse,transcriptomics,smart-seq v4,4739
 tasic_stpt,RF1 Tasic grant,whole brain,BIL,2022Q1,mouse,anatomy/morphology,enhancer virus labeling,27
 tasic_stpt,RF1 Levi grant,whole brain,BIL,2022Q1,mouse,anatomy/morphology,enhancer virus labeling,27
 tasic_stpt,Allen Institute funder,whole brain,BIL,2022Q1,mouse,anatomy/morphology,enhancer virus labeling,27
@@ -339,10 +339,10 @@ tasic_stpt,Allen Institute funder,whole brain,BIL,2022Q2,mouse,anatomy/morpholog
 tasic_stpt,RF1 Tasic grant,whole brain,BIL,2022Q3,mouse,imaging,stpt,29
 tasic_stpt,RF1 Levi grant,whole brain,BIL,2022Q3,mouse,imaging,stpt,29
 tasic_stpt,Allen Institute funder,whole brain,BIL,2022Q3,mouse,imaging,stpt,29
-tilgner_10x_scRNA,RF1 Tilgner grant,library,NEMO,2021Q1,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,6
-tilgner_10x_scRNA,RF1 Tilgner grant,library,NEMO,2021Q2,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,8
-tilgner_10x_scRNA,RF1 Tilgner grant,library,NEMO,2021Q4,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,6
-tilgner_10x_scRNA,RF1 Tilgner grant,library,NEMO,2022Q1,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,2
+tilgner_10x_scRNA,RF1 Tilgner grant,library,NEMO,2021Q1,mouse,transcriptomics,10x chromium 3' sequencing,6
+tilgner_10x_scRNA,RF1 Tilgner grant,library,NEMO,2021Q2,mouse,transcriptomics,10x chromium 3' sequencing,8
+tilgner_10x_scRNA,RF1 Tilgner grant,library,NEMO,2021Q4,mouse,transcriptomics,10x chromium 3' sequencing,6
+tilgner_10x_scRNA,RF1 Tilgner grant,library,NEMO,2022Q1,mouse,transcriptomics,10x chromium 3' sequencing,2
 yang_MORF_confocal,U01 Yang grant,brain section set,BIL,2019Q1,mouse,anatomy/morphology,morf genetic sparse labeling,1
 yang_MORF_confocal,U01 Yang grant,brain section set,BIL,2019Q2,mouse,anatomy/morphology,morf genetic sparse labeling,1
 yang_MORF_confocal,U01 Yang grant,brain section set,BIL,2019Q3,mouse,anatomy/morphology,morf genetic sparse labeling,3
@@ -362,8 +362,8 @@ yang_morf_cells,U01 Yang grant,reconstruction,BIL,2021Q3,mouse,cell morphology,n
 yang_morf_cells,U01 Yang grant,reconstruction,BIL,2021Q4,mouse,cell morphology,neuron morphology reconstruction,1
 yang_morf_cells,U01 Yang grant,reconstruction,BIL,2022Q1,mouse,cell morphology,neuron morphology reconstruction,2
 yang_morf_cells,U01 Yang grant,reconstruction,BIL,2022Q3,mouse,cell morphology,neuron morphology reconstruction,1
-zeng_anderson_sc_10xv2,U19 Zeng grant,library,NEMO,2019Q3,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,26
-zeng_anderson_sc_10xv3,U19 Zeng grant,library,NEMO,2021Q4,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,16
+zeng_anderson_sc_10xv2,U19 Zeng grant,library,NEMO,2019Q3,mouse,transcriptomics,10x chromium 3' sequencing,26
+zeng_anderson_sc_10xv3,U19 Zeng grant,library,NEMO,2021Q4,mouse,transcriptomics,10x chromium 3' sequencing,16
 zeng_expr_char,,whole brain,BIL,2018Q4,mouse,imaging,stpt,53
 zeng_fmost,U19 Zeng grant,whole brain,BIL,2019Q1,mouse,imaging,fmost,16
 zeng_fmost,U19 Zeng grant,whole brain,BIL,2019Q3,mouse,imaging,fmost,13
@@ -387,26 +387,26 @@ zeng_retro,U19 Zeng grant,whole brain,BIL,2021Q2,mouse,anatomy/morphology,retrog
 zeng_retro,U19 Zeng grant,whole brain,BIL,2021Q3,mouse,anatomy/morphology,retrograde transsynaptic tracing,196
 zeng_retro,U19 Zeng grant,whole brain,BIL,2021Q4,mouse,anatomy/morphology,retrograde transsynaptic tracing,8
 zeng_retro,U19 Zeng grant,whole brain,BIL,2022Q1,mouse,anatomy/morphology,retrograde transsynaptic tracing,44
-zeng_sc_10xv2,U19 Zeng grant,whole cell,NEMO,2019Q2,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,19
-zeng_sc_10xv2,U19 Zeng grant,whole cell,NEMO,2020Q4,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,279
-zeng_sc_10xv2,U19 Zeng grant,whole cell,NEMO,2022Q2,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,1
-zeng_sc_10xv3,U19 Zeng grant,whole cell,NEMO,2019Q2,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,16
-zeng_sc_10xv3,U19 Zeng grant,whole cell,NEMO,2020Q2,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,21
-zeng_sc_10xv3,U19 Zeng grant,whole cell,NEMO,2020Q4,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,89
-zeng_sc_10xv3,U19 Zeng grant,whole cell,NEMO,2022Q2,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,356
-zeng_sc_SSv4,U19 Zeng grant,whole cell,NEMO,2022Q2,mouse,transcriptomics/epigenomics,smart-seq v4,204634
-zeng_sn_10xv2,U19 Zeng grant,cell nucleus,NEMO,2020Q4,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,8
-zeng_sn_10xv2,U19 Zeng grant,cell nucleus,NEMO,2022Q2,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,26
-zeng_sn_10xv3,U19 Zeng grant,cell nucleus,NEMO,2020Q4,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,5
-zeng_sn_10xv3,U19 Zeng grant,cell nucleus,NEMO,2022Q2,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,2
-zeng_sn_SSv4,U19 Zeng grant,cell nucleus,NEMO,2022Q2,mouse,transcriptomics/epigenomics,smart-seq v4,8740
+zeng_sc_10xv2,U19 Zeng grant,library,NEMO,2019Q2,mouse,transcriptomics,10x chromium 3' sequencing,19
+zeng_sc_10xv2,U19 Zeng grant,library,NEMO,2020Q4,mouse,transcriptomics,10x chromium 3' sequencing,279
+zeng_sc_10xv2,U19 Zeng grant,library,NEMO,2022Q2,mouse,transcriptomics,10x chromium 3' sequencing,1
+zeng_sc_10xv3,U19 Zeng grant,library,NEMO,2019Q2,mouse,transcriptomics,10x chromium 3' sequencing,16
+zeng_sc_10xv3,U19 Zeng grant,library,NEMO,2020Q2,mouse,transcriptomics,10x chromium 3' sequencing,21
+zeng_sc_10xv3,U19 Zeng grant,library,NEMO,2020Q4,mouse,transcriptomics,10x chromium 3' sequencing,89
+zeng_sc_10xv3,U19 Zeng grant,library,NEMO,2022Q2,mouse,transcriptomics,10x chromium 3' sequencing,356
+zeng_sc_SSv4,U19 Zeng grant,library,NEMO,2022Q2,mouse,transcriptomics,smart-seq v4,204634
+zeng_sn_10xv2,U19 Zeng grant,library,NEMO,2020Q4,mouse,transcriptomics,10x chromium 3' sequencing,8
+zeng_sn_10xv2,U19 Zeng grant,library,NEMO,2022Q2,mouse,transcriptomics,10x chromium 3' sequencing,26
+zeng_sn_10xv3,U19 Zeng grant,library,NEMO,2020Q4,mouse,transcriptomics,10x chromium 3' sequencing,5
+zeng_sn_10xv3,U19 Zeng grant,library,NEMO,2022Q2,mouse,transcriptomics,10x chromium 3' sequencing,2
+zeng_sn_SSv4,U19 Zeng grant,library,NEMO,2022Q2,mouse,transcriptomics,smart-seq v4,8741
 zhangl_anatomy,U01 ZhangLi grant,spinal cord,BIL,2021Q2,mouse,anatomy/morphology,trio tracing,9
 zhangl_anatomy,U01 ZhangLi grant,spinal cord,BIL,2022Q1,mouse,imaging,visor,11
 zhangl_ephys,U01 ZhangLi grant,spinal cord slice,DANDI,2022Q1,mouse,multimodal,whole cell patch clamp,1
-zhangl_kz_omics,U01 ZhangLi grant,library,NEMO,2021Q1,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,9
-zhangl_kz_omics,U01 ZhangLi grant,library,NEMO,2021Q2,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,1
-zhangl_kz_omics,U01 ZhangLi grant,library,NEMO,2021Q4,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,4
-zhangl_kz_omics,U01 ZhangLi grant,library,NEMO,2022Q1,mouse,transcriptomics/epigenomics,10x chromium 3' sequencing,11
+zhangl_kz_omics,U01 ZhangLi grant,library,NEMO,2021Q1,mouse,transcriptomics,10x chromium 3' sequencing,9
+zhangl_kz_omics,U01 ZhangLi grant,library,NEMO,2021Q2,mouse,transcriptomics,10x chromium 3' sequencing,1
+zhangl_kz_omics,U01 ZhangLi grant,library,NEMO,2021Q4,mouse,transcriptomics,10x chromium 3' sequencing,4
+zhangl_kz_omics,U01 ZhangLi grant,library,NEMO,2022Q1,mouse,transcriptomics,10x chromium 3' sequencing,11
 zhangl_seqfish,U01 ZhangLi grant,spinal cord slice,BIL,2020Q1,mouse,spatial transcriptomics,seqfish,2
 zhangl_seqfish,U01 ZhangLi grant,spinal cord slice,BIL,2021Q2,mouse,spatial transcriptomics,seqfish,2
 zhangl_seqfish,U01 ZhangLi grant,spinal cord slice,BIL,2022Q1,mouse,spatial transcriptomics,seqfish,2
