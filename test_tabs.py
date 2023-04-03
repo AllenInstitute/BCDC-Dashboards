@@ -2,6 +2,7 @@ from flask import Flask
 import pandas as pd
 import numpy as np
 import os
+import dash
 from dash import Dash, html, dcc, Input, Output, dash_table
 import plotly.express as px
 import plotly.graph_objects as go
@@ -20,6 +21,7 @@ cwd = os.getcwd() # directory this file is saved in
 ## sample/subject table
 df_sample = pd.read_csv(os.path.join(cwd, 'dash_sample_count_df.csv'), encoding='unicode_escape')
 df = pd.read_csv(os.path.join(cwd, 'dash_specimen_count_df.csv'), encoding='unicode_escape')
+df['library_count'] = df['library_count'] + df['extra_library_count']
 
 
 
@@ -34,6 +36,7 @@ quarter_order = sort_df.sort_values(['year', 'quarter'])['date'].unique()
 # by years
 df['years']= df['quarters'].str.split('Q').str[0]
 df_sample['years']= df_sample['quarters'].str.split('Q').str[0]
+year_order = sorted(df['years'].unique())
 
 #subspecimen_count_selections = list(df.filter(like='count').columns)
 mod_categories = ['by grant', 'by species', 'by project', 'by archive', 'by techniques']
@@ -50,7 +53,7 @@ metric_lookup = {'Subject/Donors':'donor_count', 'Brain Counts':'brain_count', '
 
 app.layout = html.Div([
     html.H1(
-        children='BICAN Data Dashboard - Draft', style={'textAlign': 'center'}
+        children='BICAN Data Dashboard - NIH', style={'textAlign': 'center'}
     ),
     
     dcc.Tabs(id="tabs", value='data_types', children=[
@@ -59,12 +62,6 @@ app.layout = html.Div([
                 dcc.Dropdown(id='dtype_view',
                     options = ['Grant', 'Species', 'Archive'],
                     value = 'Grant', style={'width':'60%'})
-        ]),
-        dcc.Tab(label = 'Cumulative Totals', value = 'cumulatives', children=[
-            html.Label(['x-axis'], style={'font-weight': 'bold', "text-align": "center"}),
-                dcc.Dropdown(id='x_cumulative',
-                    options = ['Modality', 'Years', 'Quarters'],
-                    value = 'Years', style={'width':'60%'})
         ]),
 
         dcc.Tab(label='Modality Views', value='modalities', children=[
@@ -79,59 +76,47 @@ app.layout = html.Div([
                     value = 'Years', style={'width':'50%'})
                 ]),
         
-        dcc.Tab(label = 'Metrics View', value = 'donor_count', children=[
-                html.Br(),
-                html.Label(['Metrics'], style={'font-weight': 'bold', "text-align": "center"}),
-                dcc.Dropdown(id='view_type',
-                    options = donor_view_categories,
-                    value = donor_view_categories[0], style={'width':'50%'}),
+        dcc.Tab(label = 'Donor View', value = 'donor_count', children=[
                 html.Label(['x-axis'], style={'font-weight': 'bold', "text-align": "center"}),
                 dcc.RadioItems(id='x_selection', options=['Grant', 'Years'], value='Grant')]),
 
         
-        dcc.Tab(label = 'Test view', value = 'test_view', children= [
+        dcc.Tab(label = 'Specimen Type view', value = 'test_view', children= [
                 html.Br(),
                 html.Label(['x-axis'], style={'font-weight': 'bold', "text-align": "center"}),
                 dcc.Dropdown(id='xaxis_test',
                     options = test_options,
                     value = test_options[0], style={'width':'50%'}),
                 html.Label(['colors'], style={'font-weight': 'bold', "text-align": "center"}),
-                dcc.Dropdown(id='colors_test',
-                    options = test_options,
-                    value = test_options[1], style={'width':'50%'}),
-                html.Label(['metrics'], style={'font-weight': 'bold', "text-align": "center"}),
-                dcc.Dropdown(id='metrics_test',
-                    options = ['specimens', 'donors'],
-                    value = 'specimens', style={'width':'50%'})     
+                dcc.Dropdown(id='colors_test', value = test_options[1], style={'width':'50%'})    
         ])
         
         ]),
     html.Div(id='graph-output')
 ])
 
-# ## update x axis and color dropdowns
-# @app.callback(
-#     Output('x_axis', 'options'),
-#     Input('specimen_name', 'value')
-# )
-# def update_x_options(specimen_name):
-#     test_options
+### update dropdown to not include itself
+@app.callback(
+    dash.dependencies.Output('colors_test', 'options'),
+    [dash.dependencies.Input('xaxis_test', 'value')]
+)
+def update_second_dropdown(xaxis_test):
+    new_options = [ele for ele in test_options if ele != xaxis_test]
+    return new_options
+
 
 ## update main 
 @app.callback(
     Output('graph-output', 'children'),
     Input('tabs', 'value'),
     Input('specimen_name', 'value'),
-    Input('view_type', 'value'), 
     Input('x_axis', 'value'),
     Input('xaxis_test', 'value'), 
     Input('colors_test', 'value'),
-    Input('metrics_test', 'value'),
     Input('x_selection', 'value'), 
-    Input('x_cumulative', 'value'),
     Input('dtype_view', 'value'))
 
-def update_fig(tabs, specimen_name, view_type, x_axis, xaxis_test, colors_test, metrics_test, x_selection, x_cumulative, dtype_view):
+def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection, dtype_view):
 
     axis_val = axis_lookup[x_axis]
     col_name = col_lookup[specimen_name]
@@ -200,42 +185,33 @@ def update_fig(tabs, specimen_name, view_type, x_axis, xaxis_test, colors_test, 
         dcc.Graph(figure = fig5, style={'height': 500,'width': '30%', 'display':'inline-block'}),
         dcc.Graph(figure = fig6, style={'height': 500,'width': '30%', 'display':'inline-block'})
       ])
-    
-    elif tabs == 'cumulatives':
-        x_select = axis_lookup[x_cumulative]
 
-        df_tests = df[['brain_count', 'cell_count', 'tissue_region_count', 'library_count', x_select]].groupby([x_select], as_index= False).agg({'brain_count':'sum','cell_count':'sum', 'tissue_region_count':'sum', 'library_count':'sum'})
-        fig = go.Figure(
-                data=[
-                    go.Bar(name = 'Brains', x=df_tests[x_select], y=df_tests['brain_count'], yaxis='y', offsetgroup=1),
-                    go.Bar(name='Cells', x=df_tests[x_select], y=df_tests['cell_count'], yaxis='y2', offsetgroup=2),
-                ],
-                layout={
-                    'yaxis': {'title': 'Brains'},
-                    'yaxis2': {'title': 'Cells', 'overlaying': 'y', 'side': 'right'},
-                }
-            )
-
-        return html.Div([
-            dcc.Graph(figure = fig, style={'height': 700, 'width': '60%', 'display':'block'})
-        ])
-    
-    
 
     elif tabs == 'donor_count':
         axis_val = axis_lookup[x_selection]
-        view = metric_lookup[view_type]
-        df_quarter_donor = df[['species', axis_val, view, 'modality']].drop_duplicates()
+        df_quarter_donor = df[['species', axis_val, 'donor_count', 'modality']].drop_duplicates()
 
-        df_quarter_donor = pd.DataFrame(df_quarter_donor.drop_duplicates().groupby(['species', axis_val, 'modality'], as_index = False)[view].sum())    
-        fig = px.bar(df_quarter_donor, x=axis_val, y=view, color = 'species', facet_col='modality')
-        fig.update_xaxes(categoryorder='array', categoryarray = quarter_order)
-        fig.update_layout(yaxis_title = 'Counts')
-        fig.for_each_yaxis(lambda y: y.update(showticklabels=True,matches=None))
-        if view == 'archive':
-            fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[1].upper()))
-        else:
+        df_quarter_donor = pd.DataFrame(df_quarter_donor.drop_duplicates().groupby(['species', axis_val, 'modality'], as_index = False)['donor_count'].sum())  
+        print(df_quarter_donor)
+       # print('original')
+        if axis_val == 'years':
+            df_quarter_donor = df_quarter_donor.groupby(['modality', 'species', 'years']).sum().groupby(['modality','species']).cumsum().reset_index()
+            print(df_quarter_donor)
+
+            fig = px.bar(df_quarter_donor, x=axis_val, y='donor_count', color = 'species', facet_col='modality')
+            fig.update_xaxes(categoryorder='array', categoryarray = year_order)
+            fig.update_layout(yaxis_title = 'Counts')
+            fig.for_each_yaxis(lambda y: y.update(showticklabels=True,matches=None))
             fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[1].capitalize()))
+        else:
+            df_quarter_donor = df_quarter_donor.sort_values(['donor_count'])
+            print(df_quarter_donor)
+            fig = px.bar(df_quarter_donor, x=axis_val, y='donor_count', color = 'species', facet_col='modality')
+            fig.update_layout(yaxis_title = 'Donor Counts')
+            fig.for_each_yaxis(lambda y: y.update(showticklabels=True,matches=None))
+            fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[1].capitalize()))
+            fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+
 
         return html.Div([
             dcc.Graph(figure = fig, style={'height': 500, 'width': '100%', 'display':'block'})
@@ -272,13 +248,13 @@ def update_fig(tabs, specimen_name, view_type, x_axis, xaxis_test, colors_test, 
         colors = dict(matplotlib.colors.cnames.items())
         hex_colors = tuple(colors.values())
 
-        if metrics_test == 'specimens':
-            df_tests = df[['brain_count', 'cell_count','tissue_region_count', 'library_count', x_test, color_test]].groupby([x_test, color_test], as_index= False).agg({'brain_count':'sum','cell_count':'sum', 'tissue_region_count':'sum', 'library_count':'sum'})
-            plot_df = pd.melt(df_tests, id_vars=[x_test,color_test],value_vars=['brain_count', 'cell_count', 'tissue_region_count', 'library_count'])
-            print(plot_df)
-            fig = px.bar(plot_df, x=x_test, y='value', color = color_test, facet_col='variable')
-            fig.for_each_yaxis(lambda y: y.update(showticklabels=True,matches=None))
-            fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[1].replace('_', ' ').capitalize()))
+
+        df_tests = df[['brain_count', 'cell_count','tissue_region_count', 'library_count', x_test, color_test]].groupby([x_test, color_test], as_index= False).agg({'brain_count':'sum','cell_count':'sum', 'tissue_region_count':'sum', 'library_count':'sum'})
+        plot_df = pd.melt(df_tests, id_vars=[x_test,color_test],value_vars=['brain_count', 'cell_count', 'tissue_region_count', 'library_count'])
+        print(plot_df)
+        fig = px.bar(plot_df, x=x_test, y='value', color = color_test, facet_col='variable')
+        fig.for_each_yaxis(lambda y: y.update(showticklabels=True,matches=None))
+        fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[1].replace('_', ' ').capitalize()))
 
             # fig.update_layout(
             #     template="simple_white",
@@ -315,9 +291,9 @@ def update_fig(tabs, specimen_name, view_type, x_axis, xaxis_test, colors_test, 
 
 
             #fig = px.bar(df_tests, x = test_view, y = ['brain_count', 'cell_count'], barmode='group')
-            return html.Div([
-                dcc.Graph(figure = fig, style={'height': 800, 'width': '100%', 'display':'block'})
-            ])
+        return html.Div([
+            dcc.Graph(figure = fig, style={'height': 800, 'width': '100%', 'display':'block'})
+        ])
        # if 'metrics_test' == 'donors':
 
 
