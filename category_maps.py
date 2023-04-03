@@ -61,3 +61,15 @@ modality_tech_map = {
                          'pacbio long read sequencing']
     
 }
+
+
+## used in the URL selections
+mod_map = {
+   'multimodal' : ['multimodal', 'electrophysiology'],
+   'epigenomics':['epigenomics'], 
+   'cell morphology':['cell morphology'],
+   'imaging' : ['population imaging', 'cell type distribution'], # check for histology imaging
+   'anatomy/morphology' : ['connectivity', 'anatomy', 'histology imaging'],
+   'spatial' : ['spatial transcriptomics'],
+   'transcriptomics': ['transcriptomics', 'genomics']
+}
