@@ -14,7 +14,7 @@ server = Flask(__name__)
 
 app = Dash(__name__, server=server) # initiate the dashboard
 # directories
-cwd = os.getcwd() # directory this file is saved in
+cwd = os.path.dirname(os.getcwd()) # directory this file is saved in
 ##data_dir = os.path.join(cwd, "BCDC-Metadata") # BCDC data folder
 #metadata_dir = os.path.join(data_dir, 'Sample-Inventory') # directory with metadata
 
@@ -192,12 +192,9 @@ def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection
         df_quarter_donor = df[['species', axis_val, 'donor_count', 'modality']].drop_duplicates()
 
         df_quarter_donor = pd.DataFrame(df_quarter_donor.drop_duplicates().groupby(['species', axis_val, 'modality'], as_index = False)['donor_count'].sum())  
-        print(df_quarter_donor)
        # print('original')
         if axis_val == 'years':
             df_quarter_donor = df_quarter_donor.groupby(['modality', 'species', 'years']).sum().groupby(['modality','species']).cumsum().reset_index()
-            print(df_quarter_donor)
-
             fig = px.bar(df_quarter_donor, x=axis_val, y='donor_count', color = 'species', facet_col='modality')
             fig.update_xaxes(categoryorder='array', categoryarray = year_order)
             fig.update_layout(yaxis_title = 'Counts')
@@ -205,7 +202,6 @@ def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection
             fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[1].capitalize()))
         else:
             df_quarter_donor = df_quarter_donor.sort_values(['donor_count'])
-            print(df_quarter_donor)
             fig = px.bar(df_quarter_donor, x=axis_val, y='donor_count', color = 'species', facet_col='modality')
             fig.update_layout(yaxis_title = 'Donor Counts')
             fig.for_each_yaxis(lambda y: y.update(showticklabels=True,matches=None))
@@ -251,7 +247,6 @@ def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection
 
         df_tests = df[['brain_count', 'cell_count','tissue_region_count', 'library_count', x_test, color_test]].groupby([x_test, color_test], as_index= False).agg({'brain_count':'sum','cell_count':'sum', 'tissue_region_count':'sum', 'library_count':'sum'})
         plot_df = pd.melt(df_tests, id_vars=[x_test,color_test],value_vars=['brain_count', 'cell_count', 'tissue_region_count', 'library_count'])
-        print(plot_df)
         fig = px.bar(plot_df, x=x_test, y='value', color = color_test, facet_col='variable')
         fig.for_each_yaxis(lambda y: y.update(showticklabels=True,matches=None))
         fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[1].replace('_', ' ').capitalize()))

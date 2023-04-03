@@ -16,7 +16,7 @@ server = Flask(__name__)
 
 app = Dash(__name__, server=server) # initiate the dashboard
 # directories
-cwd = os.getcwd() # directory this file is saved in
+cwd = os.path.dirname(os.getcwd()) # directory this file is saved in
 ##data_dir = os.path.join(cwd, "BCDC-Metadata") # BCDC data folder
 #metadata_dir = os.path.join(data_dir, 'Sample-Inventory') # directory with metadata
 
@@ -25,7 +25,6 @@ df_sample = pd.read_csv(os.path.join(cwd, 'dash_sample_count_df.csv'), encoding=
 df = pd.read_csv(os.path.join(cwd, 'dash_specimen_count_df.csv'), encoding='unicode_escape')
 df['library_count'] = df['library_count'] + df['extra_library_count']
 
-print(df_sample)
 
 ## sort the quarters for the plots in case they are not in order
 # looks like they are for this particular csv
@@ -44,7 +43,7 @@ year_order = sorted(df['years'].unique())
 mod_categories = ['by grant', 'by species', 'by project', 'by archive', 'by techniques']
 donor_view_categories = ['Subject/Donors', 'Brain Counts', 'Cell Counts', 'Tissue Counts', 'Library Counts']
 test_options = ['Modality', 'Species', 'Grant', 'Project', 'Technique', 'Archive', 'Years']
-data_type_categories = ['Species', 'Archive', 'Modality', 'Grant']
+data_type_categories = ['Species', 'Archive', 'Modality', 'Grant', 'Technique']
 
 visualization_types = ['Modalities', 'Deposition Counts', 'Custom View']
 modality_choices = df['modality'].unique()
@@ -90,7 +89,11 @@ app.layout = html.Div([
                     options = data_type_categories,
                     value = 'Modality', style={'width':'60%'}),
                 html.Label(['Color'], style={'font-weight': 'bold', "text-align": "center"}),
-                dcc.Dropdown(id = 'category_color', value = 'Archive', style={'width':'60%'})
+                dcc.Dropdown(id = 'category_color', value = 'Archive', style={'width':'60%'}),
+                html.Br(),
+                html.Div(children='''
+                Click on each color bar to access the according URL link - function not available for 'Color = Grant'
+                '''),
                 ])
         
         ]),
@@ -103,7 +106,8 @@ app.layout = html.Div([
     [dash.dependencies.Input('sample_category', 'value')]
 )
 def update_second_dropdown(xaxis_test):
-    new_options = [ele for ele in data_type_categories if ele != xaxis_test]
+    new_options = [ele for ele in data_type_categories if ele != 'Technique']
+    new_options = [ele for ele in new_options if ele != xaxis_test]
     return new_options
 
 
@@ -163,6 +167,7 @@ def update_main(tabs, sample_category, dtype_view, category_color):
             plot_df['urls'] = ''
         fig = px.bar(plot_df, x='sample_count', y=selected_category, color = selected_color, custom_data=['urls'], orientation='h')
         fig.update_layout(barmode='stack', yaxis={'categoryorder':'total ascending'})
+        fig.update_layout(xaxis_title = "Sample Count", yaxis_title = sample_category)
         fig.update_layout(clickmode='event+select')
 
 
