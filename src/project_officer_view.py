@@ -181,7 +181,24 @@ def open_url(clickData):
    else:
         raise PreventUpdate
 
+## download csv callback
+#specimen tab
+@app.callback(
+    Output("download-dataframe-specimen", "data"),
+    Input("btn_csv_specimen", "n_clicks"),
+    prevent_initial_call=True,
+)
+def func(n_clicks):
+    return dcc.send_data_frame(df.to_csv, "test_df_specimen.csv")
 
+#sample tab
+@app.callback(
+    Output("download-dataframe-sample", "data"),
+    Input("btn_csv_sample", "n_clicks"),
+    prevent_initial_call=True,
+)
+def func(n_clicks):
+    return dcc.send_data_frame(df.to_csv, "test_df_sample.csv")
 
 
 @app.callback(
@@ -237,7 +254,11 @@ def update_main(tabs, sample_category, dtype_view, category_color, metrics, metr
 
         return html.Div([
             dcc.Graph(id = 'interactive', figure=fig, style={'height': 500, 'width': '100%', 'display':'block'}),
-            html.Pre(id='data')])
+            html.Pre(id='data'),
+            html.Button("Download CSV", id="btn_csv_sample"),
+            dcc.Download(id="download-dataframe-sample"),
+            dash_table.DataTable(plot_df.to_dict('records'),[{"name": i, "id": i} for i in plot_df.columns], id='tbl', style_cell={'textAlign': 'left'},style_data={'color': 'black','backgroundColor': 'white'})
+            ])
     
     elif tabs == 'specimen_count':
         selected_metric = metric_lookup[metrics]
@@ -252,7 +273,11 @@ def update_main(tabs, sample_category, dtype_view, category_color, metrics, metr
 
         return html.Div([
             dcc.Graph(id = 'interactive_specimen', figure=fig, style={'height': 500, 'width': '100%', 'display':'block'}),
-            html.Pre(id='data_specimen')])
+            html.Pre(id='data_specimen'),
+            html.Button("Download CSV", id="btn_csv_specimen"),
+            dcc.Download(id="download-dataframe-specimen"),
+            dash_table.DataTable(plot_df.to_dict('records'),[{"name": i, "id": i} for i in plot_df.columns], id='tbl', style_cell={'textAlign': 'left'},style_data={'color': 'black','backgroundColor': 'white'})
+            ])
     
     
 
