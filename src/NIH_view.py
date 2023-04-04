@@ -73,12 +73,15 @@ app.layout = html.Div([
                 html.Label(['x-axis'], style={'font-weight': 'bold', "text-align": "center"}),
                 dcc.RadioItems(id='x_axis',
                     options = ['Years', 'Quarters'],
-                    value = 'Years', style={'width':'50%'})
+                    value = 'Years', style={'width':'200%'}),
+                html.Label(['Metric Type'], style={'font-weight': 'bold', "text-align": "center"}),
+                dcc.RadioItems(id='metric_type', options=['Cumulative', 'Per Term'], value='Cumulative')
                 ]),
         
         dcc.Tab(label = 'Donor View', value = 'donor_count', children=[
                 html.Label(['x-axis'], style={'font-weight': 'bold', "text-align": "center"}),
-                dcc.RadioItems(id='x_selection', options=['Grant', 'Years'], value='Grant')]),
+                dcc.RadioItems(id='x_selection', options=['Grant', 'Years'], value='Grant')
+                ]),
 
         
         dcc.Tab(label = 'Specimen Type view', value = 'test_view', children= [
@@ -114,9 +117,10 @@ def update_second_dropdown(xaxis_test):
     Input('xaxis_test', 'value'), 
     Input('colors_test', 'value'),
     Input('x_selection', 'value'), 
-    Input('dtype_view', 'value'))
+    Input('dtype_view', 'value'),
+    Input('metric_type', 'value'))
 
-def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection, dtype_view):
+def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection, dtype_view, metric_type):
 
     axis_val = axis_lookup[x_axis]
     col_name = col_lookup[specimen_name]
@@ -127,55 +131,111 @@ def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection
         df_imaging = df[df['modality'] == 'imaging']
         df_imaging['sample_counts'] = df_imaging['brain_count'] + df_imaging['tissue_region_count']
         df_imaging = df_imaging.groupby([axis_val, col_name], as_index= False)['sample_counts'].sum()
-        fig1 = px.bar(df_imaging, x = axis_val, y = 'sample_counts', color= col_name, title = 'Imaging')
-        fig1.update_xaxes(categoryorder='array', categoryarray = quarter_order)
-        fig1.update_layout(xaxis_title = "variable", yaxis_title = 'Brains and Tissues Imaged')
+        print(df_imaging)
+        if metric_type == 'Per Term':
+            fig1 = px.bar(df_imaging, x = axis_val, y = 'sample_counts', color= col_name, title = 'Imaging')
+            fig1.update_layout(xaxis_title = "variable", yaxis_title = 'Brains and Tissues Imaged')
+        if metric_type == 'Cumulative':
+            df_imaging = df_imaging.set_index([col_name, axis_val]).unstack(fill_value=0).stack().reset_index()
+            df_imaging_cumulative = df_imaging.groupby([col_name, axis_val]).sum().groupby([col_name]).cumsum().reset_index()
+            fig1 = px.bar(df_imaging_cumulative, x = axis_val, y = 'sample_counts', color= col_name, title = 'Imaging')
+            fig1.update_layout(xaxis_title = "variable", yaxis_title = 'Brains and Tissues Imaged')
+        if axis_val == 'years':
+            fig1.update_xaxes(categoryorder='array', categoryarray = year_order)
+        if axis_val == 'quarters':
+            fig1.update_xaxes(categoryorder='array', categoryarray = quarter_order)
 
         ## for anatomy, also look at number of brains/tissue regions
         df_anatomy = df[df['modality'] == 'anatomy/morphology']
 
         df_anatomy['sample_counts'] = df_anatomy['brain_count'] + df_anatomy['tissue_region_count']
         df_anatomy = df_anatomy.groupby([axis_val, col_name], as_index=False)['sample_counts'].sum()
-        fig2 = px.bar(df_anatomy, x = axis_val, y = 'sample_counts', color= col_name, title= 'Anatomy/morphology')
-        fig2.update_xaxes(categoryorder='array', categoryarray = quarter_order)
-        fig2.update_layout(xaxis_title = "variable", yaxis_title = 'Brains and Tissue Samples')
+        if metric_type == 'Per Term':
+            fig2 = px.bar(df_anatomy, x = axis_val, y = 'sample_counts', color= col_name, title= 'Anatomy/morphology')
+            fig2.update_layout(xaxis_title = "variable", yaxis_title = 'Brains and Tissue Samples')
+        if metric_type == 'Cumulative':
+            df_anatomy = df_anatomy.set_index([col_name, axis_val]).unstack(fill_value=0).stack().reset_index()
+            df_anatomy_cumulative = df_anatomy.groupby([col_name, axis_val]).sum().groupby([col_name]).cumsum().reset_index()
+            fig2 = px.bar(df_anatomy_cumulative, x = axis_val, y = 'sample_counts', color= col_name, title= 'Anatomy/morphology')
+            fig2.update_layout(xaxis_title = "variable", yaxis_title = 'Brains and Tissue Samples')
+
+        if axis_val == 'years':
+            fig2.update_xaxes(categoryorder='array', categoryarray = year_order)
+        if axis_val == 'quarters':
+            fig2.update_xaxes(categoryorder='array', categoryarray = quarter_order)
 
         ## for OMICs, count cells and libraries for now
         ## plot libraries , and cells as a line above
         df_omics = df[df['modality'].str.contains('omics')]
         df_omics_cells = df_omics.groupby([axis_val], as_index=False)['cell_count'].sum()
+
         # cell line
         omics_lib_ct = df_sample[df_sample['modality'].str.contains('omics')]
         omics_lib_ct = omics_lib_ct[omics_lib_ct['sample_type'] != 'cell nucleus'].groupby([axis_val, col_name], as_index=False)['sample_count'].sum()
 
-        fig3 = make_subplots(specs=[[{"secondary_y": True}]])
-        fig3 = px.bar(omics_lib_ct, x = axis_val, y = 'sample_count', color= col_name, title = 'OMICs <br>Bar: Library counts, Line: Cell counts')
-        fig_line = px.line(df_omics_cells, x = axis_val, y = 'cell_count')
-        fig_line.update_traces(yaxis = 'y2')
-        fig_line.update_xaxes(categoryorder='array', categoryarray = omics_lib_ct[axis_val].unique())
-        fig3.add_traces(fig_line.data).update_layout(yaxis2={"overlaying":"y", "side":"right"}, xaxis2 = {'tickmode':'sync'})
-        fig3.update_xaxes(categoryorder='array', categoryarray = quarter_order)
-        fig3.update_layout(legend=dict(x = 1.07), xaxis_title = "variable")
-        fig3.update_yaxes(title_text='Libraries and tissue samples', secondary_y=False)
-        fig3.update_yaxes(title_text="Cell Counts", secondary_y=True)
+
+        if metric_type == 'Per Term':
+            fig3 = make_subplots(specs=[[{"secondary_y": True}]])
+            fig3 = px.bar(omics_lib_ct, x = axis_val, y = 'sample_count', color= col_name, title = 'OMICs <br>Bar: Library counts, Line: Cell counts')
+            fig_line = px.line(df_omics_cells, x = axis_val, y = 'cell_count')
+            fig_line.update_traces(yaxis = 'y2')
+            fig_line.update_xaxes(categoryorder='array', categoryarray = omics_lib_ct[axis_val].unique())
+            fig3.add_traces(fig_line.data).update_layout(yaxis2={"overlaying":"y", "side":"right"}, xaxis2 = {'tickmode':'sync'})
+            fig3.update_xaxes(categoryorder='array', categoryarray = quarter_order)
+            fig3.update_layout(legend=dict(x = 1.07), xaxis_title = "variable")
+            fig3.update_yaxes(title_text='Libraries and tissue samples', secondary_y=False)
+            fig3.update_yaxes(title_text="Cell Counts", secondary_y=True)
+        if metric_type == 'Cumulative':
+            omics_lib_ct = omics_lib_ct.set_index([col_name, axis_val]).unstack(fill_value=0).stack().reset_index()
+            omics_lib_ct_cumulative = omics_lib_ct.groupby([col_name, axis_val]).sum().groupby([col_name]).cumsum().reset_index()
+            fig3 = make_subplots(specs=[[{"secondary_y": True}]])
+            fig3 = px.bar(omics_lib_ct_cumulative, x = axis_val, y = 'sample_count', color= col_name, title = 'OMICs <br>Bar: Library counts, Line: Cell counts')
+            fig_line = px.line(df_omics_cells, x = axis_val, y = 'cell_count')
+            fig_line.update_traces(yaxis = 'y2')
+            fig_line.update_xaxes(categoryorder='array', categoryarray = omics_lib_ct_cumulative[axis_val].unique())
+            fig3.add_traces(fig_line.data).update_layout(yaxis2={"overlaying":"y", "side":"right"}, xaxis2 = {'tickmode':'sync'})
+            fig3.update_xaxes(categoryorder='array', categoryarray = quarter_order)
+            fig3.update_layout(legend=dict(x = 1.07), xaxis_title = "variable")
+            fig3.update_yaxes(title_text='Libraries and tissue samples', secondary_y=False)
         
         ### neuron reconstructions
         df_recons = df[df['modality'] == 'cell morphology'].groupby([axis_val, col_name], as_index= False)['cell_count'].sum()
-        fig4 = px.bar(df_recons, x = axis_val, y = 'cell_count', color= col_name, title = 'Cell Morpholohy - Neuron Reconstruction')
-        fig4.update_xaxes(categoryorder='array', categoryarray = quarter_order)
-        fig4.update_layout(xaxis_title = "variable", yaxis_title = 'Cells reconstructed')
+        if metric_type == 'Per Term':
+            fig4 = px.bar(df_recons, x = axis_val, y = 'cell_count', color= col_name, title = 'Cell Morpholohy - Neuron Reconstruction')
+            fig4.update_xaxes(categoryorder='array', categoryarray = quarter_order)
+            fig4.update_layout(xaxis_title = "variable", yaxis_title = 'Cells reconstructed')
+        if metric_type == 'Cumulative':
+            df_recons = df_recons.set_index([col_name, axis_val]).unstack(fill_value=0).stack().reset_index()
+            df_recons_cumulative = df_recons.groupby([axis_val, col_name]).sum().groupby([col_name]).cumsum().reset_index()
+            fig4 = px.bar(df_recons_cumulative, x = axis_val, y = 'cell_count', color= col_name, title = 'Cell Morpholohy - Neuron Reconstruction')
+            fig4.update_xaxes(categoryorder='array', categoryarray = quarter_order)
+            fig4.update_layout(xaxis_title = "variable", yaxis_title = 'Cells reconstructed')
 
         ### multimodal - count cells (?)
         df_multimodal = df[df['modality'] == 'multimodal'].groupby([axis_val, col_name], as_index= False)['cell_count'].sum()
-        fig5 = px.bar(df_multimodal, x = axis_val, y = 'cell_count', color= col_name, title = 'Multimodal')
-        fig5.update_xaxes(categoryorder='array', categoryarray = quarter_order)
-        fig5.update_layout(xaxis_title = "variable", yaxis_title = 'Cells')
+        if metric_type == 'Per Term':
+            fig5 = px.bar(df_multimodal, x = axis_val, y = 'cell_count', color= col_name, title = 'Multimodal')
+            fig5.update_xaxes(categoryorder='array', categoryarray = quarter_order)
+            fig5.update_layout(xaxis_title = "variable", yaxis_title = 'Cells')
+        if metric_type == 'Cumulative':
+            df_multimodal = df_multimodal.set_index([col_name, axis_val]).unstack(fill_value=0).stack().reset_index()
+            df_multimodal_cumulative = df_multimodal.groupby([axis_val, col_name]).sum().groupby([col_name]).cumsum().reset_index()
+            fig5 = px.bar(df_multimodal_cumulative, x = axis_val, y = 'cell_count', color= col_name, title = 'Multimodal')
+            fig5.update_xaxes(categoryorder='array', categoryarray = quarter_order)
+            fig5.update_layout(xaxis_title = "variable", yaxis_title = 'Cells')
 
         ### transcriptomics - count cells
         df_transcript = df[df['modality'] == 'spatial transcriptomics'].groupby([axis_val, col_name], as_index= False)['cell_count'].sum() 
-        fig6 = px.bar(df_transcript, x = axis_val, y = 'cell_count', color= col_name, title = 'Transcriptomics')
-        fig6.update_xaxes(categoryorder='array', categoryarray = quarter_order)
-        fig6.update_layout(xaxis_title = "variable", yaxis_title = 'Cells')
+        if metric_type == 'Per Term':
+            fig6 = px.bar(df_transcript, x = axis_val, y = 'cell_count', color= col_name, title = 'Transcriptomics')
+            fig6.update_xaxes(categoryorder='array', categoryarray = quarter_order)
+            fig6.update_layout(xaxis_title = "variable", yaxis_title = 'Cells')
+        if metric_type == 'Cumulative':
+            df_transcript = df_transcript.set_index([col_name, axis_val]).unstack(fill_value=0).stack().reset_index()
+            df_transcript_cumulative = df_transcript.groupby([axis_val, col_name]).sum().groupby([col_name]).cumsum().reset_index()
+            fig6 = px.bar(df_transcript_cumulative, x = axis_val, y = 'cell_count', color= col_name, title = 'Transcriptomics')
+            fig6.update_xaxes(categoryorder='array', categoryarray = quarter_order)
+            fig6.update_layout(xaxis_title = "variable", yaxis_title = 'Cells')
 
         return html.Div([
         dcc.Graph(figure = fig1, style={'height': 500, 'width': '30%', 'display':'inline-block'}),
@@ -194,6 +254,7 @@ def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection
         df_quarter_donor = pd.DataFrame(df_quarter_donor.drop_duplicates().groupby(['species', axis_val, 'modality'], as_index = False)['donor_count'].sum())  
        # print('original')
         if axis_val == 'years':
+            df_quarter_donor = df_quarter_donor.set_index(['modality', 'species', 'years']).unstack(fill_value=0).stack().reset_index()
             df_quarter_donor = df_quarter_donor.groupby(['modality', 'species', 'years']).sum().groupby(['modality','species']).cumsum().reset_index()
             fig = px.bar(df_quarter_donor, x=axis_val, y='donor_count', color = 'species', facet_col='modality')
             fig.update_xaxes(categoryorder='array', categoryarray = year_order)
