@@ -200,18 +200,24 @@ def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection
             fig.update_layout(yaxis_title = 'Counts')
             fig.for_each_yaxis(lambda y: y.update(showticklabels=True,matches=None))
             fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[1].capitalize()))
+
+            return html.Div([
+            dcc.Graph(figure = fig, style={'height': 500, 'width': '100%', 'display':'block'})
+            ])
         else:
             df_quarter_donor = df_quarter_donor.sort_values(['donor_count'])
-            fig = px.bar(df_quarter_donor, x=axis_val, y='donor_count', color = 'species', facet_col='modality')
-            fig.update_layout(yaxis_title = 'Donor Counts')
-            fig.for_each_yaxis(lambda y: y.update(showticklabels=True,matches=None))
-            fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[1].capitalize()))
-            fig.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+            fig1 = px.bar(df_quarter_donor, x=axis_val, y='donor_count', color = 'species', facet_col='modality')
+            fig1.update_xaxes(type="category")
+            fig1.update_layout(yaxis_title = 'Donor Counts')
+            fig1.for_each_yaxis(lambda y: y.update(showticklabels=True,matches=None))
+            fig1.for_each_annotation(lambda a: a.update(text=a.text.split("=")[1].capitalize()))
+            fig1.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+            #fig1.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
 
 
-        return html.Div([
-            dcc.Graph(figure = fig, style={'height': 500, 'width': '100%', 'display':'block'})
-        ])
+            return html.Div([
+                dcc.Graph(figure = fig1, style={'height': 500, 'width': '100%', 'display':'block'})
+            ])
     
     elif tabs == 'data_types':
         dtype = axis_lookup[dtype_view]
