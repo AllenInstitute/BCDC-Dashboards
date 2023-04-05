@@ -1,6 +1,24 @@
 # BCDC-Dashboards
 This repository is intended to store the codes for the BICAN dashboard, which takes the BCDC-Metadata repository as the input, performs data wrangling and launches the dashboard app script. The current version is a demo version that lives in the local environment and has not been integrated with the other pipelines yet, hence, the code structures are subject to change once the integration with the rest of the existing pipelines (i.e. databases, ontologies) happens.
 
+### Installation (as of Apr 5, use the scripts in the dev branch)
+#### Only works with python 64-bit
+1. Clone repository, navigate to cloned directory in command line 
+```cd BCDC-Dashboards```
+2. switch to dev branch 
+```git checkout dev```
+3. start a virtual environment to avoid package version conflicts with 
+```python3 -m venv env1```
+'env1' is the name of the virtual environment which can be replaced with other names of your choice
+4. activate virtual environment
+```source env1/bin/activate```
+5. install all requirements
+```pip install -r requirements.txt```
+6. launch dashboard
+```python3 ./src/NIH_view.py``` or ```python3 ./src./project_officer_view.py```
+
+to-do: launch script that launches both dashboards
+
 ### Workflow
 1. Input: BCDC-Metadata
 2. Data Wrangling: dashboard_data_wrangling.ipynb
