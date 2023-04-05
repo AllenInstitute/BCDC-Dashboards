@@ -7,7 +7,6 @@ from dash import Dash, html, dcc, Input, Output, dash_table
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import matplotlib
 import webbrowser
 from dash.exceptions import PreventUpdate
 

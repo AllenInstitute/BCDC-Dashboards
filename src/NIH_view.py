@@ -7,7 +7,6 @@ from dash import Dash, html, dcc, Input, Output, dash_table
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import matplotlib
 
 
 server = Flask(__name__)
@@ -307,10 +306,6 @@ def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection
     elif tabs == 'test_view':
         x_test = axis_lookup[xaxis_test]
         color_test = axis_lookup[colors_test]
-        ## assign colors
-        colors = dict(matplotlib.colors.cnames.items())
-        hex_colors = tuple(colors.values())
-
 
         df_tests = df[['brain_count', 'cell_count','tissue_region_count', 'library_count', x_test, color_test]].groupby([x_test, color_test], as_index= False).agg({'brain_count':'sum','cell_count':'sum', 'tissue_region_count':'sum', 'library_count':'sum'})
         plot_df = pd.melt(df_tests, id_vars=[x_test,color_test],value_vars=['brain_count', 'cell_count', 'tissue_region_count', 'library_count'])
