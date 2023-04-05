@@ -3,17 +3,18 @@ import pandas as pd
 import numpy as np
 import os
 import dash
-from dash import Dash, html, dcc, Input, Output, dash_table
+from dash import Dash, html, dcc, Input, Output, dash_table, callback
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 
-server = Flask(__name__)
+#server = Flask(__name__)
+dash.register_page(__name__)
 
-app = Dash(__name__, server=server) # initiate the dashboard
+#app = Dash(__name__, server=server) # initiate the dashboard
 # directories
-cwd = os.path.dirname(os.getcwd()) # directory this file is saved in
+cwd = os.getcwd() # directory this file is saved in
 ##data_dir = os.path.join(cwd, "BCDC-Metadata") # BCDC data folder
 #metadata_dir = os.path.join(data_dir, 'Sample-Inventory') # directory with metadata
 
@@ -50,7 +51,7 @@ col_lookup = {'by grant': 'grant_reference_id', 'by species': 'species', 'by pro
 axis_lookup = {'Modality':'modality', 'Species':'species', 'Grant': 'grant_reference_id', 'Project': 'data_collection_reference_id', 'Technique':'technique', 'Archive':'archive', 'Quarters':'quarters', 'Years':'years'}
 metric_lookup = {'Subject/Donors':'donor_count', 'Brain Counts':'brain_count', 'Cell Counts':'cell_count', 'Tissue Counts':'tissue_region_count', 'Library Counts':'library_count'}
 
-app.layout = html.Div([
+layout = html.Div([
     html.H1(
         children='BICAN Data Dashboard - NIH', style={'textAlign': 'center'}
     ),
@@ -98,7 +99,7 @@ app.layout = html.Div([
 ])
 
 ### update dropdown to not include itself
-@app.callback(
+@callback(
     dash.dependencies.Output('colors_test', 'options'),
     [dash.dependencies.Input('xaxis_test', 'value')]
 )
@@ -108,8 +109,8 @@ def update_second_dropdown(xaxis_test):
 
 
 ## update main 
-@app.callback(
-    Output('graph-output', 'children'),
+@callback(
+    Output('graph-output', 'children', allow_duplicate=True),
     Input('tabs', 'value'),
     Input('specimen_name', 'value'),
     Input('x_axis', 'value'),
@@ -117,7 +118,8 @@ def update_second_dropdown(xaxis_test):
     Input('colors_test', 'value'),
     Input('x_selection', 'value'), 
     Input('dtype_view', 'value'),
-    Input('metric_type', 'value'))
+    Input('metric_type', 'value'),
+    prevent_initial_call=True)
 
 def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection, dtype_view, metric_type):
 
@@ -355,8 +357,5 @@ def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection
 
 
 
-## launch command
-if __name__ == '__main__':
-    app.run_server()
 
 

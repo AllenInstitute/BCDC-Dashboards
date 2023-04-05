@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import os
 import dash
-from dash import Dash, html, dcc, Input, Output, dash_table
+from dash import Dash, html, dcc, Input, Output, dash_table, callback
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -11,11 +11,12 @@ import webbrowser
 from dash.exceptions import PreventUpdate
 
 
-server = Flask(__name__)
+#server = Flask(__name__)
+dash.register_page(__name__)
 
-app = Dash(__name__, server=server) # initiate the dashboard
+#app = Dash(__name__, server=server) # initiate the dashboard
 # directories
-cwd = os.path.dirname(os.getcwd()) # directory this file is saved in
+cwd = os.getcwd() # directory this file is saved in
 ##data_dir = os.path.join(cwd, "BCDC-Metadata") # BCDC data folder
 #metadata_dir = os.path.join(data_dir, 'Sample-Inventory') # directory with metadata
 
@@ -106,7 +107,7 @@ techniques_lookup = {'10x chromium 3\' sequencing':'https://dev-knowledge.brain-
 }
 
 ### layout
-app.layout = html.Div([
+layout = html.Div([
     html.H1(
         children='BICAN Data Dashboard - Project View', style={'textAlign': 'center'}
     ),
@@ -150,7 +151,7 @@ app.layout = html.Div([
 ])
 
 ### update dropdown to not include itself
-@app.callback(
+@callback(
     dash.dependencies.Output('category_color', 'options'),
     [dash.dependencies.Input('sample_category', 'value')]
 )
@@ -162,7 +163,7 @@ def update_second_dropdown(xaxis_test):
 
 # clickable bars
 # sample counts
-@app.callback(
+@callback(
    Output('data', 'children'),
    Input('interactive', 'clickData'))
 def open_url(clickData):
@@ -171,7 +172,7 @@ def open_url(clickData):
    else:
         raise PreventUpdate
 # for specimens counts
-@app.callback(
+@callback(
    Output('data_specimen', 'children'),
    Input('interactive_specimen', 'clickData'))
 def open_url(clickData):
@@ -182,7 +183,7 @@ def open_url(clickData):
 
 ## download csv callback
 #specimen tab
-@app.callback(
+@callback(
     Output("download-dataframe-specimen", "data"),
     Input("btn_csv_specimen", "n_clicks"),
     prevent_initial_call=True,
@@ -191,7 +192,7 @@ def func(n_clicks):
     return dcc.send_data_frame(df.to_csv, "test_df_specimen.csv")
 
 #sample tab
-@app.callback(
+@callback(
     Output("download-dataframe-sample", "data"),
     Input("btn_csv_sample", "n_clicks"),
     prevent_initial_call=True,
@@ -200,14 +201,15 @@ def func(n_clicks):
     return dcc.send_data_frame(df.to_csv, "test_df_sample.csv")
 
 
-@app.callback(
-    Output('graph-output', 'children'),
+@callback(
+    Output('graph-output', 'children', allow_duplicate=True),
     Input('tabs', 'value'),
     Input('sample_category', 'value'),
     Input('dtype_view', 'value'),
     Input('category_color', 'value'),
     Input('metrics', 'value'),
-    Input('metrics_cat', 'value'))
+    Input('metrics_cat', 'value'),
+    prevent_initial_call=True)
 def update_main(tabs, sample_category, dtype_view, category_color, metrics, metrics_cat):
     if tabs == 'data_types':
         dtype = axis_lookup[dtype_view]
@@ -262,7 +264,6 @@ def update_main(tabs, sample_category, dtype_view, category_color, metrics, metr
     elif tabs == 'specimen_count':
         selected_metric = metric_lookup[metrics]
         metrics_category = axis_lookup[metrics_cat]
-        print(selected_metric)
         plot_df = df[['technique', metrics_category, selected_metric]].groupby(['technique', metrics_category], as_index=False)[selected_metric].sum()
         plot_df['urls'] = plot_df['technique'].map(techniques_lookup)
         fig = px.bar(plot_df, x=selected_metric, y=metrics_category, color = 'technique', custom_data=['urls'], orientation='h')
@@ -279,12 +280,6 @@ def update_main(tabs, sample_category, dtype_view, category_color, metrics, metr
             ])
     
     
-
-
-
-## launch command
-if __name__ == '__main__':
-    app.run_server()
 
 
 
