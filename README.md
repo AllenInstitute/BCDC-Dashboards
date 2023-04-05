@@ -2,9 +2,7 @@
 This repository is intended to store the codes for the BICAN dashboard, which takes the BCDC-Metadata repository as the input, performs data wrangling and launches the dashboard app script. The current version is a demo version that lives in the local environment and has not been integrated with the other pipelines yet, hence, the code structures are subject to change once the integration with the rest of the existing pipelines (i.e. databases, ontologies) happens.
 
 ### Installation
-#### Only works with python 64-bit
-1. Clone repository, navigate to cloned directory in command line
-2. in the directory, run ```pip install -r requirements.txt``` to install required libraries
+Please see the Dev branch for instructions
 
 ### Workflow
 1. Input: BCDC-Metadata
