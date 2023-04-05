@@ -14,8 +14,9 @@ This repository is intended to store the codes for the BICAN dashboard, which ta
 ```source env1/bin/activate```
 5. install all requirements
 ```pip install -r requirements.txt```
-6. launch dashboard
-```python3 ./src/NIH_view.py``` or ```python3 ./src./project_officer_view.py```
+6. ```cd src```
+7. launch dashboard
+```python3 ./NIH_view.py``` or ```python3 ./project_officer_view.py```
 
 to-do: launch script that launches both dashboards
 
