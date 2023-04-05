@@ -30,7 +30,7 @@ to-do: launch script that launches both dashboards
 
 The current dashboard allows the views of specimen counts, data depositions, and donor/subject counts by different categories. Detailed categories can be viewed in the dictionary file.
 
-While counting, the groups and categories will be collapsed into similar terminologies to reduce the complexity of the plots so that they are more readable, and the grouping will be done primarily for sample types, specimen types, species, techniques, and modalities. It is expected that this pipeline will be connected with external taxonomy/ontology hierarchies to determine the most interoperable way of collapsing the terminologies.
+For simplicity, we group specimen types such as 'brain' and 'whole brain' together and the number of processed specimens will be summed and counted towards the same category. The grouping will be done primarily for sample types, specimen types, species, techniques, and modalities. It is expected that this pipeline will be connected with external taxonomy/ontology hierarchies to determine the most interoperable way of collapsing the terminologies.
 
 [dashboard_logic_components.pdf](https://github.com/AllenInstitute/BCDC-Dashboards/files/11044153/dashboard_logic_components.pdf)
 
