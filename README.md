@@ -17,8 +17,6 @@ This repository is intended to store the codes for the BICAN dashboard, which ta
 7. launch dashboard
 ```python3 ./app.py```
 
-to-do: launch script that launches both dashboards
-
 ### Workflow
 1. Input: BCDC-Metadata
 2. Data Wrangling: dashboard_data_wrangling.ipynb
