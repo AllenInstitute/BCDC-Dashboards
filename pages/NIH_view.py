@@ -56,13 +56,13 @@ layout = html.Div([
         children='BICAN Data Dashboard - NIH', style={'textAlign': 'center'}
     ),
     
-    dcc.Tabs(id="tabs", value='data_types', children=[
-        dcc.Tab(label = 'Data Types', value = 'data_types', children=[
-            html.Label(['View'], style={'font-weight': 'bold', "text-align": "center"}),
-                dcc.Dropdown(id='dtype_view',
-                    options = ['Grant', 'Species', 'Archive'],
-                    value = 'Grant', style={'width':'60%'})
-        ]),
+    dcc.Tabs(id="tabs", value='modalities', children=[
+        # dcc.Tab(label = 'Data Types', value = 'data_types', children=[
+        #     html.Label(['View'], style={'font-weight': 'bold', "text-align": "center"}),
+        #         dcc.Dropdown(id='dtype_view',
+        #             options = ['Grant', 'Species', 'Archive'],
+        #             value = 'Grant', style={'width':'60%'})
+        # ]),
 
         dcc.Tab(label='Modality Views', value='modalities', children=[
                 html.Br(),
@@ -80,7 +80,7 @@ layout = html.Div([
         
         dcc.Tab(label = 'Donor View', value = 'donor_count', children=[
                 html.Label(['x-axis'], style={'font-weight': 'bold', "text-align": "center"}),
-                dcc.RadioItems(id='x_selection', options=['Grant', 'Years'], value='Grant')
+                dcc.Dropdown(id='x_selection', options=['Grant', 'Years', 'Quarters'], value='Years', style={'width':'50%'})
                 ]),
 
         
@@ -88,7 +88,6 @@ layout = html.Div([
                 html.Br(),
                 html.Label(['x-axis'], style={'font-weight': 'bold', "text-align": "center"}),
                 dcc.Dropdown(id='xaxis_test',
-                    options = test_options,
                     value = test_options[0], style={'width':'50%'}),
                 html.Label(['colors'], style={'font-weight': 'bold', "text-align": "center"}),
                 dcc.Dropdown(id='colors_test', value = test_options[1], style={'width':'50%'})    
@@ -104,7 +103,16 @@ layout = html.Div([
     [dash.dependencies.Input('xaxis_test', 'value')]
 )
 def update_second_dropdown(xaxis_test):
+    new_options = [ele for ele in test_options if ele != 'Project']
     new_options = [ele for ele in test_options if ele != xaxis_test]
+    return new_options
+
+@callback(
+    dash.dependencies.Output('xaxis_test', 'options'),
+    [dash.dependencies.Input('colors_test', 'value')]
+)
+def update_second_dropdown(colors_test):
+    new_options = [ele for ele in test_options if ele != colors_test]
     return new_options
 
 
@@ -117,11 +125,11 @@ def update_second_dropdown(xaxis_test):
     Input('xaxis_test', 'value'), 
     Input('colors_test', 'value'),
     Input('x_selection', 'value'), 
-    Input('dtype_view', 'value'),
+    #Input('dtype_view', 'value'),
     Input('metric_type', 'value'),
     prevent_initial_call=True)
 
-def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection, dtype_view, metric_type):
+def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection, metric_type):
 
     axis_val = axis_lookup[x_axis]
     col_name = col_lookup[specimen_name]
@@ -132,7 +140,6 @@ def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection
         df_imaging = df[df['modality'] == 'imaging']
         df_imaging['sample_counts'] = df_imaging['brain_count'] + df_imaging['tissue_region_count']
         df_imaging = df_imaging.groupby([axis_val, col_name], as_index= False)['sample_counts'].sum()
-        print(df_imaging)
         if metric_type == 'Per Term':
             fig1 = px.bar(df_imaging, x = axis_val, y = 'sample_counts', color= col_name, title = 'Imaging')
             fig1.update_layout(xaxis_title = "variable", yaxis_title = 'Brains and Tissues Imaged')
@@ -258,6 +265,7 @@ def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection
             df_quarter_donor = df_quarter_donor.set_index(['modality', 'species', 'years']).unstack(fill_value=0).stack().reset_index()
             df_quarter_donor = df_quarter_donor.groupby(['modality', 'species', 'years']).sum().groupby(['modality','species']).cumsum().reset_index()
             fig = px.bar(df_quarter_donor, x=axis_val, y='donor_count', color = 'species', facet_col='modality')
+            fig.update_xaxes(type="category")
             fig.update_xaxes(categoryorder='array', categoryarray = year_order)
             fig.update_layout(yaxis_title = 'Counts')
             fig.for_each_yaxis(lambda y: y.update(showticklabels=True,matches=None))
@@ -266,44 +274,54 @@ def update_fig(tabs, specimen_name, x_axis, xaxis_test, colors_test, x_selection
             return html.Div([
             dcc.Graph(figure = fig, style={'height': 500, 'width': '100%', 'display':'block'})
             ])
-        else:
-            df_quarter_donor = df_quarter_donor.sort_values(['donor_count'])
+        if 'grant' in axis_val:
+            df_quarter_donor = df_quarter_donor.sort_values('donor_count',ascending=True)
+            print(df_quarter_donor)
             fig1 = px.bar(df_quarter_donor, x=axis_val, y='donor_count', color = 'species', facet_col='modality')
-            fig1.update_xaxes(type="category")
             fig1.update_layout(yaxis_title = 'Donor Counts')
             fig1.for_each_yaxis(lambda y: y.update(showticklabels=True,matches=None))
             fig1.for_each_annotation(lambda a: a.update(text=a.text.split("=")[1].capitalize()))
-            fig1.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
-            #fig1.update_layout(barmode='stack', xaxis={'categoryorder':'total descending'})
+            fig1.update_xaxes(categoryorder='array', categoryarray = df_quarter_donor['grant_reference_id'].unique())
 
 
             return html.Div([
                 dcc.Graph(figure = fig1, style={'height': 500, 'width': '100%', 'display':'block'})
             ])
-    
-    elif tabs == 'data_types':
-        dtype = axis_lookup[dtype_view]
-        df_main = df.pivot_table(index=['modality', 'technique'], columns=dtype, values='data_collection_reference_id', aggfunc='first').notnull().astype('int').reset_index()
-        df_main.loc[df_main['modality'].duplicated(), 'modality'] = '  '
-        df_main = df_main.replace(to_replace = 0, value = '')
+        if axis_val == 'quarters':
+            fig2 = px.bar(df_quarter_donor, x=axis_val, y='donor_count', color = 'species', facet_col='modality')
+            fig2.update_layout(yaxis_title = 'Donor Counts')
+            fig2.for_each_yaxis(lambda y: y.update(showticklabels=True,matches=None))
+            fig2.for_each_annotation(lambda a: a.update(text=a.text.split("=")[1].capitalize()))
+            fig2.update_xaxes(categoryorder='array', categoryarray = quarter_order)
 
-        table = go.Table(
-            header = dict(values = df_main.columns.tolist(), font = dict(color = 'black', size = 11)),
-            cells = dict(values = df_main.T, 
-                         fill_color=np.select(
-                [df_main.T.values == 1, df_main.T.values == ''],
-                ["blue", "white"],
-                "aliceblue"),
-                line_color='darkslategray',
-                font = dict(color = 'blue', size = 13)
-                )
-        )
-        fig = go.Figure(data = table)
+
+            return html.Div([
+                dcc.Graph(figure = fig2, style={'height': 500, 'width': '100%', 'display':'block'})
+            ])
+    
+    # elif tabs == 'data_types':
+    #     dtype = axis_lookup[dtype_view]
+    #     df_main = df.pivot_table(index=['modality', 'technique'], columns=dtype, values='data_collection_reference_id', aggfunc='first').notnull().astype('int').reset_index()
+    #     df_main.loc[df_main['modality'].duplicated(), 'modality'] = '  '
+    #     df_main = df_main.replace(to_replace = 0, value = '')
+
+    #     table = go.Table(
+    #         header = dict(values = df_main.columns.tolist(), font = dict(color = 'black', size = 11)),
+    #         cells = dict(values = df_main.T, 
+    #                      fill_color=np.select(
+    #             [df_main.T.values == 1, df_main.T.values == ''],
+    #             ["blue", "white"],
+    #             "aliceblue"),
+    #             line_color='darkslategray',
+    #             font = dict(color = 'blue', size = 13)
+    #             )
+    #     )
+    #     fig = go.Figure(data = table)
         
-        fig.data[0]['columnwidth'] = [5, 7]+[1.5]*(len(df_main.columns)-2)
-        return html.Div([
-            dcc.Graph(figure = fig, style={'height': 1100, 'width': '100%', 'display':'block'})
-        ])
+    #     fig.data[0]['columnwidth'] = [5, 7]+[1.5]*(len(df_main.columns)-2)
+    #     return html.Div([
+    #         dcc.Graph(figure = fig, style={'height': 1100, 'width': '100%', 'display':'block'})
+    #     ])
     
     elif tabs == 'test_view':
         x_test = axis_lookup[xaxis_test]

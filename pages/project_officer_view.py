@@ -112,13 +112,13 @@ layout = html.Div([
         children='BICAN Data Dashboard - Project View', style={'textAlign': 'center'}
     ),
     
-    dcc.Tabs(id="tabs", value='data_types', children=[
-        dcc.Tab(label = 'Data Types', value = 'data_types', children=[
-            html.Label(['View'], style={'font-weight': 'bold', "text-align": "center"}),
-                dcc.Dropdown(id='dtype_view',
-                    options = ['Grant', 'Species', 'Archive'],
-                    value = 'Grant', style={'width':'60%'})
-        ]),
+    dcc.Tabs(id="tabs", value='sample_count', children=[
+        # dcc.Tab(label = 'Data Types', value = 'data_types', children=[
+        #     html.Label(['View'], style={'font-weight': 'bold', "text-align": "center"}),
+        #         dcc.Dropdown(id='dtype_view',
+        #             options = ['Grant', 'Species', 'Archive'],
+        #             value = 'Grant', style={'width':'60%'})
+        # ]),
         
         dcc.Tab(label = 'Sample Count', value = 'sample_count', children=[
             html.Label(['Category'], style={'font-weight': 'bold', "text-align": "center"}),
@@ -159,6 +159,16 @@ def update_second_dropdown(xaxis_test):
     new_options = [ele for ele in data_type_categories if ele != 'Technique']
     new_options = [ele for ele in new_options if ele != xaxis_test]
     return new_options
+
+@callback(
+    dash.dependencies.Output('sample_category', 'options'),
+    [dash.dependencies.Input('category_color', 'value')]
+)
+def update_second_dropdown(category_color):
+    new_options = [ele for ele in data_type_categories if ele != 'Technique']
+    new_options = [ele for ele in new_options if ele != category_color]
+    return new_options
+
 
 
 # clickable bars
@@ -205,37 +215,37 @@ def func(n_clicks):
     Output('graph-output', 'children', allow_duplicate=True),
     Input('tabs', 'value'),
     Input('sample_category', 'value'),
-    Input('dtype_view', 'value'),
+    #Input('dtype_view', 'value'),
     Input('category_color', 'value'),
     Input('metrics', 'value'),
     Input('metrics_cat', 'value'),
     prevent_initial_call=True)
-def update_main(tabs, sample_category, dtype_view, category_color, metrics, metrics_cat):
-    if tabs == 'data_types':
-        dtype = axis_lookup[dtype_view]
-        df_main = df.pivot_table(index=['modality', 'technique'], columns=dtype, values='data_collection_reference_id', aggfunc='first').notnull().astype('int').reset_index()
-        df_main.loc[df_main['modality'].duplicated(), 'modality'] = '  '
-        df_main = df_main.replace(to_replace = 0, value = '')
+def update_main(tabs, sample_category, category_color, metrics, metrics_cat):
+    # if tabs == 'data_types':
+    #     dtype = axis_lookup[dtype_view]
+    #     df_main = df.pivot_table(index=['modality', 'technique'], columns=dtype, values='data_collection_reference_id', aggfunc='first').notnull().astype('int').reset_index()
+    #     df_main.loc[df_main['modality'].duplicated(), 'modality'] = '  '
+    #     df_main = df_main.replace(to_replace = 0, value = '')
 
-        table = go.Table(
-            header = dict(values = df_main.columns.tolist(), font = dict(color = 'black', size = 11)),
-            cells = dict(values = df_main.T, 
-                         fill_color=np.select(
-                [df_main.T.values == 1, df_main.T.values == ''],
-                ["blue", "white"],
-                "aliceblue"),
-                line_color='darkslategray',
-                font = dict(color = 'blue', size = 13)
-                )
-        )
-        fig = go.Figure(data = table)
+    #     table = go.Table(
+    #         header = dict(values = df_main.columns.tolist(), font = dict(color = 'black', size = 11)),
+    #         cells = dict(values = df_main.T, 
+    #                      fill_color=np.select(
+    #             [df_main.T.values == 1, df_main.T.values == ''],
+    #             ["blue", "white"],
+    #             "aliceblue"),
+    #             line_color='darkslategray',
+    #             font = dict(color = 'blue', size = 13)
+    #             )
+    #     )
+    #     fig = go.Figure(data = table)
         
-        fig.data[0]['columnwidth'] = [5, 7]+[1.5]*(len(df_main.columns)-2)
-        return html.Div([
-            dcc.Graph(figure = fig, style={'height': 1100, 'width': '100%', 'display':'block'})
-        ])
+    #     fig.data[0]['columnwidth'] = [5, 7]+[1.5]*(len(df_main.columns)-2)
+    #     return html.Div([
+    #         dcc.Graph(figure = fig, style={'height': 1100, 'width': '100%', 'display':'block'})
+    #     ])
 
-    elif tabs == 'sample_count':
+    if tabs == 'sample_count':
         selected_category = axis_lookup[sample_category]
         selected_color = axis_lookup[category_color]
         plot_df = df_sample[[selected_category, 'sample_count', selected_color]].groupby([selected_category, selected_color], as_index= False)['sample_count'].sum()
